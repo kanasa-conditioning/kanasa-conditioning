@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANASA Conditioning Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate: #4a5f6e;
+      --slate-dark: #3a4d5a;
+      --slate-light: #6b7f8d;
+      --cream: #f5f2ee;
+      --white: #ffffff;
+      --black: #1a1a1a;
+      --accent: #c5a882;
+      --text: #2c2c2c;
+      --text-light: #666;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .nav-logo-text .brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--black);
+    }
+
+    .nav-logo-text .sub {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--slate);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--text);
+      font-weight: 400;
+      transition: color 0.2s;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover { color: var(--slate); }
+
+    .nav-social {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-social a {
+      color: var(--text);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-social a:hover { color: var(--slate); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--black);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #top {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #2c3e4a 0%, #4a5f6e 40%, #6b8fa0 100%);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="40" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="70" r="60" fill="rgba(255,255,255,0.02)"/></svg>') center/cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 80px;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.9;
+      margin-bottom: 48px;
+      max-width: 420px;
+    }
+
+    .hero-sub a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--white);
+      transition: all 0.3s;
+      font-weight: 400;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.8);
+    }
+
+    .btn-dark {
+      border-color: var(--slate);
+      color: var(--slate);
+    }
+
+    .btn-dark:hover {
+      background: var(--slate);
+      color: var(--white);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(0.6); }
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 80px;
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      letter-spacing: 3px;
+      color: var(--black);
+      margin-bottom: 48px;
+    }
+
+    .section-title-light {
+      color: var(--white);
+    }
+
+    /* ── CONCEPT ── */
+    #concept {
+      background: var(--cream);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .concept-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      filter: saturate(0.8);
+    }
+
+    .concept-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 300;
+      line-height: 1.4;
+      margin-bottom: 32px;
+      color: var(--black);
+    }
+
+    .concept-text p {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .concept-highlight {
+      display: inline-block;
+      background: var(--slate);
+      color: white;
+      padding: 2px 8px;
+      font-size: 13px;
+    }
+
+    /* ── PROGRAM ── */
+    #program {
+      background: var(--slate-dark);
+    }
+
+    .program-intro {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .program-intro p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .program-card {
+      background: rgba(255,255,255,0.05);
+      padding: 48px 40px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s;
+    }
+
+    .program-card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .program-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 64px;
+      color: rgba(255,255,255,0.15);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .program-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 3px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .program-card .jp {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .program-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      margin-bottom: 24px;
+      filter: brightness(0.85) saturate(0.7);
+    }
+
+    .program-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+    }
+
+    .program-more {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .btn-outline-light {
+      display: inline-block;
+      padding: 14px 48px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.8);
+      color: white;
+    }
+
+    /* ── PROFILE ── */
+    #profile {
+      background: var(--white);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .profile-image-wrap {
+      position: relative;
+    }
+
+    .profile-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      filter: saturate(0.85);
+    }
+
+    .profile-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1px solid var(--slate);
+      z-index: -1;
+    }
+
+    .profile-name-en {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--slate-light);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .profile-name-jp {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      margin-bottom: 8px;
+      color: var(--black);
+    }
+
+    .profile-born {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .profile-edu {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
+      line-height: 2;
+    }
+
+    .profile-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .skill-tag {
+      font-size: 11px;
+      padding: 6px 14px;
+      border: 1px solid #ddd;
+      color: var(--text-light);
+      letter-spacing: 0.5px;
+    }
+
+    .profile-message {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    .profile-cert h4 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .cert-item {
+      margin-bottom: 20px;
+      padding-left: 16px;
+      border-left: 2px solid var(--slate);
+    }
+
+    .cert-item strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .cert-item p {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ── PRICE ── */
+    #price {
+      background: var(--cream);
+    }
+
+    .price-section-title {
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--slate);
+      padding: 14px;
+      margin-bottom: 2px;
+      font-weight: 400;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+
+    .price-table tr {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .price-table td {
+      padding: 20px 24px;
+      font-size: 14px;
+    }
+
+    .price-table td:first-child {
+      background: var(--slate);
+      color: white;
+      font-size: 12px;
+      letter-spacing: 1px;
+      width: 160px;
+      font-weight: 400;
+    }
+
+    .price-table td:last-child {
+      background: white;
+      font-size: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+    }
+
+    .price-sub {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11px;
+      color: var(--text-light);
+      font-weight: 300;
+      margin-top: 2px;
+    }
+
+    .price-student td:first-child {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #ddd;
+    }
+
+    .price-student td:last-child {
+      border: 1px solid #ddd;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+
+    .care-card {
+      background: white;
+      padding: 32px 24px;
+      border: 1px solid #eee;
+    }
+
+    .care-card h4 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--slate);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .care-card .care-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: var(--black);
+    }
+
+    .care-card .care-price span {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .care-card p {
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--text-light);
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #eee;
+    }
+
+    .option-item {
+      background: white;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .option-item .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+    }
+
+    /* ── VOICE ── */
+    #voice {
+      background: var(--slate-dark);
+    }
+
+    .voice-intro {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 56px;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .voice-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 36px 32px;
+    }
+
+    .voice-icon {
+      width: 32px;
+      height: 20px;
+      margin-bottom: 24px;
+      opacity: 0.4;
+    }
+
+    .voice-text {
+      font-size: 13px;
+      line-height: 2;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 24px;
+    }
+
+    .voice-attr {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+
+    /* ── QA ── */
+    #qa {
+      background: var(--white);
+      padding: 100px 80px;
+    }
+
+    .qa-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .qa-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .qa-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .qa-question::after {
+      content: '＋';
+      font-size: 18px;
+      color: var(--slate);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .qa-item.open .qa-question::after {
+      content: '－';
+    }
+
+    .qa-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 13px;
+      line-height: 2;
+      color: var(--text-light);
+    }
+
+    .qa-item.open .qa-answer {
+      max-height: 300px;
+      padding-bottom: 24px;
+    }
+
+    /* ── BLOG ── */
+    #blog {
+      background: var(--cream);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .blog-card {
+      background: white;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s;
+      display: block;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--slate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .blog-card-body {
+      padding: 24px;
+    }
+
+    .blog-card-date {
+      font-size: 11px;
+      color: var(--slate-light);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .blog-card-title {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .blog-empty {
+      text-align: center;
+      padding: 80px 0;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--white);
+    }
+
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .contact-intro p {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 2;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .form-group label .required {
+      color: #c0392b;
+      margin-left: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--slate);
+    }
+
+    .form-group textarea {
+      height: 160px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 16px 64px;
+      background: var(--slate);
+      color: white;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      transition: background 0.3s;
+    }
+
+    .btn-submit:hover {
+      background: var(--slate-dark);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 32px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links, .nav-social { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 64px 24px; }
+      #qa { padding: 64px 24px; }
+
+      .hero-content { padding: 0 24px; }
+      .hero-title { font-size: 48px; }
+
+      .concept-grid,
+      .profile-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .program-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .care-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .option-grid { grid-template-columns: 1fr; }
+
+      .profile-image-wrap::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#top" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 36 C4 36 8 28 12 24 C16 20 20 18 20 18" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+      <path d="M4 36 C4 36 10 30 16 26 C22 22 20 18 20 18" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+      <path d="M4 36 C4 36 12 32 18 28 C24 24 20 18 20 18" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+      <path d="M20 18 C20 18 24 14 28 10 C32 6 36 4 36 4" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+      <path d="M20 18 C20 18 22 12 26 8 C30 4 36 4 36 4" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+      <path d="M20 18 C20 18 20 12 22 8 C24 4 36 4 36 4" stroke="#1a1a1a" stroke-width="1.2" fill="none"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="brand">KANASA</span>
+      <span class="sub">Conditioning Studio</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#price">Price</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Yokohama / Personal Training</p>
+    <h1 class="hero-title">そろそろ<br>身体と<br><em>向き合おう</em></h1>
+    <p class="hero-sub">
+      KANASA Conditioning Studioは、<br>
+      <a href="#concept">運動することに自信のない方専門</a>のトレーニングコーチです。
+    </p>
+    <a href="#concept" class="btn">Concept を見る</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="concept-grid">
+    <div>
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80" alt="Concept" class="concept-image">
+    </div>
+    <div class="concept-text">
+      <p class="section-label">Concept</p>
+      <h2>健康寿命を伸ばして<br>人生100年時代を<br>楽しく生きる</h2>
+      <p>トレーニングを行なっていく上で最も重要な事は「自分に何がベストなのか」を追求する事ではないでしょうか。</p>
+      <p>体質・骨格・性別・年齢・性格・怪我・生活スタイル・精神状態 etc…<br>
+      一人一人異なる特徴がある中で、皆同じプログラムで良い訳がありません。</p>
+      <p>これらを考慮した上で、「お客様にとってのベストを選びゴールを目指す」<br>
+      私がこれまで培ってきた知識、技術、経験を全て活かし、</p>
+      <p><span class="concept-highlight">"トレーニングを教える先生"ではなく、お客様と一緒に試行錯誤しながら"ゴールへ導くCoach"としてサポートして行きたい</span></p>
+      <br>
+      <p>そんな想いで「Performance &Conditioning Coach」として活動をスタート致しました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program">
+  <div class="program-intro">
+    <p class="section-label" style="color:rgba(255,255,255,0.4); text-align:center;">Program</p>
+    <h2 class="section-title section-title-light">KANASA トレーニングの3つの特徴</h2>
+    <p>スポーツ整体をアレンジした Adjustment（調整）、様々なニーズにお応えするTraining、<br>回復を促進させるRecovery（回復）を組み合わせたパーソナルトレーニングです。</p>
+  </div>
+  <div class="program-grid">
+    <div class="program-card">
+      <div class="program-number">1</div>
+      <h3>Adjustment</h3>
+      <span class="jp">調整</span>
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Adjustment">
+      <p>スポーツ整体をアレンジした調整メソッド。トレーニング前に個人の体質・体調に応じたストレッチを臨機応変に行い、怪我のリスクを下げます。</p>
+    </div>
+    <div class="program-card">
+      <div class="program-number">2</div>
+      <h3>Training</h3>
+      <span class="jp">トレーニング</span>
+      <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=600&q=80" alt="Training">
+      <p>様々なニーズにお応えするトレーニング。お客様一人一人に合わせたプログラムで、目標達成をサポートします。</p>
+    </div>
+    <div class="program-card">
+      <div class="program-number">3</div>
+      <h3>Recovery</h3>
+      <span class="jp">回復</span>
+      <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Recovery">
+      <p>回復を促進させるリカバリーケア。疲労回復だけでなく、姿勢改善や身体のパフォーマンス向上まで総合的にサポートします。</p>
+    </div>
+  </div>
+  <div class="program-more">
+    <a href="#contact" class="btn-outline-light">詳しく問い合わせる</a>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+  <p class="section-label">Trainer</p>
+  <h2 class="section-title">Profile</h2>
+  <div class="profile-grid">
+    <div class="profile-image-wrap">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="城間 脩平" class="profile-image">
+    </div>
+    <div>
+      <p class="profile-name-en">Shiroma Shuhei</p>
+      <h3 class="profile-name-jp">城間 脩平</h3>
+      <p class="profile-born">1994年生まれ</p>
+      <p class="profile-edu">
+        日本健康福祉専門学校沖縄 スポーツ科学トレーナー学科卒業<br>
+        ・栄養学、運動生理学を基にしたダイエット<br>
+        ・姿勢改善、怪我予防に効果的なトレーニング<br>
+        ・スポーツ整体、ストレッチなどの施術<br>
+        ・ゴルフパフォーマンス向上トレーニング<br>
+        「自分に合った身体作り」にフォーカスしたトレーニングを提供します。
+      </p>
+      <p class="profile-message">
+        これまでジムに通ったけど続けることができなかった方や、自分自身の身体に合わせたトレーニングを求める方のために、「楽しくてギリギリ心が折れない」トレーニングを提供していきます。
+      </p>
+      <div class="profile-cert">
+        <h4>保有資格</h4>
+        <div class="cert-item">
+          <strong>NASM-PES</strong>
+          <p>全米スポーツ医学協会認定 Performance Enhancement Specialist<br>動作のメカニクスと筋肉の運動、傷害予防やパフォーマンス向上に特化したスペシャリスト</p>
+        </div>
+        <div class="cert-item">
+          <strong>NESTA-GPS</strong>
+          <p>全米エクササイズ&スポーツトレーナー協会認定 Golf Performance Specialist<br>適切な「評価、分析」をもとにゴルフに特化したコンディショニングプログラムを行うスペシャリスト</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <p class="section-label">Fee</p>
+  <h2 class="section-title">Price</h2>
+
+  <p class="price-section-title">トレーニングプラン</p>
+  <table class="price-table">
+    <tr>
+      <td>会員プラン</td>
+      <td>月額 ¥52,000<span class="price-sub">月4回／1回あたり ¥13,000</span></td>
+    </tr>
+    <tr>
+      <td>都度払い</td>
+      <td>¥15,000 <span class="price-sub">／回</span></td>
+    </tr>
+    <tr>
+      <td>10回券</td>
+      <td>¥145,000<span class="price-sub">1回あたり ¥14,500</span></td>
+    </tr>
+    <tr class="price-student">
+      <td>学生</td>
+      <td>1回 60分 ¥8,000</td>
+    </tr>
+  </table>
+
+  <p class="price-section-title">ケアプラン</p>
+  <div class="care-grid">
+    <div class="care-card">
+      <h4>KANASA CARE 60</h4>
+      <p class="care-price">60分 <span>¥7,700</span></p>
+      <p>短時間でリフレッシュしたい方に。全身のバランスを整えながら、特に疲れが溜まっている箇所を重点的にケアします。肩こりや腰痛などの慢性的な不調を改善し、軽やかな身体へと導きます。忙しい方にも最適なプランです。</p>
+    </div>
+    <div class="care-card">
+      <h4>KANASA CARE 75</h4>
+      <p class="care-price">75分 <span>¥9,600</span></p>
+      <p>全身リフレッシュ+頭の軽さを実感。全身の整体に加え、ヘッドケアを組み合わせた特別プラン。頭の緊張をほぐしながら、身体全体の疲れを丁寧にリリースします。ストレスを感じやすい方や深いリラクゼーションを求める方にぴったりです。</p>
+    </div>
+    <div class="care-card">
+      <h4>KANASA CARE 90</h4>
+      <p class="care-price">90分 <span>¥10,500</span></p>
+      <p>根本改善を目指すトータルケア。ヘッドケアで心身の緊張をほぐした後、全身の整体とパートナーストレッチで柔軟性と可動域を向上。疲労回復だけでなく、姿勢改善や身体のパフォーマンス向上を目指したい方に最適なフルケアプランです。</p>
+    </div>
+  </div>
+
+  <p class="price-section-title">オプション</p>
+  <div class="option-grid">
+    <div class="option-item"><span>水 500ml</span><span class="price">¥200</span></div>
+    <div class="option-item"><span>レンタルバスタオル</span><span class="price">¥400</span></div>
+    <div class="option-item"><span>レンタルウェア上下</span><span class="price">¥500</span></div>
+    <div class="option-item"><span>シューズ取り置き</span><span class="price">¥1,500</span></div>
+    <div class="option-item"><span>レンタルシューズ</span><span class="price">¥500</span></div>
+    <div class="option-item"><span>ウェア取り置き※</span><span class="price">¥2,000</span></div>
+    <div class="option-item"><span>トレーニングギアお預かり</span><span class="price">¥1,500</span></div>
+    <div class="option-item"><span style="font-size:11px;color:var(--text-light)">※ おひとり様2着まで</span><span></span></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <p class="section-label">Latest Posts</p>
+  <h2 class="section-title">Blog</h2>
+  <div class="blog-empty">
+    <p>記事が公開されると、ここに表示されます。</p>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section id="voice">
+  <p class="section-label" style="color:rgba(255,255,255,0.4); text-align:center;">Testimonials</p>
+  <h2 class="section-title section-title-light" style="text-align:center;">Voice</h2>
+  <p class="voice-intro">お客様からいただいた声をご紹介します</p>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <svg class="voice-icon" viewBox="0 0 32 20" fill="white"><path d="M0 20 V8 Q0 0 8 0h4v4H8Q4 4 4 8v2h8v10H0zm18 0 V8 Q18 0 26 0h6v4h-4Q24 4 24 8v2h8v10H18z"/></svg>
+      <p class="voice-text">教え方が丁寧であり、食事を含めて様々な相談に乗ってもらえる。またトレーニング開始前に念入りにマッサージをしてもらえるので、最高のコンディションでトレーニングを開始することができる。自分の弱点をしっかり把握してくれており、トレーニング内容が的確。</p>
+      <p class="voice-attr">40代　男性</p>
+    </div>
+    <div class="voice-card">
+      <svg class="voice-icon" viewBox="0 0 32 20" fill="white"><path d="M0 20 V8 Q0 0 8 0h4v4H8Q4 4 4 8v2h8v10H0zm18 0 V8 Q18 0 26 0h6v4h-4Q24 4 24 8v2h8v10H18z"/></svg>
+      <p class="voice-text">トレーナーに必要な一般的な知識に加え栄養学やキネシオロジーなど専門的な知識も豊富で、何か質問した時に論理的に説明してもらえる。トレーニング前後に個人の体質・体調に応じたストレッチを臨機応変に行ってもらえるので、怪我のリスクも下がる。</p>
+      <p class="voice-attr">30代　男性</p>
+    </div>
+    <div class="voice-card">
+      <svg class="voice-icon" viewBox="0 0 32 20" fill="white"><path d="M0 20 V8 Q0 0 8 0h4v4H8Q4 4 4 8v2h8v10H0zm18 0 V8 Q18 0 26 0h6v4h-4Q24 4 24 8v2h8v10H18z"/></svg>
+      <p class="voice-text">いままでトレーニングというと筋量を増やす、重いものを持ち上げると思っていましたが城間トレーナーはそれとは一線を画した全く別のトレーニング法で指導してくれます。自分が持っている筋肉、関節をきちんと使える状態にすることでパフォーマンスを引き出す方法です。可動域が広がり疲れにくくなり持病の腰痛も軽減しました。</p>
+      <p class="voice-attr">40代　女性</p>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A -->
+<section id="qa">
+  <p class="section-label" style="text-align:center;">FAQ</p>
+  <h2 class="section-title" style="text-align:center;">Q&A</h2>
+  <div class="qa-list">
+    <div class="qa-item">
+      <button class="qa-question" onclick="toggleQA(this)">KANASAトレーニングの特徴はなんですか？</button>
+      <div class="qa-answer">スポーツ整体をアレンジした「Adjustment（調整）」、様々なニーズにお応えする「Training（トレーニング）」、回復を促進させる「Recovery（回復）」の3つを組み合わせたパーソナルトレーニングです。お客様一人一人の体質・体調・目標に合わせてプログラムを設計します。</div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-question" onclick="toggleQA(this)">誰でもパーソナルを受けられますか？</button>
+      <div class="qa-answer">完全紹介制となっております。現在ご在籍の会員様からのご紹介、またはお問い合わせフォームよりご連絡ください。体験セッションにて、お互いの相性や目標を確認した上でご入会をご検討いただけます。</div>
+    </div>
+    <div class="qa-item">
+      <button class="qa-question" onclick="toggleQA(this)">トレーニングにあたって何が必要ですか？</button>
+      <div class="qa-answer">動きやすい服装があれば問題ありません。シューズ・ウェアはレンタルもご用意しております（別途料金）。タオル・水もご用意しておりますので、手ぶらでもご参加いただけます。</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label" style="text-align:center;">Get in Touch</p>
+    <h2 class="section-title" style="text-align:center;">Contact</h2>
+    <div class="contact-intro">
+      <p>お問い合わせ・体験のご予約はこちらから。<br>お気軽にご連絡ください。</p>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>お名前<span class="required">*</span></label>
+        <input type="text" name="name" required placeholder="山田 太郎">
+      </div>
+      <div class="form-group">
+        <label>メールアドレス<span class="required">*</span></label>
+        <input type="email" name="email" required placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label>電話番号</label>
+        <input type="tel" name="tel" placeholder="090-0000-0000">
+      </div>
+      <div class="form-group">
+        <label>お問合せ内容<span class="required">*</span></label>
+        <textarea name="message" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">送信する</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>©2024 KANASA Conditioning Studio</p>
+</footer>
+
+<script>
+  function toggleQA(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const social = document.querySelector('.nav-social');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+      social.style.display = 'none';
+    } else {
+      links.style.display = 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '70px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'white';
+      links.style.padding = '20px 24px';
+      links.style.borderBottom = '1px solid #eee';
+      links.style.gap = '20px';
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('お問い合わせを受け付けました。\n後日ご連絡いたします。');
+    e.target.reset();
+  }
+
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.program-card, .voice-card, .care-card, .blog-card, .cert-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
