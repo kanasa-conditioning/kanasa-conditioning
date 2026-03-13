@@ -1328,8 +1328,10 @@
         <p style="margin-bottom:16px;">セッションの中でよく耳にするのが、「頭がぼーっとすることが減った」「日中の眠気を感じる頻度が下がった」という声です。脳もクレアチンをエネルギー基質として利用することが研究で示されており、こうした変化は偶然ではないといえます。</p>
         <p style="margin-bottom:16px;">ただし、クレアチン単体で筋力が伸びるわけではありません。クレアチンは、トレーニングの質を支える"土台"です。その前提を正しく理解することが、効果を引き出す第一歩です。</p>
         <p style="color:#2a6496;font-style:italic;margin-bottom:36px;">「頑張っているのに変わらない」は、土台の不足が原因かもしれません。</p>
-        <div style="background:#f8f9fb;border-radius:12px;padding:24px;margin-bottom:8px;">
-          <canvas id="creatineChart-modal-creatine-20260313" width="600" height="280"></canvas>
+        <div style="background:#f8f9fb;border-radius:12px;padding:16px 16px 16px 8px;margin-bottom:8px;">
+          <div style="position:relative;height:260px;min-height:260px">
+          <canvas id="creatineChart-modal-creatine-20260313" style="width:100%;height:100%"></canvas>
+          </div>
         </div>
         <p style="font-size:11px;color:#999;text-align:right;margin-top:4px;font-style:italic;margin-bottom:36px;">出典：Hultman E, et al. J Appl Physiol. 1996;81(1):232-237 ／ Kreider RB, et al. J Int Soc Sports Nutr. 2017;14:18</p>
         <h2 style="font-size:17px;font-weight:bold;color:#1a2a3a;border-bottom:2px solid #e8edf2;padding-bottom:10px;margin-bottom:18px;">正しい使い方と、信頼できる根拠</h2>
@@ -1397,13 +1399,13 @@
           ]
         },
         options: {
-          responsive:true,
+          responsive:true,maintainAspectRatio:false,layout:{padding:{left:4,top:4}},
           plugins: {
             title:{ display:true, text:'筋肉内クレアチン濃度の推移（相対値）', font:{size:14,weight:'bold'}, color:'#1a2a3a', padding:{bottom:16} },
             legend:{ position:'bottom', labels:{ font:{size:12}, padding:16 } }
           },
           scales: {
-            y:{ min:90, max:145, title:{ display:true, text:'相対値（ベースライン＝100）', font:{size:11} }, grid:{ color:'rgba(0,0,0,0.05)' } },
+            y:{ min:90, max:145, title:{ display:false, text:'相対値（ベースライン＝100）', font:{size:10} }, grid:{ color:'rgba(0,0,0,0.05)' } },
             x:{ title:{ display:true, text:'摄取開始からの日数', font:{size:11} }, grid:{ color:'rgba(0,0,0,0.05)' } }
           }
         }
