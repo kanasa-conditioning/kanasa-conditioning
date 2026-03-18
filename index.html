@@ -1111,6 +1111,70 @@ section[id] { scroll-margin-top: 64px; }
   .srm-plan-fee { font-size: 34px; }
   .price-trial { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+/* ── KANASA PRICE TABLE ── */
+.kprice-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  margin: 0 0 4px;
+}
+.kprice-label {
+  background: #4d6776;
+  color: #ffffff;
+  padding: 18px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  width: 28%;
+  vertical-align: middle;
+  text-align: center;
+}
+.kprice-label--light {
+  background: transparent;
+  color: var(--black);
+  border: 1px solid var(--border);
+  font-weight: 400;
+}
+.kprice-val {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: none;
+  padding: 16px 28px;
+  vertical-align: middle;
+}
+.kprice-val--light { border-left: 1px solid var(--border); }
+.kprice-main {
+  font-size: 30px;
+  font-weight: 700;
+  display: block;
+  color: var(--black);
+  letter-spacing: -0.01em;
+}
+.kprice-main--sm { font-size: 20px; }
+.kprice-unit { font-size: 18px; font-weight: 500; }
+.kprice-sub {
+  font-size: 12px;
+  color: var(--sub);
+  display: block;
+  margin-top: 4px;
+}
+/* Care card name chip */
+.pcare-name {
+  display: inline-block;
+  border: 1px solid #b0bec5;
+  color: #4d6776;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+@media (max-width: 600px) {
+  .kprice-main { font-size: 22px; }
+  .kprice-label { padding: 14px 16px; font-size: 13px; }
+  .kprice-val { padding: 12px 16px; }
+}
 </style>
 </head>
 <body>
@@ -1267,83 +1331,42 @@ section[id] { scroll-margin-top: 64px; }
   <p class="section-label">Fee</p>
   <h2 class="section-title">Price</h2>
 
-  <!-- ── SRM TRAINING ── -->
   <div class="price-block">
-    <div class="price-noentry-wrap">
-      <span class="price-noentry">入会金なし</span>
-      <div class="price-trial">
-        <span>体験レッスン（45min）</span>
-        <span class="price-trial-amt">¥5,500</span>
-      </div>
-    </div>
 
-    <div class="price-cat-header">月会費</div>
-    <p class="price-cat-sub">月4回までトレーニング可能</p>
-
-    <div class="srm-plan-grid">
-      <div class="srm-plan-card">
-        <div class="srm-plan-name">DayTime会員</div>
-        <div class="srm-plan-fee">¥44,000</div>
-        <div class="srm-plan-note">平日11:00〜17:00スタート</div>
-      </div>
-      <div class="srm-plan-card">
-        <div class="srm-plan-name">CoreTime会員</div>
-        <div class="srm-plan-fee">¥48,000</div>
-        <div class="srm-plan-note">土日祝を含むすべての 9:30〜20:00スタート</div>
-      </div>
-      <div class="srm-plan-card">
-        <div class="srm-plan-name">FullTime会員</div>
-        <div class="srm-plan-fee">¥52,800</div>
-        <div class="srm-plan-note">土日祝を含む全ての時間（8:00〜21:30スタート）</div>
-      </div>
-    </div>
-
-    <div class="price-cat-header">オプション</div>
-    <div class="srm-options">
-      <div class="srm-opt-subhead">SRM 追加チケット（月会費会員のみ）</div>
-      <div class="srm-opt-row">
-        <span class="srm-opt-tag">1回券</span><span class="srm-opt-val">¥11,000</span>
-        <span class="srm-opt-tag">11回券</span><span class="srm-opt-val">¥110,000<span class="srm-opt-small">（有効期限なし）</span></span>
-      </div>
-      <div class="srm-opt-subhead">リカバリーケア（整体＋ストレッチ）</div>
-      <div class="srm-opt-row">
-        <span class="srm-opt-tag">30分</span><span class="srm-opt-val">¥3,300</span>
-        <span class="srm-opt-tag">60分</span><span class="srm-opt-val">¥6,600</span>
-        <span class="srm-opt-tag">90分</span><span class="srm-opt-val">¥9,900</span>
-      </div>
-    </div>
-
-    <p class="price-payment">
-      <span class="price-payment-label">決済方法</span>
-      現金 / クレジットカード（Visa, Master, JCB）<br>
-      <span class="price-tax-note">※表示価格は全て税込です</span>
-    </p>
-  </div>
-
-  <!-- ── KANASA CONDITIONING ── -->
-  <div class="price-block price-block--kanasa">
+    <!-- トレーニングプラン -->
     <div class="price-cat-header">トレーニングプラン</div>
-    <table class="price-table">
+    <table class="kprice-table">
       <tbody>
         <tr>
-          <td>会員プラン</td>
-          <td>月額 ¥52,000<span class="price-sub">月4回／1回あたり ¥13,000</span></td>
+          <td class="kprice-label">会員プラン</td>
+          <td class="kprice-val">
+            <span class="kprice-main">月額 ¥52,000</span>
+            <span class="kprice-sub">月4回／1回あたり ¥13,000</span>
+          </td>
         </tr>
         <tr>
-          <td>都度払い</td>
-          <td>¥15,000／回</td>
+          <td class="kprice-label">都度払い</td>
+          <td class="kprice-val">
+            <span class="kprice-main">¥15,000<span class="kprice-unit">／回</span></span>
+          </td>
         </tr>
         <tr>
-          <td>10回券</td>
-          <td>¥145,000<span class="price-sub">1回あたり ¥14,500</span></td>
+          <td class="kprice-label">10回券</td>
+          <td class="kprice-val">
+            <span class="kprice-main">¥145,000</span>
+            <span class="kprice-sub">1回あたり ¥14,500</span>
+          </td>
         </tr>
-        <tr class="price-student">
-          <td>学生</td>
-          <td>1回 60分 ¥8,000</td>
+        <tr>
+          <td class="kprice-label kprice-label--light">学生</td>
+          <td class="kprice-val kprice-val--light">
+            <span class="kprice-main kprice-main--sm">1回 60分 ¥8,000</span>
+          </td>
         </tr>
       </tbody>
     </table>
 
+    <!-- ケアプラン -->
     <div class="price-cat-header price-cat-header--italic">ケアプラン</div>
     <div class="pcare-grid">
       <div class="pcare-card">
@@ -1366,6 +1389,7 @@ section[id] { scroll-margin-top: 64px; }
       </div>
     </div>
 
+    <!-- オプション -->
     <div class="price-cat-header">オプション</div>
     <div class="poption-grid">
       <div class="poption-row"><span>水 500ml</span><span>¥200</span></div>
@@ -1377,6 +1401,7 @@ section[id] { scroll-margin-top: 64px; }
       <div class="poption-row poption-row--full"><span>トレーニングギアお預かり</span><span>¥1,500</span></div>
       <div class="poption-note">※ おひとり様2着までお預かり可</div>
     </div>
+
   </div>
 </section>
 
