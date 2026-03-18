@@ -881,6 +881,236 @@ section[id] { scroll-margin-top: 64px; }
   .contact-inner { max-width: 100%; }
 }
 
+
+/* ============================================================
+   PRICE SECTION v2 — SRM Training + KANASA Conditioning
+   ============================================================ */
+
+/* Price block wrapper */
+.price-block {
+  max-width: var(--max-w);
+  margin: 0 auto 80px;
+}
+.price-block--kanasa { margin-bottom: 0; }
+
+/* Category header bars (slate) */
+.price-cat-header {
+  background: #4d6776;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin: 0 0 0;
+}
+.price-cat-header + table,
+.price-cat-header + .srm-plan-grid,
+.price-cat-header + .pcare-grid,
+.price-cat-header + .srm-options,
+.price-cat-header + .poption-grid { margin-top: 0; }
+.price-cat-header--italic { font-style: italic; }
+.price-cat-sub {
+  font-size: 13px;
+  color: var(--sub);
+  text-align: center;
+  padding: 10px 0 16px;
+}
+
+/* 入会金なし + 体験レッスン */
+.price-noentry-wrap { margin-bottom: 0; }
+.price-noentry {
+  display: inline-block;
+  background: #4d6776;
+  color: #ffffff;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.price-trial {
+  border: 1px solid var(--border);
+  border-top: none;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.price-trial-amt {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* SRM plan cards */
+.srm-plan-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 16px 0;
+}
+.srm-plan-card {
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.srm-plan-name {
+  background: #4d6776;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+.srm-plan-fee {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px 16px 8px;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+.srm-plan-note {
+  font-size: 12px;
+  color: var(--sub);
+  text-align: center;
+  padding: 0 16px 20px;
+}
+
+/* SRM options */
+.srm-options { padding: 16px 0; }
+.srm-opt-subhead {
+  background: #4d6776;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+.srm-opt-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 0 0 20px;
+}
+.srm-opt-tag {
+  background: #4d6776;
+  color: #ffffff;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.srm-opt-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}
+.srm-opt-small {
+  font-size: 11px;
+  color: var(--sub);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/* Payment info */
+.price-payment {
+  font-size: 13px;
+  color: var(--sub);
+  border-top: 1px solid var(--border);
+  padding: 20px 0 0;
+  margin-top: 8px;
+}
+.price-payment-label {
+  display: inline-block;
+  background: #4d6776;
+  color: #ffffff;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+.price-tax-note {
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* KANASA care plan cards */
+.pcare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+}
+.pcare-card {
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.pcare-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.pcare-sub {
+  font-size: 12px;
+  color: var(--sub);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.pcare-fee {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.pcare-card p {
+  font-size: 12px;
+  color: var(--sub);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* KANASA options */
+.poption-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 4px 0;
+}
+.poption-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.poption-row span:last-child { font-weight: 500; }
+.poption-row--full { grid-column: 1 / -1; }
+.poption-note {
+  font-size: 11px;
+  color: var(--accent);
+  padding: 8px 0 0;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 960px) {
+  .pcare-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .pcare-grid { grid-template-columns: 1fr; }
+  .poption-grid { grid-template-columns: 1fr; }
+  .srm-plan-fee { font-size: 34px; }
+  .price-trial { flex-direction: column; gap: 8px; text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -1037,55 +1267,116 @@ section[id] { scroll-margin-top: 64px; }
   <p class="section-label">Fee</p>
   <h2 class="section-title">Price</h2>
 
-  <p class="price-section-title">トレーニングプラン</p>
-  <table class="price-table">
-    <tr>
-      <td>会員プラン</td>
-      <td>月額 ¥52,000<span class="price-sub">月4回／1回あたり ¥13,000</span></td>
-    </tr>
-    <tr>
-      <td>都度払い</td>
-      <td>¥15,000 <span class="price-sub">／回</span></td>
-    </tr>
-    <tr>
-      <td>10回券</td>
-      <td>¥145,000<span class="price-sub">1回あたり ¥14,500</span></td>
-    </tr>
-    <tr class="price-student">
-      <td>学生</td>
-      <td>1回 60分 ¥8,000</td>
-    </tr>
-  </table>
+  <!-- ── SRM TRAINING ── -->
+  <div class="price-block">
+    <div class="price-noentry-wrap">
+      <span class="price-noentry">入会金なし</span>
+      <div class="price-trial">
+        <span>体験レッスン（45min）</span>
+        <span class="price-trial-amt">¥5,500</span>
+      </div>
+    </div>
 
-  <p class="price-section-title">ケアプラン</p>
-  <div class="care-grid">
-    <div class="care-card">
-      <h4>KANASA CARE 60</h4>
-      <p class="care-price">60分 <span>¥7,700</span></p>
-      <p>短時間でリフレッシュしたい方に。全身のバランスを整えながら、特に疲れが溜まっている箇所を重点的にケアします。肩こりや腰痛などの慢性的な不調を改善し、軽やかな身体へと導きます。忙しい方にも最適なプランです。</p>
+    <div class="price-cat-header">月会費</div>
+    <p class="price-cat-sub">月4回までトレーニング可能</p>
+
+    <div class="srm-plan-grid">
+      <div class="srm-plan-card">
+        <div class="srm-plan-name">DayTime会員</div>
+        <div class="srm-plan-fee">¥44,000</div>
+        <div class="srm-plan-note">平日11:00〜17:00スタート</div>
+      </div>
+      <div class="srm-plan-card">
+        <div class="srm-plan-name">CoreTime会員</div>
+        <div class="srm-plan-fee">¥48,000</div>
+        <div class="srm-plan-note">土日祝を含むすべての 9:30〜20:00スタート</div>
+      </div>
+      <div class="srm-plan-card">
+        <div class="srm-plan-name">FullTime会員</div>
+        <div class="srm-plan-fee">¥52,800</div>
+        <div class="srm-plan-note">土日祝を含む全ての時間（8:00〜21:30スタート）</div>
+      </div>
     </div>
-    <div class="care-card">
-      <h4>KANASA CARE 75</h4>
-      <p class="care-price">75分 <span>¥9,600</span></p>
-      <p>全身リフレッシュ+頭の軽さを実感。全身の整体に加え、ヘッドケアを組み合わせた特別プラン。頭の緊張をほぐしながら、身体全体の疲れを丁寧にリリースします。ストレスを感じやすい方や深いリラクゼーションを求める方にぴったりです。</p>
+
+    <div class="price-cat-header">オプション</div>
+    <div class="srm-options">
+      <div class="srm-opt-subhead">SRM 追加チケット（月会費会員のみ）</div>
+      <div class="srm-opt-row">
+        <span class="srm-opt-tag">1回券</span><span class="srm-opt-val">¥11,000</span>
+        <span class="srm-opt-tag">11回券</span><span class="srm-opt-val">¥110,000<span class="srm-opt-small">（有効期限なし）</span></span>
+      </div>
+      <div class="srm-opt-subhead">リカバリーケア（整体＋ストレッチ）</div>
+      <div class="srm-opt-row">
+        <span class="srm-opt-tag">30分</span><span class="srm-opt-val">¥3,300</span>
+        <span class="srm-opt-tag">60分</span><span class="srm-opt-val">¥6,600</span>
+        <span class="srm-opt-tag">90分</span><span class="srm-opt-val">¥9,900</span>
+      </div>
     </div>
-    <div class="care-card">
-      <h4>KANASA CARE 90</h4>
-      <p class="care-price">90分 <span>¥10,500</span></p>
-      <p>根本改善を目指すトータルケア。ヘッドケアで心身の緊張をほぐした後、全身の整体とパートナーストレッチで柔軟性と可動域を向上。疲労回復だけでなく、姿勢改善や身体のパフォーマンス向上を目指したい方に最適なフルケアプランです。</p>
-    </div>
+
+    <p class="price-payment">
+      <span class="price-payment-label">決済方法</span>
+      現金 / クレジットカード（Visa, Master, JCB）<br>
+      <span class="price-tax-note">※表示価格は全て税込です</span>
+    </p>
   </div>
 
-  <p class="price-section-title">オプション</p>
-  <div class="option-grid">
-    <div class="option-item"><span>水 500ml</span><span class="price">¥200</span></div>
-    <div class="option-item"><span>レンタルバスタオル</span><span class="price">¥400</span></div>
-    <div class="option-item"><span>レンタルウェア上下</span><span class="price">¥500</span></div>
-    <div class="option-item"><span>シューズ取り置き</span><span class="price">¥1,500</span></div>
-    <div class="option-item"><span>レンタルシューズ</span><span class="price">¥500</span></div>
-    <div class="option-item"><span>ウェア取り置き※</span><span class="price">¥2,000</span></div>
-    <div class="option-item"><span>トレーニングギアお預かり</span><span class="price">¥1,500</span></div>
-    <div class="option-item"><span style="font-size:11px;color:var(--text-light)">※ おひとり様2着まで</span><span></span></div>
+  <!-- ── KANASA CONDITIONING ── -->
+  <div class="price-block price-block--kanasa">
+    <div class="price-cat-header">トレーニングプラン</div>
+    <table class="price-table">
+      <tbody>
+        <tr>
+          <td>会員プラン</td>
+          <td>月額 ¥52,000<span class="price-sub">月4回／1回あたり ¥13,000</span></td>
+        </tr>
+        <tr>
+          <td>都度払い</td>
+          <td>¥15,000／回</td>
+        </tr>
+        <tr>
+          <td>10回券</td>
+          <td>¥145,000<span class="price-sub">1回あたり ¥14,500</span></td>
+        </tr>
+        <tr class="price-student">
+          <td>学生</td>
+          <td>1回 60分 ¥8,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="price-cat-header price-cat-header--italic">ケアプラン</div>
+    <div class="pcare-grid">
+      <div class="pcare-card">
+        <div class="pcare-name">KANASA CARE 60</div>
+        <div class="pcare-sub">短時間でリフレッシュしたい方に</div>
+        <div class="pcare-fee">60分 ¥7,700</div>
+        <p>全身のバランスを整えながら、特に疲れが溜まっている箇所を重点的にケアします。肩こりや腰痛などの慢性的な不調を改善し、軽やかな身体へと導きます。忙しい方にも最適なプランです。</p>
+      </div>
+      <div class="pcare-card">
+        <div class="pcare-name">KANASA CARE 75</div>
+        <div class="pcare-sub">全身リフレッシュ+頭の軽さを実感</div>
+        <div class="pcare-fee">75分 ¥9,600</div>
+        <p>全身の整体に加え、ヘッドケアを組み合わせた特別プラン。頭の緊張をほぐしながら、身体全体の疲れを丁寧にリリースします。ストレスを感じやすい方や深いリラクゼーションを求める方にぴったりです。</p>
+      </div>
+      <div class="pcare-card">
+        <div class="pcare-name">KANASA CARE 90</div>
+        <div class="pcare-sub">根本改善を目指すトータルケア</div>
+        <div class="pcare-fee">90分 ¥10,500</div>
+        <p>ヘッドケアで心身の緊張を解きほぐした後、全身の整体とパートナーストレッチで柔軟性と可動域を向上。疲労回復だけでなく、姿勢改善や身体のパフォーマンス向上を目指したい方に最適なフルケアプランです。</p>
+      </div>
+    </div>
+
+    <div class="price-cat-header">オプション</div>
+    <div class="poption-grid">
+      <div class="poption-row"><span>水 500ml</span><span>¥200</span></div>
+      <div class="poption-row"><span>レンタルバスタオル</span><span>¥400</span></div>
+      <div class="poption-row"><span>レンタルウェア上下</span><span>¥500</span></div>
+      <div class="poption-row"><span>シューズ取り置き</span><span>¥1,500</span></div>
+      <div class="poption-row"><span>レンタルシューズ</span><span>¥500</span></div>
+      <div class="poption-row"><span>ウェア取り置き※</span><span>¥2,000</span></div>
+      <div class="poption-row poption-row--full"><span>トレーニングギアお預かり</span><span>¥1,500</span></div>
+      <div class="poption-note">※ おひとり様2着までお預かり可</div>
+    </div>
   </div>
 </section>
 
