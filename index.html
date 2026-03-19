@@ -1555,19 +1555,18 @@ section[id] { scroll-margin-top: 64px; }
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(data).toString()
     })
-    .then(() => {
-      form.style.display = 'none';
-      const success = document.querySelector('.form-success');
-      if (success) success.style.display = 'block';
+    .then(function() {
+      form.style.display = "none";
+      var s = document.querySelector(".form-success");
+      if (s) s.style.display = "block";
     })
-    .catch(() => {
-      alert('送信エラーが発生しました。お手数ですが直接メールでご連絡ください。
-info@kanasa-conditioning.com');
+    .catch(function() {
+      alert("送信エラー。info@kanasa-conditioning.com までお問い合わせください。");
     });
   }tyle.borderBottom = '1px solid #eee';
       links.style.gap = '20px';
