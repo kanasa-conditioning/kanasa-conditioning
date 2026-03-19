@@ -1551,10 +1551,15 @@ section[id] { scroll-margin-top: 64px; }
       links.style.position = 'absolute';
       links.style.top = '70px';
       links.style.left = '0';
-      function handleSubmit(e) {
+      links.style.borderBottom = '1px solid #eee';
+      links.style.gap = '20px';
+    }
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+    var form = e.target;
+    var data = new FormData(form);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -1568,15 +1573,6 @@ section[id] { scroll-margin-top: 64px; }
     .catch(function() {
       alert("送信エラー。info@kanasa-conditioning.com までお問い合わせください。");
     });
-  }tyle.borderBottom = '1px solid #eee';
-      links.style.gap = '20px';
-    }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert('お問い合わせを受け付けました。\n後日ご連絡いたします。');
-    e.target.reset();
   }
 
   // Scroll animation
