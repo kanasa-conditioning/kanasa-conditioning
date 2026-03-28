@@ -14,6 +14,8 @@
             --white: #ffffff;
             --bg-pale: #ffffff;
             --border: #a8bac5;
+            --bg-pale: #f7f7f5;
+            --gray: #999999;
             --font-en: 'Cinzel', serif;
             --font-jp: 'ロダンM', 'A-OTF Rodan Pro M', 'Rodan M', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
             --ease: cubic-bezier(0.19, 1, 0.22, 1);
@@ -82,16 +84,35 @@
         .price-label { font-weight: 500; font-size: 0.9rem; color: var(--navy); flex-shrink: 0; }
         .price-value { font-size: 1.2rem; font-family: var(--font-en); font-weight: 700; color: var(--navy); text-align: right; }
         .price-sub-info { font-size: 0.7rem; color: var(--text-sub); display: block; font-family: var(--font-jp); font-weight: 400; }
+        /* Section Heading Bar */
+        .section-heading-bar { background: var(--navy-light); color: #fff; text-align: center; padding: 12px 24px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; max-width: 900px; margin: 0 auto 40px; }
+        /* Training Plan Table */
+        .training-row { display: flex; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .training-row:last-child { border-bottom: none; }
+        .training-label { border: 1px solid var(--border); padding: 8px 20px; font-size: 0.85rem; font-weight: 600; color: var(--navy); white-space: nowrap; text-align: center; min-width: 120px; flex-shrink: 0; }
+        .training-price { flex: 1; text-align: right; }
+        .training-price .main-price { font-family: var(--font-en); font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+        .training-price .main-price .prefix { font-family: var(--font-jp); font-size: 0.8rem; font-weight: 400; }
+        .training-price .sub-price { font-size: 0.75rem; color: var(--text-sub); margin-top: 2px; }
+        @media (max-width: 480px) { .training-price .main-price { font-size: 1.3rem; } .training-label { min-width: 90px; padding: 6px 12px; font-size: 0.78rem; } }
         /* Care Cards */
-        .care-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .care-card { border: 1px solid var(--border); padding: 35px 25px; background: #fff; }
-        .care-card h4 { font-size: 0.85rem; color: var(--navy-light); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 15px; }
-        .care-card .price-lg { font-size: 1.5rem; font-family: var(--font-en); font-weight: 700; color: var(--navy); display: block; margin-bottom: 12px; }
+        .care-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+        .care-card { border: 1px solid var(--border); background: #fff; overflow: hidden; }
+        .care-card-header { border-bottom: 1px solid var(--border); padding: 14px 20px; text-align: center; }
+        .care-card-header h4 { font-family: var(--font-en); font-size: 0.85rem; color: var(--navy-light); letter-spacing: 0.08em; font-weight: 400; margin: 0; }
+        .care-card-body { padding: 20px 25px 30px; }
+        .care-card-subtitle { font-size: 0.75rem; color: var(--text-sub); text-align: center; margin-bottom: 10px; }
+        .care-card-price { text-align: center; margin-bottom: 16px; }
+        .care-card-price .time { font-size: 0.85rem; color: var(--navy); margin-right: 6px; }
+        .care-card-price .amount { font-family: var(--font-en); font-size: 1.5rem; font-weight: 700; color: var(--navy); }
+        .care-card-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 16px; }
         .care-card p { font-size: 0.8rem; color: var(--text-sub); line-height: 1.7; }
         /* Options */
-        .option-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); gap: 10px; margin-top: 30px; }
+        .option-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 600px; margin: 0 auto; }
         @media (min-width: 600px) { .option-grid { grid-template-columns: repeat(2, 1fr); } }
-        .option-box { display: flex; justify-content: space-between; padding: 12px 15px; border: 1px solid var(--border); font-size: 0.8rem; background: #fff; }
+        .option-box { display: flex; justify-content: space-between; padding: 12px 15px; border-bottom: 1px solid var(--border); font-size: 0.85rem; background: #fff; }
+        .payment-info { text-align: center; margin-top: 30px; font-size: 0.8rem; color: var(--navy); }
+        .payment-info .badge { display: inline-block; border: 1px solid var(--navy); padding: 3px 10px; font-size: 0.7rem; font-weight: 700; margin-right: 8px; }
         /* Final CTA */
         .final-cta { text-align: center; padding: 80px 5%; background: #ffffff; }
         .business-hours { font-size: 0.8rem; color: var(--text-sub); margin-top: 25px; line-height: 1.6; }
@@ -267,74 +288,101 @@
             <div style="border: 1px solid var(--border); padding: 16px 48px; text-align: center; font-size: 1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.08em; background: #fff;">入会</div>
 
         </div>
+
+        <!-- クロージング（入会カード直下） -->
+        <div style="text-align: center; max-width: 720px; margin: 60px auto 0;" class="reveal">
+            <h2 style="font-size: 1.4rem; font-weight: 300;">ハードワークを支える、<br>最高のコンディションを手に入れる</h2>
+            <p style="font-size: 0.85rem; line-height: 2.0; max-width: 720px; margin: 20px auto 0; text-align: center; color: var(--text-sub);">時間とエネルギーが貴重なエグゼクティブにとって、最も価値のある投資は自身のパフォーマンスです。SOAPのシステムを活用し、あなたの身体と脳を常に最適な状態に調整することで、決断力、集中力、生産性を最大化。<br><br>KANASA Conditioning Studioでは、この総合的なセッションにより、身体の外見の変化だけでなく、内側から整った健康的な身体を目指します。</p>
+        </div>
     </section>
 
-        <section id="price">
-            <h3 class="price-section-main-title">PRICE（税込）</h3>
-            <div class="price-container">
-                <div class="section-title reveal">
-                    
-                    <h2>KANASA CONDITIONING</h2>
-                </div>
-                <div class="price-table-wrap reveal">
-                    <div class="price-table-header">90min SESSION</div>
-                    <div class="price-item">
-                        <div class="price-label">会員プラン (月4回)</div>
-                        <div class="price-value">¥52,000<span class="price-sub-info">¥13,000 / 回</span></div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">都度払い</div>
-                        <div class="price-value">¥15,000</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">10回チケット</div>
-                        <div class="price-value">¥145,000<span class="price-sub-info">¥14,500 / 回</span></div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-label">学生 (60分)</div>
-                        <div class="price-value">¥8,000</div>
+        <!-- ===== トレーニングプラン ===== -->
+        <section id="price" style="padding: 80px 5%; background: var(--bg-pale);">
+            <div class="section-heading-bar reveal">トレーニングプラン</div>
+            <div style="max-width: 700px; margin: 0 auto;" class="reveal">
+                <div class="training-row">
+                    <div class="training-label">会員プラン</div>
+                    <div class="training-price">
+                        <div class="main-price"><span class="prefix">月額</span> ¥52,000</div>
+                        <div class="sub-price">月4回／1回あたり ¥13,000</div>
                     </div>
                 </div>
-                <div class="section-title reveal">
-                    
-                    <h2>MAINTENANCE</h2>
-                </div>
-                <div class="care-grid reveal">
-                    <div class="care-card">
-                        <h4>KANASA CARE 60</h4>
-                        <span class="price-lg">¥12,000</span>
-                        <p>前後のバランスを整えながら、肩こり腰痛などに対し全身の歪みを調整していくメニューになります。全身のバランスを整えることから、普段の歩行や立ち座りなど、日常の身体への重さや倦怠感を、軽やかな身体へと導きます。忙しくて時間を取れないけど、身体の疲労感をリセットしてほしい方にぴったりのプランです。</p>
-                    </div>
-                    <div class="care-card">
-                        <h4>KANASA CARE 75</h4>
-                        <span class="price-lg">¥15,000</span>
-                        <p>全身のアプローチはもちろん、ヘッドケアを含めた全体が対象の特別プラン。身体の疲れは勿論の事に加えリラックスしたい。全身が疲れている事にリラックスしたい。ストレスを解消したい、軽やかな身体へとリラクゼーションも兼ねたぴったりです。</p>
-                    </div>
-                    <div class="care-card">
-                        <h4>KANASA CARE 90</h4>
-                        <span class="price-lg">¥16,500</span>
-                        <p>基本の整体はもちろん、身体の部位ごとのトレーニングプランも組み込まれた至高のプラン。全身の歪みの調整に加え、パートナーストレッチで柔軟性向上し、可動域を向上し、痩身的効果やむくみ改善、全身の機能的向上をパートナーストレッチで機能向上を目指す上位プランフルケアプランです。</p>
+                <div class="training-row">
+                    <div class="training-label">都度払い</div>
+                    <div class="training-price">
+                        <div class="main-price">¥15,000<span class="prefix">／回</span></div>
                     </div>
                 </div>
-                <div style="margin-top: 60px;" class="reveal">
-                    <h3 style="text-align: center; font-size: 1rem; margin-bottom: 20px;">OPTION</h3>
-                    <div class="option-grid">
-                        <div class="option-box"><span>水 500ml</span><span>¥200</span></div>
-                        <div class="option-box"><span>レンタルバスタオル</span><span>¥400</span></div>
-                        <div class="option-box"><span>レンタルウェア上下</span><span>¥500</span></div>
-                        <div class="option-box"><span>レンタルシューズ</span><span>¥500</span></div>
-                        <div class="option-box"><span>シューズ取り置き</span><span>¥1,500</span></div>
-                        <div class="option-box"><span>ウェア取り置き ※</span><span>¥2,000</span></div>
-                        <div class="option-box"><span>トレーニングギアお預かり</span><span>¥1,500</span></div>
+                <div class="training-row">
+                    <div class="training-label">10回券</div>
+                    <div class="training-price">
+                        <div class="main-price">¥145,000</div>
+                        <div class="sub-price">1回あたり ¥14,500</div>
                     </div>
-                    <p style="font-size: 0.7rem; color: var(--text-sub); opacity: 0.6; margin-top: 10px; text-align: center;">※おひとり様2着までお預かり可</p>
+                </div>
+                <div class="training-row">
+                    <div class="training-label">学生</div>
+                    <div class="training-price">
+                        <div class="main-price"><span class="prefix">1回 60分</span> ¥8,000</div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ===== ケアプラン ===== -->
+        <section style="padding: 80px 5%; background: #fff;">
+            <div class="section-heading-bar reveal">ケアプラン</div>
+            <div class="care-grid reveal">
+                <div class="care-card">
+                    <div class="care-card-header"><h4>KANASA CARE 60</h4></div>
+                    <div class="care-card-body">
+                        <div class="care-card-subtitle">短時間でリフレッシュしたい方に</div>
+                        <div class="care-card-price"><span class="time">60分</span><span class="amount">¥12,000</span></div>
+                        <hr class="care-card-divider">
+                        <p>前後のバランスを整えながら、肩こり腰痛などに対し全身の歪みを調整していくメニューになります。全身のバランスを整えることから、普段の歩行や立ち座りなど、日常の身体への重さや倦怠感を、軽やかな身体へと導きます。忙しくて時間を取れないけど、身体の疲労感をリセットしてほしい方にぴったりのプランです。</p>
+                    </div>
+                </div>
+                <div class="care-card">
+                    <div class="care-card-header"><h4>KANASA CARE 75</h4></div>
+                    <div class="care-card-body">
+                        <div class="care-card-subtitle">全身リフレッシュ+頭の軽さを実感</div>
+                        <div class="care-card-price"><span class="time">75分</span><span class="amount">¥15,000</span></div>
+                        <hr class="care-card-divider">
+                        <p>全身のアプローチはもちろん、ヘッドケアを含めた全体が対象の特別プラン。身体の疲れは勿論の事に加えリラックスしたい。全身が疲れている事にリラックスしたい。ストレスを解消したい、軽やかな身体へとリラクゼーションも兼ねたぴったりです。</p>
+                    </div>
+                </div>
+                <div class="care-card">
+                    <div class="care-card-header"><h4>KANASA CARE 90</h4></div>
+                    <div class="care-card-body">
+                        <div class="care-card-subtitle">根本改善を目指すトータルケア</div>
+                        <div class="care-card-price"><span class="time">90分</span><span class="amount">¥16,500</span></div>
+                        <hr class="care-card-divider">
+                        <p>基本の整体はもちろん、身体の部位ごとのトレーニングプランも組み込まれた至高のプラン。全身の歪みの調整に加え、パートナーストレッチで柔軟性向上し、可動域を向上し、痩身的効果やむくみ改善、全身の機能的向上をパートナーストレッチで機能向上を目指す上位プランフルケアプランです。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== オプション ===== -->
+        <section style="padding: 80px 5%; background: var(--bg-pale);">
+            <div class="section-heading-bar reveal">オプション</div>
+            <div class="option-grid reveal">
+                <div class="option-box"><span>水 500ml</span><span>¥200</span></div>
+                <div class="option-box"><span>レンタルウェア上下</span><span>¥500</span></div>
+                <div class="option-box"><span>レンタルシューズ</span><span>¥500</span></div>
+                <div class="option-box"><span>トレーニングギアお預かり</span><span>¥1,500</span></div>
+                <div class="option-box"><span>レンタルバスタオル</span><span>¥400</span></div>
+                <div class="option-box"><span>シューズ取り置き</span><span>¥1,500</span></div>
+                <div class="option-box"><span>ウェア取り置き ※</span><span>¥2,000</span></div>
+            </div>
+            <p style="font-size: 0.7rem; color: #999; margin-top: 12px; text-align: center;">※ おひとり様2着までお預かり可</p>
+            <div class="payment-info reveal" style="margin-top: 30px;">
+                <span class="badge">決済方法</span>現金／クレジットカード（Visa, Master, JCB）
+            </div>
+            <p style="font-size: 0.7rem; color: #999; margin-top: 8px; text-align: center;">※表示価格は全て税込です</p>
+        </section>
         <section class="final-cta reveal">
-            <h2 style="font-size: 1.4rem; font-weight: 300;">ハードワークを支える、<br>最高のコンディションを手に入れる</h2>
-            <p style="font-size: 0.85rem; line-height: 2.0; max-width: 720px; margin: 20px auto 30px; text-align: center; color: var(--text-sub);">時間とエネルギーが貴重なエグゼクティブにとって、最も価値のある投資は自身のパフォーマンスです。SOAPのシステムを活用し、あなたの身体と脳を常に最適な状態に調整することで、決断力、集中力、生産性を最大化。<br><br>KANASA Conditioning Studioでは、この総合的なセッションにより、身体の外見の変化だけでなく、内側から整った健康的な身体を目指します。</p>
-            <a href="#" class="cta-btn" style="padding: 18px 40px; font-size: 0.9rem; margin-top: 30px;">体験セッションを予約する</a>
+            <a href="#" class="cta-btn" style="padding: 18px 40px; font-size: 0.9rem;">体験セッションを予約する</a>
             <div class="business-hours">
                 平日 8:00〜22:00 / 土日祝 8:00〜18:00<br>
                 不定休
