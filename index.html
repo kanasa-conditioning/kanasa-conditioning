@@ -203,59 +203,69 @@
             <h2>ご入会までの流れ</h2>
         </div>
         <p style="font-size: 0.85rem; line-height: 2.0; max-width: 720px; margin: 20px auto 40px; text-align: left;" class="reveal">成功を追求するエグゼクティブにとって、身体と精神のコンディションは経営資源そのものです。高度な意思決定を求められ、常に結果を出し続ける環境では、単なるフィットネスではなく、戦略的なコンディショニングが求められます。そこで、当スタジオは「SOAP」という精密な評価システムを導入し、あなたのパフォーマンスを最適化します。</p>
-        <div class="flow-steps">
-            <div class="flow-step">
-                <div class="flow-step-num">01</div>
-                <div class="flow-step-body">
-                    <h4>カウンセリング</h4>
-                    <p>お身体の状態・目標・ライフスタイルをヒアリングします。現状の課題と理想のゴールを共有します。</p>
+
+        <!-- Flow: カウンセリング → 体力チェック → SOAP → 入会 -->
+        <div style="display: flex; flex-direction: column; align-items: center; max-width: 520px; margin: 0 auto;" class="reveal">
+
+            <!-- カウンセリング -->
+            <div style="border: 1px solid var(--border); padding: 16px 48px; text-align: center; font-size: 1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.08em; background: #fff;">カウンセリング</div>
+
+            <!-- ↓ -->
+            <div style="font-size: 1.6rem; color: var(--navy-light); line-height: 1; padding: 16px 0;">↓</div>
+
+            <!-- 体力チェック -->
+            <div style="border: 1px solid var(--border); padding: 16px 48px; text-align: center; font-size: 1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.08em; background: #fff;">体力チェック</div>
+
+            <!-- SOAP図解 -->
+            <div style="width: 100%; margin: 28px 0; display: flex; flex-direction: column; gap: 0;">
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">S</span>
+                        <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Subjective</span>
+                    </div>
+                    <div style="padding-top: 2px;">
+                        <p style="font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 4px;">あなた自身のコンディションを可視化的データ</p>
+                        <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">「感覚」をデータ化し、あなたの疲労やストレスレベル、身体の違和感を精査します。</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">O</span>
+                        <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Objective</span>
+                    </div>
+                    <div style="padding-top: 2px;">
+                        <p style="font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 4px;">科学的な測定で状態を分析</p>
+                        <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">体のバイオメカニクス、可動域、筋力バランス、呼吸状態などを数値で測定。</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">A</span>
+                        <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Assessment</span>
+                    </div>
+                    <div style="padding-top: 2px;">
+                        <p style="font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 4px;">課題と強みを明確化</p>
+                        <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">「なぜ調子が落ちているのか？」を徹底分析し、最適な戦略を導きます。</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0;">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">P</span>
+                        <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Plan</span>
+                    </div>
+                    <div style="padding-top: 2px;">
+                        <p style="font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 4px;">ビジネスと連動するコンディショニングプラン</p>
+                        <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">目的に応じて、ストレスマネジメント、パフォーマンス向上、疲労回復を最適化。</p>
+                    </div>
                 </div>
             </div>
-            <div class="flow-step">
-                <div class="flow-step-num">02</div>
-                <div class="flow-step-body">
-                    <h4>体力チェック</h4>
-                    <p>可動域・筋力バランス・呼吸状態を数値で測定。身体の現在地を科学的に把握します。</p>
-                </div>
-            </div>
-            <div class="flow-step">
-                <div class="flow-step-num">03</div>
-                <div class="flow-step-body">
-                    <h4>SOAP評価</h4>
-                    <p>Subjective・Objective・Assessment・Planの4ステップで不調の原因を分析し、最適なプランを設計します。</p>
-                </div>
-            </div>
-        </div>
-        <div class="soap-grid reveal" style="margin: 30px 0;">
-            <div class="soap-item">
-                <span class="soap-letter">S</span>
-                <h5>Subjective</h5>
-                <p>あなた自身のコンディションの可視化的データ。「実感」をチェック。自らのストレスレベル、身体の違和感を確認</p>
-            </div>
-            <div class="soap-item">
-                <span class="soap-letter">O</span>
-                <h5>Objective</h5>
-                <p>科学的な測定で体調を分析。血圧やバイタルデータ、体組成、関節可動域を確認</p>
-            </div>
-            <div class="soap-item">
-                <span class="soap-letter">A</span>
-                <h5>Assessment</h5>
-                <p>課題と強みを明確化。「なぜその状態なのか」を多角的分析し、最善の改善策を導出</p>
-            </div>
-            <div class="soap-item">
-                <span class="soap-letter">P</span>
-                <h5>Plan</h5>
-                <p>ビジネスと連動するコンディショニングプラン。「いつ」「どう」ストレスメント、パフォーマンス向上、意思決定最適化</p>
-            </div>
-        </div>
-        <div class="flow-steps">
-            <div class="flow-step">
-                <div class="flow-step-num">04</div>
-                <div class="flow-step-body">
-                    <h4>ご入会</h4>
-                    <p>プランにご納得いただけましたら、ご入会手続きへ。紹介制のため、ご紹介者からのご連絡をお待ちしています。</p>
-                </div>
-            </div>
+
+            <!-- ↓ -->
+            <div style="font-size: 1.6rem; color: var(--navy-light); line-height: 1; padding: 16px 0;">↓</div>
+
+            <!-- 入会 -->
+            <div style="border: 1px solid var(--border); padding: 16px 48px; text-align: center; font-size: 1rem; font-weight: 500; color: var(--navy); letter-spacing: 0.08em; background: #fff;">入会</div>
+
         </div>
     </section>
 
