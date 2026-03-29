@@ -62,11 +62,11 @@
         .hero-content p { color: var(--text-sub); font-size: 0.95rem; letter-spacing: 0.15em; font-weight: 300; }
         /* 3STEP */
         .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .step-item { border: 1px solid var(--border); padding: 30px 20px; text-align: center; background: #fff; }
-        .step-item span { font-family: var(--font-en); font-size: 1.1rem; color: var(--navy-light); display: block; margin-bottom: 10px; }
-        .step-item h3 { font-size: 1rem; margin-bottom: 12px; color: var(--navy); }
-        .step-item p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.7; }
-        .step-item .highlight { color: var(--navy); font-weight: 700; margin-top: 10px; display: block; font-size: 0.8rem; }
+        .step-item { border: none; padding: 30px 20px; text-align: center; background: var(--navy-light); }
+        .step-item span { font-family: var(--font-en); font-size: 1.1rem; color: #fff; display: block; margin-bottom: 10px; }
+        .step-item h3 { font-size: 1rem; margin-bottom: 12px; color: #fff; }
+        .step-item p { font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.7; }
+        .step-item .highlight { color: #fff; font-weight: 700; margin-top: 10px; display: block; font-size: 0.8rem; }
         /* SOAP */
         .soap-section { background: #ffffff; max-width: 100%; padding: 80px 5%; }
         .soap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -89,7 +89,7 @@
         /* Training Plan Table */
         .training-row { display: flex; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
         .training-row:last-child { border-bottom: none; }
-        .training-label { border: 1px solid var(--border); padding: 8px 20px; font-size: 0.85rem; font-weight: 600; color: var(--navy); white-space: nowrap; text-align: center; min-width: 120px; flex-shrink: 0; }
+        .training-label { border: none; padding: 8px 20px; font-size: 0.85rem; font-weight: 600; color: #fff; background: var(--navy-light); white-space: nowrap; text-align: center; min-width: 120px; flex-shrink: 0; }
         .training-price { flex: 1; text-align: right; }
         .training-price .main-price { font-family: var(--font-en); font-size: 1.6rem; font-weight: 700; color: var(--navy); }
         .training-price .main-price .prefix { font-family: var(--font-jp); font-size: 0.8rem; font-weight: 400; }
@@ -97,16 +97,16 @@
         @media (max-width: 480px) { .training-price .main-price { font-size: 1.3rem; } .training-label { min-width: 90px; padding: 6px 12px; font-size: 0.78rem; } }
         /* Care Cards */
         .care-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-        .care-card { border: 1px solid var(--border); background: #fff; overflow: hidden; }
-        .care-card-header { border-bottom: 1px solid var(--border); padding: 14px 20px; text-align: center; }
-        .care-card-header h4 { font-family: var(--font-en); font-size: 0.85rem; color: var(--navy-light); letter-spacing: 0.08em; font-weight: 400; margin: 0; }
+        .care-card { border: none; background: var(--navy-light); overflow: hidden; }
+        .care-card-header { border-bottom: 1px solid rgba(255,255,255,0.2); padding: 14px 20px; text-align: center; }
+        .care-card-header h4 { font-family: var(--font-en); font-size: 0.85rem; color: #fff; letter-spacing: 0.08em; font-weight: 400; margin: 0; }
         .care-card-body { padding: 20px 25px 30px; }
-        .care-card-subtitle { font-size: 0.75rem; color: var(--text-sub); text-align: center; margin-bottom: 10px; }
+        .care-card-subtitle { font-size: 0.75rem; color: rgba(255,255,255,0.75); text-align: center; margin-bottom: 10px; }
         .care-card-price { text-align: center; margin-bottom: 16px; }
-        .care-card-price .time { font-size: 0.85rem; color: var(--navy); margin-right: 6px; }
-        .care-card-price .amount { font-family: var(--font-en); font-size: 1.5rem; font-weight: 700; color: var(--navy); }
-        .care-card-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 16px; }
-        .care-card p { font-size: 0.8rem; color: var(--text-sub); line-height: 1.7; }
+        .care-card-price .time { font-size: 0.85rem; color: #fff; margin-right: 6px; }
+        .care-card-price .amount { font-family: var(--font-en); font-size: 1.5rem; font-weight: 700; color: #fff; }
+        .care-card-divider { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 0 0 16px; }
+        .care-card p { font-size: 0.8rem; color: rgba(255,255,255,0.85); line-height: 1.7; }
         /* Options */
         .option-grid { display: grid; grid-template-columns: 1fr; gap: 10px; max-width: 600px; margin: 0 auto; }
         @media (min-width: 600px) { .option-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -131,6 +131,33 @@
         .flow-step-body h4 { font-size: 1rem; font-weight: 500; color: var(--navy); margin-bottom: 6px; }
         .flow-step-body p { font-size: 0.82rem; color: var(--navy); opacity: 0.65; line-height: 1.7; }
         @media (max-width: 768px) { .flow-steps { margin: 40px auto 0; } }
+        @media (max-width: 480px) {
+            .soap-row { flex-direction: column !important; gap: 8px !important; }
+            .soap-row .soap-left { min-width: auto !important; }
+            .flow-card { padding: 14px 32px !important; font-size: 0.9rem !important; }
+        }
+
+        /* ===== TRAINER ===== */
+        .trainer-section { padding: 80px 5%; background: var(--bg-pale); }
+        .trainer-inner { display: flex; gap: 40px; max-width: 900px; margin: 0 auto; align-items: flex-start; }
+        .trainer-photo { width: 280px; flex-shrink: 0; aspect-ratio: 3/4; background: var(--navy-light); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+        .trainer-text { flex: 1; }
+        .trainer-text .name-en { font-family: var(--font-en); font-size: 1.1rem; color: var(--navy-light); letter-spacing: 0.08em; margin-bottom: 4px; }
+        .trainer-text .name-jp { font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+        .trainer-text .birth { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 16px; }
+        .trainer-text .school { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 16px; line-height: 1.6; }
+        .trainer-text .bio { font-size: 0.82rem; color: var(--text-sub); line-height: 1.9; margin-bottom: 20px; }
+        .trainer-text .cert-title { font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+        .trainer-text .cert { margin-bottom: 14px; }
+        .trainer-text .cert .cert-name { font-size: 0.82rem; font-weight: 600; color: var(--navy); }
+        .trainer-text .cert .cert-full { font-size: 0.75rem; color: var(--text-sub); line-height: 1.5; }
+        .trainer-text .cert .cert-desc { font-size: 0.75rem; color: var(--text-sub); line-height: 1.6; margin-top: 2px; }
+        @media (max-width: 600px) {
+            .trainer-inner { flex-direction: column; align-items: center; }
+            .trainer-photo { width: 200px; }
+            .trainer-text { text-align: center; }
+            .trainer-text .cert { text-align: left; }
+        }
 
         /* ===== BLOG ===== */
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
@@ -239,9 +266,9 @@
 
             <!-- SOAP図解 -->
             <div style="width: 100%; margin: 28px 0; display: flex; flex-direction: column; gap: 0;">
-                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
-                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">S</span>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);" class="soap-row">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;" class="soap-left>
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--navy-light); border: none; font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;">S</span>
                         <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Subjective</span>
                     </div>
                     <div style="padding-top: 2px;">
@@ -249,9 +276,9 @@
                         <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">「感覚」をデータ化し、あなたの疲労やストレスレベル、身体の違和感を精査します。</p>
                     </div>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
-                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">O</span>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);" class="soap-row">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;" class="soap-left>
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--navy-light); border: none; font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;">O</span>
                         <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Objective</span>
                     </div>
                     <div style="padding-top: 2px;">
@@ -259,9 +286,9 @@
                         <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">体のバイオメカニクス、可動域、筋力バランス、呼吸状態などを数値で測定。</p>
                     </div>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
-                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">A</span>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);" class="soap-row">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;" class="soap-left>
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--navy-light); border: none; font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;">A</span>
                         <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Assessment</span>
                     </div>
                     <div style="padding-top: 2px;">
@@ -269,9 +296,9 @@
                         <p style="font-size: 0.75rem; color: var(--text-sub); line-height: 1.6;">「なぜ調子が落ちているのか？」を徹底分析し、最適な戦略を導きます。</p>
                     </div>
                 </div>
-                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0;">
-                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;">
-                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1.5px solid var(--navy); font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: var(--navy); flex-shrink: 0;">P</span>
+                <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0;" class="soap-row">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 140px;" class="soap-left class="soap-left">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--navy-light); border: none; font-family: var(--font-en); font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;">P</span>
                         <span style="font-family: var(--font-en); font-size: 0.8rem; color: var(--navy-light); letter-spacing: 0.02em;">Plan</span>
                     </div>
                     <div style="padding-top: 2px;">
@@ -381,6 +408,39 @@
             </div>
             <p style="font-size: 0.7rem; color: #999; margin-top: 8px; text-align: center;">※表示価格は全て税込です</p>
         </section>
+        <!-- ===== トレーナー紹介 ===== -->
+        <section class="trainer-section reveal">
+            <div class="section-heading-bar">TRAINER</div>
+            <div class="trainer-inner">
+                <div class="trainer-photo">PHOTO</div>
+                <div class="trainer-text">
+                    <div class="name-en">Shiroma Shuhei</div>
+                    <div class="name-jp">城間 脩平</div>
+                    <div class="birth">1994年生まれ</div>
+                    <div class="school">日本健康福祉専門学校沖縄 スポーツ科学トレーナー学科卒業</div>
+                    <ul style="font-size: 0.82rem; color: var(--text-sub); line-height: 1.8; margin-bottom: 16px; padding-left: 1.2em;">
+                        <li>栄養学、運動生理学を基にしたダイエット</li>
+                        <li>姿勢改善、怪我予防に効果的なトレーニング</li>
+                        <li>スポーツ整体、ストレッチなどの施術</li>
+                        <li>ゴルフパフォーマンス向上トレーニング</li>
+                    </ul>
+                    <p class="bio">「自分に合った身体作り」にフォーカスしたトレーニングを提供します。</p>
+                    <p class="bio">これまでジムに通ったけど続けることができなかった方や自分自身の身体に合わせたトレーニングを求める方のために、「楽しくてギリギリ心が折れない」トレーニングを提供していきます。</p>
+                    <div class="cert-title">【保有資格】</div>
+                    <div class="cert">
+                        <div class="cert-name">・NASM–PES</div>
+                        <div class="cert-full">（全米スポーツ医学協会認定 Performance Enhancement Specialist）</div>
+                        <div class="cert-desc">動作のメカニクスと筋肉の連動、傷害予防やパフォーマンス向上に特化したスペシャリスト</div>
+                    </div>
+                    <div class="cert">
+                        <div class="cert-name">・NESTA–GPS</div>
+                        <div class="cert-full">（全米エクササイズ&amp;スポーツトレーナー協会認定 Golf Performance Specialist）</div>
+                        <div class="cert-desc">適切な「評価、分析」をもとにゴルフに特化したコンディショニングプログラムを行うスペシャリスト</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="final-cta reveal">
             <a href="#" class="cta-btn" style="padding: 18px 40px; font-size: 0.9rem;">体験セッションを予約する</a>
             <div class="business-hours">
