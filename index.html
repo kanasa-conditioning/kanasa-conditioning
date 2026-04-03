@@ -67,7 +67,7 @@
             -webkit-backdrop-filter: blur(12px);
         }
         .logo { display: flex; align-items: center; }
-        .logo img { height: 64px; width: auto; display: block; }
+        .logo img { height: 64px; width: auto; display: block; mix-blend-mode: multiply; }
         nav ul { display: flex; gap: 22px; align-items: center; list-style: none; }
         nav ul li a {
             font-size: 0.68rem; font-weight: 500; color: var(--navy);
@@ -687,6 +687,126 @@
             .faq-question { padding: 18px 20px; }
             .faq-answer { padding: 0 20px 20px calc(20px + 14px + 14px); }
         }
+
+        /* ═══════════════════════════════════════════════
+           Hamburger Menu (mobile ≤ 1024px)
+           ═══════════════════════════════════════════════ */
+
+        /* ロゴ: スクロール前（白背景なし・乗算）はロゴCSSで対応済み */
+
+        /* ── ハンバーガーボタン ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+            z-index: 1002;
+            flex-shrink: 0;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--navy);
+            transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+            transform-origin: center;
+        }
+        .hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+        /* ── オーバーレイ（背景暗幕） ── */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(46,61,73,0.45);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1001;
+        }
+        .nav-overlay.is-open { opacity: 1; }
+
+        /* ── ドロワー ── */
+        .nav-drawer {
+            display: none;
+            position: fixed;
+            top: 0; right: 0;
+            width: min(300px, 82vw);
+            height: 100dvh;
+            background: var(--white);
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1002;
+            flex-direction: column;
+            padding: 72px 36px 48px;
+        }
+        .nav-drawer.is-open { transform: translateX(0); }
+
+        /* ── 閉じるボタン ── */
+        .nav-drawer-close {
+            position: absolute;
+            top: 22px; right: 22px;
+            width: 36px; height: 36px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-drawer-close::before,
+        .nav-drawer-close::after {
+            content: '';
+            position: absolute;
+            width: 18px; height: 1.5px;
+            background: var(--navy);
+        }
+        .nav-drawer-close::before { transform: rotate(45deg); }
+        .nav-drawer-close::after  { transform: rotate(-45deg); }
+
+        /* ── ドロワー内ナビ ── */
+        .nav-drawer ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 32px;
+        }
+        .nav-drawer ul li a {
+            display: block;
+            padding: 17px 0;
+            font-family: var(--font-en);
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            color: var(--navy);
+            opacity: 0.7;
+            border-bottom: 1px solid var(--border-light);
+            transition: opacity 0.2s ease;
+        }
+        .nav-drawer ul li a:hover { opacity: 1; }
+        .nav-drawer .drawer-cta .cta-btn {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            font-size: 0.70rem;
+            letter-spacing: 0.14em;
+        }
+
+        /* ── モバイル時のヘッダー切り替え ── */
+        @media (max-width: 1024px) {
+            header nav { display: none; }
+            .hamburger { display: flex; }
+            .nav-overlay { display: block; }
+            .nav-drawer { display: flex; }
+            .logo img { height: 44px; }
+        }
+        @media (max-width: 600px) {
+            .logo img { height: 38px; }
+        }
     </style>
 </head>
 <body>
@@ -709,7 +829,29 @@
                 <li><a href="#contact" class="cta-btn">お問合せ</a></li>
             </ul>
         </nav>
+
+        <!-- ハンバーガーボタン（モバイルのみ表示） -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </header>
+
+    <!-- ドロワーメニュー -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+        <button class="nav-drawer-close" id="drawerClose" aria-label="メニューを閉じる"></button>
+        <ul>
+            <li><a href="#introduction" class="drawer-link">CONCEPT</a></li>
+            <li><a href="#method"       class="drawer-link">METHOD</a></li>
+            <li><a href="#profile"      class="drawer-link">PROFILE</a></li>
+            <li><a href="#price"        class="drawer-link">PRICE</a></li>
+            <li><a href="#blog"         class="drawer-link">BLOG</a></li>
+            <li><a href="#faq"          class="drawer-link">FAQ</a></li>
+        </ul>
+        <div class="drawer-cta">
+            <a href="#contact" class="cta-btn drawer-link">お問合せ</a>
+        </div>
+    </nav>
 
     <main>
         <!-- ═══════════════════════════════════════════════
@@ -926,7 +1068,7 @@
              ═══════════════════════════════════════════════ -->
         <section class="lx-section reveal" style="text-align: center;" aria-label="理念">
             <span class="lx-label">PHILOSOPHY</span>
-            <h2 class="lx-h2">「KANASA（愛おしきもの）」</h2>
+            <h2 class="lx-h2" style="white-space:nowrap; font-size:clamp(1.0rem,5.5vw,2.4rem); overflow:visible;">「KANASA（愛おしきもの）」</h2>
             <div class="philosophy-photo" style="width: 100%; max-width: 640px; margin: 0 auto clamp(40px, 6vw, 64px); aspect-ratio: 16/9; background: var(--bg-pale); display: flex; align-items: center; justify-content: center; color: var(--navy-light); font-size: 0.75rem; opacity: 0.5;">PHOTO</div>
             <div class="lx-body" style="margin: 0 auto; text-align: left;">
                 <p>その名に込めたのは、貴方の人生を誰よりも真摯に想う、私たちの覚悟です。</p>
@@ -1259,6 +1401,38 @@
          Scripts
          ═══════════════════════════════════════════════ -->
     <script>
+        // Hamburger Menu
+        (function() {
+            const btn      = document.getElementById('hamburgerBtn');
+            const overlay  = document.getElementById('navOverlay');
+            const drawer   = document.getElementById('navDrawer');
+            const closeBtn = document.getElementById('drawerClose');
+
+            function openMenu() {
+                btn.classList.add('is-open');
+                overlay.classList.add('is-open');
+                drawer.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+                drawer.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                btn.classList.remove('is-open');
+                overlay.classList.remove('is-open');
+                drawer.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+                drawer.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            btn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+            document.querySelectorAll('.drawer-link').forEach(a => {
+                a.addEventListener('click', closeMenu);
+            });
+        })();
+
         // FAQ Accordion
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.faq-question').forEach(btn => {
