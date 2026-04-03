@@ -267,10 +267,19 @@
         }
         .profile-photo {
             width: clamp(220px, 28vw, 320px); flex-shrink: 0;
-            aspect-ratio: 3/4; background: var(--bg-pale);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--navy-light); font-size: 0.75rem; opacity: 0.5;
+            aspect-ratio: 3/4;
+            position: relative;
+            overflow: hidden;
         }
+        .profile-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.9s ease-in-out;
+        }
+        .profile-photo img.is-active { opacity: 1; }
         .profile-text { flex: 1; }
         .profile-text .name-en {
             font-family: var(--font-en); font-size: 0.85rem;
@@ -968,7 +977,11 @@
             <span class="lx-label">PROFILE</span>
             <h2 class="lx-h2">身体のメカニクスを知り尽くした<br class="br-sp">スペシャリストが伴走する。</h2>
             <div class="profile-grid">
-                <div class="profile-photo">PHOTO</div>
+                <div class="profile-photo" id="profileSlideshow">
+                    <img src="profile_1.jpg" alt="城間脩平 トレーニング指導" class="is-active">
+                    <img src="profile_2.jpg" alt="城間脩平 コンディショニング">
+                    <img src="profile_3.jpg" alt="城間脩平 プロフィール">
+                </div>
                 <div class="profile-text">
                     <div class="name-en">Shiroma Shuhei</div>
                     <div class="name-jp">城間 脩平</div>
@@ -1406,6 +1419,18 @@
          Scripts
          ═══════════════════════════════════════════════ -->
     <script>
+        // Profile Slideshow
+        (function() {
+            const imgs = document.querySelectorAll('#profileSlideshow img');
+            if (!imgs.length) return;
+            let current = 0;
+            setInterval(() => {
+                imgs[current].classList.remove('is-active');
+                current = (current + 1) % imgs.length;
+                imgs[current].classList.add('is-active');
+            }, 3500);
+        })();
+
         // Hamburger Menu
         (function() {
             const btn      = document.getElementById('hamburgerBtn');
