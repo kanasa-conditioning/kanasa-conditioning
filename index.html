@@ -721,19 +721,21 @@
 
         /* ── オーバーレイ（背景暗幕） ── */
         .nav-overlay {
-            display: none;
             position: fixed;
             inset: 0;
             background: rgba(46,61,73,0.45);
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s ease-in-out;
             z-index: 1001;
         }
-        .nav-overlay.is-open { opacity: 1; }
+        .nav-overlay.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
         /* ── ドロワー ── */
         .nav-drawer {
-            display: none;
             position: fixed;
             top: 0; right: 0;
             width: min(300px, 82vw);
@@ -742,10 +744,15 @@
             transform: translateX(100%);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1002;
+            display: flex;
             flex-direction: column;
             padding: 72px 36px 48px;
+            visibility: hidden;
         }
-        .nav-drawer.is-open { transform: translateX(0); }
+        .nav-drawer.is-open {
+            transform: translateX(0);
+            visibility: visible;
+        }
 
         /* ── 閉じるボタン ── */
         .nav-drawer-close {
@@ -800,8 +807,6 @@
         @media (max-width: 1024px) {
             header nav { display: none; }
             .hamburger { display: flex; }
-            .nav-overlay { display: block; }
-            .nav-drawer { display: flex; }
             .logo img { height: 44px; }
         }
         @media (max-width: 600px) {
