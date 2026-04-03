@@ -1205,31 +1205,50 @@
         <div class="section-title reveal" style="text-align:center; margin-bottom: 10px;">
             <h2>BLOG</h2>
         </div>
-        <div class="blog-grid reveal">
-            <div class="blog-card">
-                <div class="blog-card-img"><span>TRAINING</span></div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag">TRAINING</span>
-                    <div class="blog-card-title">トレーニング効果を最大化する「調整」の重要性</div>
-                    <div class="blog-card-date">2026.03.15</div>
-                </div>
+                <div class="blog-grid reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:40px;">
+
+          <!-- Card 1 -->
+          <div class="blog-card" onclick="document.getElementById('modal-keiei-20260403').style.display='flex'"
+            style="cursor:pointer;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.09);background:#fff;transition:transform 0.2s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height:170px;background:linear-gradient(135deg,#1a2a3a 0%,#2e3d49 60%,#1a3050 100%);display:flex;align-items:center;justify-content:center;">
+              <span style="color:rgba(255,255,255,0.12);font-size:38px;font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">BODY</span>
             </div>
-            <div class="blog-card">
-                <div class="blog-card-img"><span>RECOVERY</span></div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag">RECOVERY</span>
-                    <div class="blog-card-title">40代から始めるリカバリーケア — 疲労回復の科学</div>
-                    <div class="blog-card-date">2026.03.08</div>
-                </div>
+            <div style="padding:20px 22px 22px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
+              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h3>
+              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
             </div>
-            <div class="blog-card">
-                <div class="blog-card-img"><span>CONDITIONING</span></div>
-                <div class="blog-card-body">
-                    <span class="blog-card-tag">CONDITIONING</span>
-                    <div class="blog-card-title">SOAPシステムで見えてくる、あなたの身体の課題</div>
-                    <div class="blog-card-date">2026.02.28</div>
-                </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="blog-card" onclick="document.getElementById('modal-recovery-20260403').style.display='flex'"
+            style="cursor:pointer;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.09);background:#fff;transition:transform 0.2s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height:170px;background:linear-gradient(135deg,#1a2a3a 0%,#1a3a4a 60%,#0d2030 100%);display:flex;align-items:center;justify-content:center;">
+              <span style="color:rgba(255,255,255,0.12);font-size:38px;font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">REST</span>
             </div>
+            <div style="padding:20px 22px 22px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
+              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h3>
+              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="blog-card" onclick="document.getElementById('modal-kanasa-20260403').style.display='flex'"
+            style="cursor:pointer;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.09);background:#fff;transition:transform 0.2s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height:170px;background:linear-gradient(135deg,#2a1a0a 0%,#3a2a1a 60%,#1a1205 100%);display:flex;align-items:center;justify-content:center;">
+              <span style="color:rgba(255,255,255,0.12);font-size:38px;font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">SOUL</span>
+            </div>
+            <div style="padding:20px 22px 22px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#8a7355;text-transform:uppercase;">PHILOSOPHY</span>
+              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h3>
+              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
+            </div>
+          </div>
+
         </div>
         <div class="blog-more">
             <a href="#">VIEW ALL POSTS</a>
@@ -1546,5 +1565,137 @@
         });
     </script>
 
+
+<!-- MODAL: keiei-20260403 -->
+<div id="modal-keiei-20260403" style="display:none;position:fixed;inset:0;background:rgba(15,20,30,0.75);z-index:9999;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;">
+  <div style="background:#fff;width:100%;max-width:720px;border-radius:16px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.25);margin:auto;position:relative;">
+    <div style="height:220px;background:linear-gradient(135deg,#1a2a3a 0%,#2e3d49 60%,#1a3050 100%);display:flex;align-items:center;justify-content:center;">
+      <span style="color:rgba(255,255,255,0.1);font-size:64px;font-weight:900;letter-spacing:0.1em;font-family:'Cinzel',serif;">BODY</span>
+    </div>
+    <button onclick="document.getElementById('modal-keiei-20260403').style.display='none'"
+      style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:20px;width:36px;height:36px;border-radius:50%;cursor:pointer;line-height:1;">&#x2715;</button>
+    <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
+      <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">身体は経営資源である。<br>コンディショニングが意思決定の精度を変える理由</h1>
+      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="margin:0 0 24px;font-size:15px;">「忙しいから行けない」を理由に、身体のケアを後回しにしている経営者に、月に何人も会います。その方々に共通するのは、意思決定が鈍っているという自覚がない、ということです。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">疲労が「判断コスト」を上げる</h2>
+      <p style="margin:0 0 18px;font-size:15px;">神経科学の観点から見ると、慢性的な身体疲労は前頭前皮質の機能低下と直結します。2022年に<em>Nature Neuroscience</em>誌に掲載されたWiehler et al.の研究では、長時間の認知労働によって前頭前皮質にグルタミン酸が蓄積し、意思決定の「コスト」が上昇することが示されています。</p>
+      <p style="margin:0 0 18px;font-size:15px;">会議の後半で、論理的な判断より「早く終わらせたい」という方向に流れたことはありませんか。それは気合の問題ではなく、脳の化学的な状態の問題です。</p>
+      <p style="margin:0 0 18px;font-size:15px;color:#2a7a5a;font-style:italic;">身体を整えることは、思考のインフラを整えることだと私は考えています。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">可動域の制限が、集中力を奪う</h2>
+      <p style="margin:0 0 18px;font-size:15px;">胸椎の可動域制限と、デスクワーク由来の慢性的な頸部緊張。この二つが揃った状態では、交感神経が常に優位になります。</p>
+      <p style="margin:0 0 18px;font-size:15px;">「戦闘モード」が抜けないまま会議に出続けるということです。深い思考よりも、反射的な判断が増える。これは意志の問題ではありません。</p>
+      <p style="margin:0 0 18px;font-size:15px;">セッション中に胸椎の可動域を整えただけで、「頭がスッキリした」と言うクライアントが多いのは、決して気のせいではありません。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">SOAPで「身体の決算書」を読む</h2>
+      <p style="margin:0 0 18px;font-size:15px;">KANASAでは毎回のセッションにSOAP（主観的評価・客観的評価・評価・計画）を用います。身体の状態を数値と観察で記録し続ける仕組みです。</p>
+      <p style="margin:0 0 18px;font-size:15px;">経営者の方が毎月の決算書を確認するように、自分の身体を定期的に数値で読む習慣が必要です。理由は単純で、人間の身体は自己申告が最も信頼できない器官だからです。「なんとなく疲れている気がする」は、指標がなければ改善できません。</p>
+      <p style="margin:0 0 24px;font-size:15px;color:#2a7a5a;font-style:italic;">身体に投資することは、意思決定の精度に投資することです。</p>
+      <div style="background:#f0f4f8;border-radius:10px;padding:24px 28px;margin:32px 0;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
+        <ul style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:#2a3a4a;">
+          <li>慢性疲労は前頭前皮質にグルタミン酸を蓄積させ、意思決定コストを高める（Wiehler et al., <em>Nature Neuroscience</em>, 2022）</li>
+          <li>胸椎・頸部の可動域制限は交感神経優位状態を持続させ、集中力を奪う</li>
+          <li>SOAP評価で身体を数値化することが、コンディション管理の起点になる</li>
+        </ul>
+      </div>
+      <p style="font-size:clamp(14px,3vw,16px);font-weight:700;color:#1a2a3a;text-align:center;margin:44px 0 0;letter-spacing:0.05em;line-height:1.8;">忙しいから行けない、ではありません。<br>忙しいからこそ、です。</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: recovery-20260403 -->
+<div id="modal-recovery-20260403" style="display:none;position:fixed;inset:0;background:rgba(15,20,30,0.75);z-index:9999;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;">
+  <div style="background:#fff;width:100%;max-width:720px;border-radius:16px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.25);margin:auto;position:relative;">
+    <div style="height:220px;background:linear-gradient(135deg,#1a2a3a 0%,#1a3a4a 60%,#0d2030 100%);display:flex;align-items:center;justify-content:center;">
+      <span style="color:rgba(255,255,255,0.1);font-size:64px;font-weight:900;letter-spacing:0.1em;font-family:'Cinzel',serif;">REST</span>
+    </div>
+    <button onclick="document.getElementById('modal-recovery-20260403').style.display='none'"
+      style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:20px;width:36px;height:36px;border-radius:50%;cursor:pointer;line-height:1;">&#x2715;</button>
+    <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
+      <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">疲れているのに眠れない。<br>神経系から整える「本物のリカバリー」とは何か</h1>
+      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="margin:0 0 24px;font-size:15px;">「疲れているのに眠れない」という訴えを、月に何度も聞きます。ビジネスマンの方に多いパターンです。そして、ほぼ全員が「リカバリー＝マッサージ」だと思っています。それは間違いです。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">プロアスリートが「試合後90分」でやること</h2>
+      <p style="margin:0 0 18px;font-size:15px;">私がDeportareやFLUXでプロゴルファーやサッカー選手の帯同スタッフと仕事をしてきた中で、共通して感じたことがあります。「試合直後の90分が翌日を決める」という共通認識です。</p>
+      <p style="margin:0 0 18px;font-size:15px;">この90分で彼らが優先するのはマッサージではありません。神経系のダウンレギュレーションです。呼吸を使って副交感神経を優位にし、中枢神経系の興奮を段階的に落としていく。これがプロの現場で実際に行われていることです。</p>
+      <p style="margin:0 0 18px;font-size:15px;color:#2a7a5a;font-style:italic;">疲れた身体を「休める」のではなく、興奮した神経系を「整える」。この違いが、翌日のパフォーマンスを大きく変えます。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">「眠れない疲労」の正体</h2>
+      <p style="margin:0 0 18px;font-size:15px;">慢性的な交感神経優位状態では、コルチゾールの日内変動が乱れます。本来、就寝前には低下するはずのコルチゾールが高止まりしていると、入眠が困難になります。</p>
+      <p style="margin:0 0 18px;font-size:15px;">Vgontzas et al.（<em>J Clin Endocrinol Metab</em>, 2001）の研究では、慢性不眠患者において夜間のコルチゾール値が有意に高く、HPA軸の慢性活性化が確認されています。「疲れているのに眠れない」はサボりでも気合不足でもなく、神経内分泌系が正しく機能していないサインです。</p>
+      <p style="margin:0 0 18px;font-size:15px;">正直に言うと、私自身も高強度トレーニング後にこの状態を経験したことがあります。ベンチプレスの高重量セッションの翌日、明け方まで眠れなかったことが何度かありました。正しいダウンレギュレーションのプロトコルを実践するまでは。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">今夜から変えられる3ステップ</h2>
+      <p style="margin:0 0 16px;font-size:15px;">KANASAのリカバリーアプローチには順序があります。</p>
+      <div style="display:flex;gap:0;margin:0 0 10px;flex-wrap:wrap;border-radius:10px;overflow:hidden;">
+        <div style="flex:1;min-width:120px;background:#1a2a3a;color:#fff;padding:18px 16px;text-align:center;">
+          <p style="font-size:10px;letter-spacing:0.15em;margin:0 0 6px;color:#8ab4d4;text-transform:uppercase;">STEP 1</p>
+          <p style="font-size:14px;font-weight:700;margin:0;line-height:1.5;">身体調整<br><span style="font-size:11px;font-weight:400;opacity:0.8;">Adjustment</span></p>
+          <p style="font-size:11px;margin:8px 0 0;color:rgba(255,255,255,0.65);">神経系リセット</p>
+        </div>
+        <div style="flex:1;min-width:120px;background:#2a4a6a;color:#fff;padding:18px 16px;text-align:center;">
+          <p style="font-size:10px;letter-spacing:0.15em;margin:0 0 6px;color:#8ab4d4;text-transform:uppercase;">STEP 2</p>
+          <p style="font-size:14px;font-weight:700;margin:0;line-height:1.5;">呼吸<br><span style="font-size:11px;font-weight:400;opacity:0.8;">Breathing</span></p>
+          <p style="font-size:11px;margin:8px 0 0;color:rgba(255,255,255,0.65);">副交感神経誘導</p>
+        </div>
+        <div style="flex:1;min-width:120px;background:#3a6a5a;color:#fff;padding:18px 16px;text-align:center;">
+          <p style="font-size:10px;letter-spacing:0.15em;margin:0 0 6px;color:#8adac4;text-transform:uppercase;">STEP 3</p>
+          <p style="font-size:14px;font-weight:700;margin:0;line-height:1.5;">体温調節<br><span style="font-size:11px;font-weight:400;opacity:0.8;">Temperature</span></p>
+          <p style="font-size:11px;margin:8px 0 0;color:rgba(255,255,255,0.65);">深部体温の降下</p>
+        </div>
+      </div>
+      <p style="font-size:11px;color:#999;margin:0 0 20px;">&#42; Kräuchi et al., <em>Nature</em>, 1999：就寝90分前の入浴が深部体温の降下を促進し、入眠潜時を短縮することが示されている</p>
+      <p style="margin:0 0 24px;font-size:15px;">この順番には根拠があります。逆にやっても、効果は半分以下です。</p>
+      <div style="background:#f0f4f8;border-radius:10px;padding:24px 28px;margin:32px 0;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
+        <ul style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:#2a3a4a;">
+          <li>疲労回復の起点は神経系のダウンレギュレーション。マッサージは補助に過ぎない</li>
+          <li>慢性不眠にはHPA軸の過活性化とコルチゾール高値が関与（Vgontzas et al., <em>J Clin Endocrinol Metab</em>, 2001）</li>
+          <li>身体調整&#8594;呼吸&#8594;体温調節の順序が、最も効果的なリカバリープロトコル</li>
+        </ul>
+      </div>
+      <p style="font-size:clamp(14px,3vw,16px);font-weight:700;color:#1a2a3a;text-align:center;margin:44px 0 0;letter-spacing:0.05em;line-height:1.8;">結局、私がクライアントに伝え続けているのは<br>たった一つのことです。<br>「休む技術を、練習してください」と。</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: kanasa-20260403 -->
+<div id="modal-kanasa-20260403" style="display:none;position:fixed;inset:0;background:rgba(15,20,30,0.75);z-index:9999;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;">
+  <div style="background:#fff;width:100%;max-width:720px;border-radius:16px;overflow:hidden;box-shadow:0 8px 48px rgba(0,0,0,0.25);margin:auto;position:relative;">
+    <div style="height:220px;background:linear-gradient(135deg,#2a1a0a 0%,#3a2a1a 60%,#1a1205 100%);display:flex;align-items:center;justify-content:center;">
+      <span style="color:rgba(255,255,255,0.1);font-size:64px;font-weight:900;letter-spacing:0.1em;font-family:'Cinzel',serif;">SOUL</span>
+    </div>
+    <button onclick="document.getElementById('modal-kanasa-20260403').style.display='none'"
+      style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:20px;width:36px;height:36px;border-radius:50%;cursor:pointer;line-height:1;">&#x2715;</button>
+    <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#8a7355;text-transform:uppercase;">PHILOSOPHY</span>
+      <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">なぜ、住所を公開しないのか。<br>「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h1>
+      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="margin:0 0 24px;font-size:15px;">「なぜ住所を公開しないんですか？」と、初めて来られる方に必ずと言っていいほど聞かれます。答えはシンプルです。誰でも来られる場所では、私がやりたいことができないからです。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「KANASA」という名前の意味</h2>
+      <p style="margin:0 0 18px;font-size:15px;">KANASAは琉球語で「愛おしいもの」を意味します。</p>
+      <p style="margin:0 0 18px;font-size:15px;">この名前を選んだのは、トレーナーとしての自分が大切にしたいものを、毎日思い出すためです。目の前のクライアントの身体と人生が、私にとって愛おしいものであるという宣言です。屋号は、覚悟の形だと思っています。</p>
+      <p style="margin:0 0 18px;font-size:15px;color:#7a6345;font-style:italic;">名前をつけるということは、その名前の重さを毎日引き受けるということです。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「ギリギリ心が折れないライン」を見極める仕事</h2>
+      <p style="margin:0 0 18px;font-size:15px;">私がセッション中に最も集中して観察しているのは、バーベルの重さではありません。呼吸の乱れ方と、目の動きです。</p>
+      <p style="margin:0 0 18px;font-size:15px;">限界を超えかけているとき、人は呼吸が止まる前に目線が変わります。「ここまで追い込んでいい」と「ここで止める」の判断を、私は言葉ではなく身体のサインから読み取ります。</p>
+      <p style="margin:0 0 18px;font-size:15px;">この精度は、不特定多数を相手に1日10セッション回しているジムでは、物理的に維持できません。</p>
+      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">紹介制である、本当の理由</h2>
+      <p style="margin:0 0 18px;font-size:15px;">紹介制にしているのは、マーケティング戦略ではありません。</p>
+      <p style="margin:0 0 18px;font-size:15px;">「すでにKANASAを信頼している誰かが、信頼を持って連れてきた人」という関係性が最初から存在することが、重要なのです。初対面でも、すでに一定の信頼関係の土台がある。これが、深い対話を第一セッションから実現できる理由です。</p>
+      <p style="margin:0 0 18px;font-size:15px;">大手ジムには絶対に再現できない、この構造を選び続けています。</p>
+      <p style="margin:0 0 18px;font-size:15px;color:#7a6345;font-style:italic;">人数を増やすことより、深さを守ることを選んでいます。</p>
+      <div style="background:#faf8f5;border-radius:10px;padding:24px 28px;margin:32px 0;border-left:3px solid #8a7355;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#8a7355;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
+        <ul style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:#2a3a4a;">
+          <li>「KANASA（愛おしきもの）」は、クライアントへの覚悟を表す屋号</li>
+          <li>呼吸・目線・表情からリミットを読み取る精度は、少人数制でのみ維持できる</li>
+          <li>紹介制は信頼関係のプリセットであり、深い対話の前提条件</li>
+        </ul>
+      </div>
+      <p style="font-size:clamp(14px,3vw,16px);font-weight:700;color:#1a2a3a;text-align:center;margin:44px 0 0;letter-spacing:0.05em;line-height:1.8;">私が提供しているのは、<br>トレーニングのメニューではありません。<br>「あなたの身体に真剣に向き合い続ける関係」です。</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
