@@ -565,6 +565,128 @@
             .hero-main { letter-spacing: 0.06em; }
             .method-grid { grid-template-columns: 1fr; max-width: 360px; }
         }
+
+        /* ═══════════════════════════════════════════════
+           FAQ — Accordion
+           ═══════════════════════════════════════════════ */
+        .faq-section {
+            padding: clamp(5rem, 10vw, 9rem) 5%;
+            background: var(--bg-pale);
+        }
+        .faq-inner {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .faq-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 48px;
+        }
+        .faq-item {
+            background: var(--white);
+            border-left: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .faq-item.is-open {
+            border-left-color: var(--accent);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-jp);
+            font-size: clamp(0.82rem, 2vw, 0.92rem);
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: 0.06em;
+            line-height: 1.6;
+            transition: background 0.2s ease;
+        }
+        .faq-question:hover {
+            background: rgba(46,61,73,0.03);
+        }
+        .faq-q-mark {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--white);
+            font-family: var(--font-en);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-question-text {
+            flex: 1;
+        }
+        .faq-icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+            position: relative;
+        }
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background: var(--navy-light);
+            border-radius: 2px;
+            transition: transform 0.35s var(--ease), opacity 0.25s ease;
+        }
+        .faq-icon::before { width: 100%; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+        .faq-icon::after  { width: 1.5px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+        .faq-item.is-open .faq-icon::after {
+            transform: translateX(-50%) rotate(90deg);
+            opacity: 0;
+        }
+        .faq-answer-wrap {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.45s var(--ease-out);
+        }
+        .faq-answer {
+            padding: 0 28px 24px calc(28px + 18px + 18px);
+            font-size: clamp(0.80rem, 1.8vw, 0.88rem);
+            color: var(--text-sub);
+            line-height: 2.0;
+            letter-spacing: 0.05em;
+        }
+        .faq-a-mark {
+            display: inline-block;
+            font-family: var(--font-en);
+            font-size: 0.70rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            margin-right: 10px;
+        }
+        .faq-category-label {
+            padding: 28px 0 10px;
+            font-family: var(--font-jp);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--navy-light);
+            letter-spacing: 0.18em;
+            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 2px;
+        }
+        .faq-category-label:first-child { padding-top: 0; }
+        @media (max-width: 768px) {
+            .faq-question { padding: 18px 20px; }
+            .faq-answer { padding: 0 20px 20px calc(20px + 14px + 14px); }
+        }
     </style>
 </head>
 <body>
@@ -583,6 +705,7 @@
                 <li><a href="#profile">PROFILE</a></li>
                 <li><a href="#price">PRICE</a></li>
                 <li><a href="#blog">BLOG</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact" class="cta-btn">お問合せ</a></li>
             </ul>
         </nav>
@@ -950,6 +1073,142 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════
+         FAQ
+         ═══════════════════════════════════════════════ -->
+    <section id="faq" class="faq-section reveal">
+        <div class="faq-inner">
+            <div class="section-title reveal" style="text-align:center; margin-bottom: 0;">
+                <span class="lx-label" style="display:block; text-align:center; margin-bottom:12px;">FAQ</span>
+                <h2 style="font-family:var(--font-jp); font-size:clamp(1.1rem,3vw,1.4rem); font-weight:700; color:var(--navy); letter-spacing:0.15em;">よくある質問</h2>
+            </div>
+            <ul class="faq-list">
+
+                <!-- ① 効果に関する不安 -->
+                <li class="faq-category-label">① 効果に関する不安</li>
+
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">どれくらいで効果を実感できますか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>個人差はありますが、姿勢や動きの変化は1〜3回で実感されるケースが多く、筋力や体型の変化は8〜12週間が目安です。可動域・筋力・痛みといった評価指標を数値で管理し、変化を可視化しながら進めます。</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">他のジムや整体と何が違いますか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>一時的な対処ではなく、「身体の使い方（動作パターン）」を根本から再構築する点が異なります。調整・トレーニング・リカバリーを一体化した設計により、パフォーマンスを長期的に高めることを目的としています。</p>
+                    </div>
+                </li>
+
+                <!-- ② 安全性に関する不安 -->
+                <li class="faq-category-label">② 安全性に関する不安</li>
+
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">ケガのリスクはありませんか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>リスクをゼロにはできませんが、初回評価で可動域・既往歴を確認し、安全域内で負荷設定を行います。高重量・高強度は段階的に導入するため、無理のないペースで進めることができます。</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">運動経験がなくても大丈夫ですか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>問題ありません。初回は評価と基礎動作から開始し、個々のレベルに合わせて段階的に進行します。むしろ運動習慣のない方ほど、初期段階での変化を大きく実感されることが多いです。</p>
+                    </div>
+                </li>
+
+                <!-- ③ 料金・価値に関する不安 -->
+                <li class="faq-category-label">③ 料金・価値に関する不安</li>
+
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">料金が高い理由は何ですか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>マンツーマン指導・個別プログラム設計・技術提供（調整・ストレッチ含む）を統合しているためです。単なるトレーニング指導とは提供価値が異なり、1セッションで「診る・動かす・回復させる」すべてを完結させる設計です。</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">継続しないと意味がありませんか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>最短でも8〜12週間の継続で効果の定着が期待できますが、短期でも身体の使い方の改善は可能です。目的（健康維持・パフォーマンス向上・痛みの解消）に応じて期間を設計します。</p>
+                    </div>
+                </li>
+
+                <!-- ④ 継続・通いやすさの不安 -->
+                <li class="faq-category-label">④ 継続・通いやすさの不安</li>
+
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">どのくらいの頻度で通うべきですか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>週1〜2回が推奨です。頻度は目的（健康維持／パフォーマンス向上）に応じて調整します。まずは月4回のペースから始め、状態と目標に合わせて柔軟に変更可能です。</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">忙しくても通えますか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>完全予約制のためスケジュール調整が可能です。1回あたり90分で調整・トレーニング・リカバリーを完結させる設計のため、限られた時間でも最大の効果を引き出せます。</p>
+                    </div>
+                </li>
+
+                <!-- ⑤ 信頼性・関係性の不安 -->
+                <li class="faq-category-label">⑤ 信頼性・関係性の不安</li>
+
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">トレーナーはどのような経歴ですか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>パーソナルトレーニング・整体・ストレッチの統合指導経験を持ち、個別最適化を重視したアプローチを専門としています。詳細は<a href="#profile" style="color:var(--accent); border-bottom:1px solid var(--accent);">プロフィール</a>をご参照ください。</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-q-mark">Q</span>
+                        <span class="faq-question-text">無理な勧誘はありませんか？</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer-wrap" role="region">
+                        <p class="faq-answer"><span class="faq-a-mark">A</span>強引な勧誘は行いません。初回体験後、ご自身の意思で判断いただく方針です。完全紹介制という性質上、ご縁を大切にした長期的な関係性を重視しています。</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
          Contact — PRESERVED
          ═══════════════════════════════════════════════ -->
     <!-- Contact section — PRESERVED -->
@@ -1000,6 +1259,36 @@
          Scripts
          ═══════════════════════════════════════════════ -->
     <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const wrap = item.querySelector('.faq-answer-wrap');
+                    const isOpen = item.classList.contains('is-open');
+
+                    // 他を閉じる
+                    document.querySelectorAll('.faq-item.is-open').forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('is-open');
+                            openItem.querySelector('.faq-answer-wrap').style.maxHeight = '0';
+                            openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    if (isOpen) {
+                        item.classList.remove('is-open');
+                        wrap.style.maxHeight = '0';
+                        btn.setAttribute('aria-expanded', 'false');
+                    } else {
+                        item.classList.add('is-open');
+                        wrap.style.maxHeight = wrap.scrollHeight + 'px';
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        });
+
         // Scroll reveal (IntersectionObserver)
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
