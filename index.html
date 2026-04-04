@@ -453,6 +453,91 @@
         }
 
         /* ═══════════════════════════════════════════════
+           Voice Section（お客様の声）
+           ═══════════════════════════════════════════════ */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 48px;
+        }
+        .voice-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px 28px 28px;
+            box-shadow: 0 2px 16px rgba(46,61,73,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s;
+        }
+        .voice-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 36px rgba(46,61,73,0.1);
+        }
+        .voice-quote {
+            font-size: 1.5rem;
+            color: var(--navy-light);
+            opacity: 0.25;
+            line-height: 1;
+            font-family: var(--font-en);
+        }
+        .voice-text {
+            font-size: 0.88rem;
+            line-height: 2.0;
+            color: var(--text);
+            flex: 1;
+        }
+        .voice-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-top: 1px solid var(--border-light);
+            padding-top: 20px;
+        }
+        .voice-photo {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-pale);
+            border: 2px solid var(--border-light);
+            flex-shrink: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-en);
+            font-size: 0.6rem;
+            color: var(--navy-light);
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+        }
+        .voice-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .voice-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+        .voice-meta {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+            margin-top: 3px;
+            letter-spacing: 0.04em;
+        }
+        @media (max-width: 768px) {
+            .voice-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════
            Contact Section — Preserved styles
            ═══════════════════════════════════════════════ */
         .contact-section {
@@ -1261,6 +1346,58 @@
         </div>
         <div class="blog-more">
             <a href="#">VIEW ALL POSTS</a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         Voice（お客様の声）
+         ═══════════════════════════════════════════════ -->
+    <section id="voice" style="padding: 100px 5%; max-width: 1200px; margin: 0 auto;">
+        <div class="section-title reveal" style="text-align:center; margin-bottom: 10px;">
+            <span class="lx-label">VOICE</span>
+            <h2 class="lx-h2" style="font-size:clamp(1.2rem,3vw,1.8rem);margin-top:12px;">お客様の声</h2>
+        </div>
+        <div class="voice-grid reveal-stagger">
+
+            <!-- Voice 1 -->
+            <div class="voice-card">
+                <div class="voice-quote">"</div>
+                <p class="voice-text">トレーニングだけでなく、身体の使い方から見直してもらえたことで、長年悩んでいた肩のつまりが改善されました。毎回のセッションが楽しみで仕方ありません。</p>
+                <div class="voice-author">
+                    <div class="voice-photo">PHOTO</div>
+                    <div>
+                        <div class="voice-name">A.T. 様</div>
+                        <div class="voice-meta">50代・会社経営</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice 2 -->
+            <div class="voice-card">
+                <div class="voice-quote">"</div>
+                <p class="voice-text">ゴルフのスコアが劇的に改善されました。体幹の安定感が増し、以前は力んでいたスイングが自然とできるように。身体への投資は最高のリターンだと感じています。</p>
+                <div class="voice-author">
+                    <div class="voice-photo">PHOTO</div>
+                    <div>
+                        <div class="voice-name">K.M. 様</div>
+                        <div class="voice-meta">60代・役員</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice 3 -->
+            <div class="voice-card">
+                <div class="voice-quote">"</div>
+                <p class="voice-text">完全紹介制でしっかり向き合ってもらえる環境が、私には合っていました。調整・トレーニング・リカバリーを90分で完結できるのが、多忙なビジネスパーソンには最高の仕組みです。</p>
+                <div class="voice-author">
+                    <div class="voice-photo">PHOTO</div>
+                    <div>
+                        <div class="voice-name">R.S. 様</div>
+                        <div class="voice-meta">40代・経営者</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
