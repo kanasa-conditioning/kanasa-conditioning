@@ -43,8 +43,10 @@
             background: var(--white);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.04em;
             word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: auto-phrase;
             overflow-x: hidden;
         }
         a { text-decoration: none; color: inherit; transition: opacity 0.3s ease-in-out; }
@@ -98,7 +100,7 @@
             display: block; font-family: var(--font-en);
             font-size: clamp(0.65rem, 1.5vw, 0.75rem);
             letter-spacing: 0.25em; color: var(--navy-light);
-            margin-bottom: clamp(20px, 4vw, 40px); opacity: 0.8;
+            margin-bottom: clamp(20px, 4vw, 40px); opacity: 1; color: var(--navy);
         }
 
         /* Headings */
@@ -127,8 +129,8 @@
 
         /* Body text */
         .lx-body {
-            font-size: clamp(0.82rem, 2vw, 0.92rem);
-            line-height: 2.2; max-width: 680px;
+            font-size: clamp(0.84rem, 2.4vw, 1.02rem);
+            line-height: 2.1; max-width: 680px;
             color: var(--text-main); letter-spacing: 0.04em;
         }
         .lx-body p + p { margin-top: 1.8em; }
@@ -170,7 +172,7 @@
             to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         .hero-sub {
-            font-size: clamp(0.7rem, 1.8vw, 0.82rem);
+            font-size: clamp(0.72rem, 2vw, 0.88rem);
             letter-spacing: 0.15em; color: var(--navy-light);
             margin-top: clamp(20px, 3vw, 36px); line-height: 1.8;
             animation: heroFadeIn 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
@@ -228,8 +230,8 @@
             margin-top: 2em;
         }
         .statement-lines p {
-            font-size: clamp(0.82rem, 2vw, 0.92rem);
-            line-height: 2.0; color: var(--text-main);
+            font-size: clamp(0.84rem, 2.4vw, 1.02rem);
+            line-height: 2.1; color: var(--text-main);
         }
         .statement-lines p + p { margin-top: 0.6em; }
         .statement-closing {
@@ -274,7 +276,7 @@
             padding: 20px; background: var(--white);
         }
         .method-card-body p {
-            font-size: 0.8rem; line-height: 2.0; color: var(--text-main);
+            font-size: clamp(0.78rem, 2vw, 0.9rem); line-height: 2.0; color: var(--text-main);
         }
 
         /* ═══════════════════════════════════════════════
@@ -556,6 +558,9 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+            .voice-card {
+                padding: 24px 20px 20px;
+            }
         }
 
         /* ═══════════════════════════════════════════════
@@ -684,7 +689,7 @@
         /* Reveal from left */
         .reveal-left {
             opacity: 0;
-            transform: translateX(-40px);
+            transform: translateX(-24px);
             filter: blur(4px);
             transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
                         transform 1.0s cubic-bezier(0.25, 1, 0.5, 1),
@@ -695,7 +700,7 @@
         /* Reveal from right */
         .reveal-right {
             opacity: 0;
-            transform: translateX(40px);
+            transform: translateX(24px);
             filter: blur(4px);
             transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
                         transform 1.0s cubic-bezier(0.25, 1, 0.5, 1),
@@ -726,8 +731,11 @@
             .profile-photo { width: clamp(200px, 60vw, 280px); }
             .profile-text { text-align: center; }
             .profile-text .cert { text-align: left; }
-            .lx-h2 { text-align: center; }
+            .lx-h2 { text-align: center; font-size: clamp(1.2rem, 3.5vw, 2.0rem); }
+            .lx-h1 { font-size: clamp(1.4rem, 4vw, 2.4rem); }
             .lx-label { text-align: center; }
+            .lx-body { font-size: clamp(0.84rem, 2.6vw, 0.96rem); }
+            .hero-lead { font-size: clamp(0.88rem, 2.4vw, 1.05rem); }
             .method-grid { grid-template-columns: repeat(2, 1fr); max-width: 500px; margin: 0 auto; }
             .care-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
             .blog-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
@@ -785,7 +793,7 @@
             cursor: pointer;
             text-align: left;
             font-family: var(--font-jp);
-            font-size: clamp(0.82rem, 2vw, 0.92rem);
+            font-size: clamp(0.84rem, 2.4vw, 0.96rem);
             font-weight: 600;
             color: var(--navy);
             letter-spacing: 0.06em;
@@ -840,7 +848,7 @@
         }
         .faq-answer {
             padding: 0 28px 24px calc(28px + 18px + 18px);
-            font-size: clamp(0.80rem, 1.8vw, 0.88rem);
+            font-size: clamp(0.82rem, 2.2vw, 0.96rem);
             color: var(--text-sub);
             line-height: 2.0;
             letter-spacing: 0.05em;
@@ -867,7 +875,7 @@
         .faq-category-label:first-child { padding-top: 0; }
         @media (max-width: 768px) {
             .faq-question { padding: 18px 20px; }
-            .faq-answer { padding: 0 20px 20px calc(20px + 14px + 14px); }
+            .faq-answer { padding: 0 20px 20px 20px; }
         }
 
         /* ═══════════════════════════════════════════════
@@ -1273,7 +1281,7 @@
              ═══════════════════════════════════════════════ -->
         <section class="lx-section reveal" style="text-align: center;" aria-label="理念">
             <span class="lx-label">PHILOSOPHY</span>
-            <h2 class="lx-h2" style="white-space:nowrap; font-size:clamp(1.0rem,5.5vw,2.4rem); overflow:visible;">「KANASA（愛おしきもの）」</h2>
+            <h2 class="lx-h2" style="font-size:clamp(1.0rem,4.5vw,2.4rem);">「KANASA（愛おしきもの）」</h2>
             <div class="philosophy-photo" style="width:100%;max-width:640px;margin:0 auto clamp(40px,6vw,64px);aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:4px;">
               <img src="AdobeStock_1131816517.JPEG" alt="沖縄の海とシーサー" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 80%;display:block;">
             </div>
@@ -1365,9 +1373,9 @@
               <span style="color:rgba(255,255,255,0.12);font-size:38px;font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">BODY</span>
             </div>
             <div style="padding:20px 22px 22px;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
-              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h3>
-              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
+              <span style="font-size:clamp(0.6rem,1.6vw,0.7rem);font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
+              <h3 style="font-size:clamp(0.82rem,2.2vw,0.95rem);font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h3>
+              <p style="font-size:clamp(0.6rem,1.5vw,0.7rem);color:#aaa;margin:0;">2026.04.03</p>
             </div>
           </div>
 
@@ -1379,9 +1387,9 @@
               <span style="color:rgba(255,255,255,0.12);font-size:38px;font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">REST</span>
             </div>
             <div style="padding:20px 22px 22px;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
-              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h3>
-              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
+              <span style="font-size:clamp(0.6rem,1.6vw,0.7rem);font-weight:700;letter-spacing:0.18em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
+              <h3 style="font-size:clamp(0.82rem,2.2vw,0.95rem);font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h3>
+              <p style="font-size:clamp(0.6rem,1.5vw,0.7rem);color:#aaa;margin:0;">2026.04.03</p>
             </div>
           </div>
 
@@ -1394,8 +1402,8 @@
             </div>
             <div style="padding:20px 22px 22px;">
               <span style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:#8a7355;text-transform:uppercase;">PHILOSOPHY</span>
-              <h3 style="font-size:15px;font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h3>
-              <p style="font-size:11px;color:#aaa;margin:0;">2026.04.03</p>
+              <h3 style="font-size:clamp(0.82rem,2.2vw,0.95rem);font-weight:700;color:#1a2a3a;margin:9px 0 10px;line-height:1.6;">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h3>
+              <p style="font-size:clamp(0.6rem,1.5vw,0.7rem);color:#aaa;margin:0;">2026.04.03</p>
             </div>
           </div>
 
@@ -1787,29 +1795,29 @@
     <button onclick="document.getElementById('modal-keiei-20260403').style.display='none'"
       style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:20px;width:36px;height:36px;border-radius:50%;cursor:pointer;line-height:1;">&#x2715;</button>
     <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
+      <span style="font-size:clamp(0.62rem,1.6vw,0.72rem);font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">CONDITIONING</span>
       <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">身体は経営資源である。<br>コンディショニングが意思決定の精度を変える理由</h1>
-      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="font-size:clamp(0.65rem,1.6vw,0.75rem);color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
 
-      <p style="margin:0 0 24px;font-size:15px;">「忙しいから、ジムはまた今度」という言葉を、月に何度か耳にします。そのたびに、少し心が痛くなります。後回しにしているのが、実は仕事そのものを支える土台かもしれないから、です。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">「忙しいから、ジムはまた今度」という言葉を、月に何度か耳にします。そのたびに、少し心が痛くなります。後回しにしているのが、実は仕事そのものを支える土台かもしれないから、です。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">疲労が「判断コスト」を上げる、という話</h2>
-      <p style="margin:0 0 18px;font-size:15px;">少し前に読んだ研究が、ずっと頭に残っています。2022年に<em>Nature Neuroscience</em>誌に掲載されたWiehler et al.の研究で、長時間の認知労働によって前頭前皮質にグルタミン酸が蓄積し、意思決定にかかる「コスト」が上昇するというものでした。</p>
-      <p style="margin:0 0 18px;font-size:15px;">会議の後半に「早く終わらせたい」という気持ちが判断を引っ張っていく感覚、覚えがある方も多いのではないでしょうか。あれは気合の問題ではなく、脳の状態が変わっているせいかもしれません。</p>
-      <p style="margin:0 0 18px;font-size:15px;color:#2a7a5a;font-style:italic;">身体を整えることは、思考のインフラを整えることではないか、と私は感じています。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">疲労が「判断コスト」を上げる、という話</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">少し前に読んだ研究が、ずっと頭に残っています。2022年に<em>Nature Neuroscience</em>誌に掲載されたWiehler et al.の研究で、長時間の認知労働によって前頭前皮質にグルタミン酸が蓄積し、意思決定にかかる「コスト」が上昇するというものでした。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">会議の後半に「早く終わらせたい」という気持ちが判断を引っ張っていく感覚、覚えがある方も多いのではないでしょうか。あれは気合の問題ではなく、脳の状態が変わっているせいかもしれません。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);color:#2a7a5a;font-style:italic;">身体を整えることは、思考のインフラを整えることではないか、と私は感じています。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">可動域の制限が、集中力を奪うことがある</h2>
-      <p style="margin:0 0 18px;font-size:15px;">胸椎の可動域制限と、デスクワーク由来の慢性的な頸部緊張。このふたつが重なると、交感神経が優位な状態が続きやすくなります。</p>
-      <p style="margin:0 0 18px;font-size:15px;">いわゆる「頭が休まらない」状態に近いもので、反射的な判断が増え、腰を据えて考える時間が短くなりやすいんです。厄介なのは、本人がなかなか気づきにくいことです。</p>
-      <p style="margin:0 0 18px;font-size:15px;">セッション中に胸椎を整えると「頭がスッキリした」とおっしゃる方が多いのですが、身体と思考のつながりは、いつも改めて実感させられます。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">可動域の制限が、集中力を奪うことがある</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">胸椎の可動域制限と、デスクワーク由来の慢性的な頸部緊張。このふたつが重なると、交感神経が優位な状態が続きやすくなります。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">いわゆる「頭が休まらない」状態に近いもので、反射的な判断が増え、腰を据えて考える時間が短くなりやすいんです。厄介なのは、本人がなかなか気づきにくいことです。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">セッション中に胸椎を整えると「頭がスッキリした」とおっしゃる方が多いのですが、身体と思考のつながりは、いつも改めて実感させられます。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">SOAPで「身体の状態」を記録する理由</h2>
-      <p style="margin:0 0 18px;font-size:15px;">初回のセッションでは、SOAP（主観的評価・客観的評価・評価・計画）を使って身体の状態を記録しています。その後のセッションでも、トレーニング前に必ず実際に触れて、その日の筋肉の硬さや可動域をチェックすることを欠かしません。</p>
-      <p style="margin:0 0 18px;font-size:15px;">月に一度、決算書を確認するように、身体の状態を数値で読む習慣があると、変化に早く気づけます。「なんとなく疲れている気がする」という感覚は、指標がないとなかなか改善につながりにくいんですよね。</p>
-      <p style="margin:0 0 24px;font-size:15px;color:#2a7a5a;font-style:italic;">身体に投資することは、意思決定の精度に投資することでもあると、私は思っています。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">SOAPで「身体の状態」を記録する理由</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">初回のセッションでは、SOAP（主観的評価・客観的評価・評価・計画）を使って身体の状態を記録しています。その後のセッションでも、トレーニング前に必ず実際に触れて、その日の筋肉の硬さや可動域をチェックすることを欠かしません。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">月に一度、決算書を確認するように、身体の状態を数値で読む習慣があると、変化に早く気づけます。「なんとなく疲れている気がする」という感覚は、指標がないとなかなか改善につながりにくいんですよね。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);color:#2a7a5a;font-style:italic;">身体に投資することは、意思決定の精度に投資することでもあると、私は思っています。</p>
 
       <div style="background:#f0f4f8;border-radius:10px;padding:24px 28px;margin:32px 0;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
+        <p style="font-size:clamp(0.62rem,1.6vw,0.72rem);font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
         <ul style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:#2a3a4a;">
           <li>長時間の認知労働は前頭前皮質にグルタミン酸を蓄積させ、意思決定コストを高める可能性がある（Wiehler et al., <em>Nature Neuroscience</em>, 2022）</li>
           <li>胸椎・頸部の可動域制限は交感神経優位状態を持続させ、集中力に影響を与えやすい</li>
@@ -1830,25 +1838,25 @@
     <button onclick="document.getElementById('modal-recovery-20260403').style.display='none'"
       style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.2);border:none;color:#fff;font-size:20px;width:36px;height:36px;border-radius:50%;cursor:pointer;line-height:1;">&#x2715;</button>
     <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
+      <span style="font-size:clamp(0.62rem,1.6vw,0.72rem);font-weight:700;letter-spacing:0.2em;color:#2a6496;text-transform:uppercase;">RECOVERY</span>
       <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">疲れているのに眠れない。<br>神経系から整える「本物のリカバリー」とは何か</h1>
-      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="font-size:clamp(0.65rem,1.6vw,0.75rem);color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
 
-      <p style="margin:0 0 24px;font-size:15px;">「疲れているのに、なぜか眠れない」という訴えを、月に何度も聞きます。</p>
-      <p style="margin:0 0 24px;font-size:15px;">最初は「気のせいかもしれない」とおっしゃっていた方が、身体を整えてみるとあっさり眠れるようになるケースも、少なくありません。今日は、リカバリー（回復）について、少しだけお話しさせてください。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">「疲れているのに、なぜか眠れない」という訴えを、月に何度も聞きます。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">最初は「気のせいかもしれない」とおっしゃっていた方が、身体を整えてみるとあっさり眠れるようになるケースも、少なくありません。今日は、リカバリー（回復）について、少しだけお話しさせてください。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">プロの現場で感じてきたこと</h2>
-      <p style="margin:0 0 18px;font-size:15px;">DeportareやFLUXでプロゴルファーやサッカー選手のトレーニングを担当してきた中で、印象に残ってきたことがあります。「試合直後の90分が翌日を決める」という意識が、プロの現場に共通してありました。</p>
-      <p style="margin:0 0 18px;font-size:15px;">その90分で優先されるのは、マッサージよりも神経系のダウンレギュレーション、つまり興奮した神経を落ち着かせることでした。呼吸を使って副交感神経を優位にし、中枢神経系の興奮を段階的に鎮めていく。地味ですが、この積み重ねがパフォーマンスを支えているのだと、現場で感じてきました。</p>
-      <p style="margin:0 0 18px;font-size:15px;color:#2a7a5a;font-style:italic;">疲れた身体を「休める」のではなく、興奮した神経系を「整える」。この違いが、翌日のパフォーマンスを大きく変えることがあります。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">プロの現場で感じてきたこと</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">DeportareやFLUXでプロゴルファーやサッカー選手のトレーニングを担当してきた中で、印象に残ってきたことがあります。「試合直後の90分が翌日を決める」という意識が、プロの現場に共通してありました。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">その90分で優先されるのは、マッサージよりも神経系のダウンレギュレーション、つまり興奮した神経を落ち着かせることでした。呼吸を使って副交感神経を優位にし、中枢神経系の興奮を段階的に鎮めていく。地味ですが、この積み重ねがパフォーマンスを支えているのだと、現場で感じてきました。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);color:#2a7a5a;font-style:italic;">疲れた身体を「休める」のではなく、興奮した神経系を「整える」。この違いが、翌日のパフォーマンスを大きく変えることがあります。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">「眠れない疲労」の背景にあること</h2>
-      <p style="margin:0 0 18px;font-size:15px;">慢性的なストレスや緊張が続くと、コルチゾールの日内変動が乱れることがあります。本来、就寝前には下がるはずのコルチゾールが高止まりしていると、なかなか眠れなくなります。</p>
-      <p style="margin:0 0 18px;font-size:15px;">Vgontzas et al.（<em>J Clin Endocrinol Metab</em>, 2001）の研究では、慢性不眠のある方において夜間のコルチゾール値が高く、HPA軸の活性化が確認されています。「疲れているのに眠れない」は意志の問題ではなく、身体の状態として起きていることかもしれません。</p>
-      <p style="margin:0 0 18px;font-size:15px;">正直に言うと、私自身もベンチプレスの高重量セッション後に同じ経験をしたことがあります。ダウンレギュレーションのプロトコルを覚えるまでは、明け方まで眠れない夜が続いたこともありました。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">「眠れない疲労」の背景にあること</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">慢性的なストレスや緊張が続くと、コルチゾールの日内変動が乱れることがあります。本来、就寝前には下がるはずのコルチゾールが高止まりしていると、なかなか眠れなくなります。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">Vgontzas et al.（<em>J Clin Endocrinol Metab</em>, 2001）の研究では、慢性不眠のある方において夜間のコルチゾール値が高く、HPA軸の活性化が確認されています。「疲れているのに眠れない」は意志の問題ではなく、身体の状態として起きていることかもしれません。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">正直に言うと、私自身もベンチプレスの高重量セッション後に同じ経験をしたことがあります。ダウンレギュレーションのプロトコルを覚えるまでは、明け方まで眠れない夜が続いたこともありました。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">私が大切にしている3つの順序</h2>
-      <p style="margin:0 0 16px;font-size:15px;">KANASAでのリカバリーは、順序を大切にしています。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #2a6496;padding-left:12px;margin:36px 0 16px;">私が大切にしている3つの順序</h2>
+      <p style="margin:0 0 16px;font-size:clamp(0.88rem,2.4vw,1.0rem);">KANASAでのリカバリーは、順序を大切にしています。</p>
 
       <div style="display:flex;gap:0;margin:0 0 10px;flex-wrap:wrap;border-radius:10px;overflow:hidden;">
         <div style="flex:1;min-width:120px;background:#1a2a3a;color:#fff;padding:18px 16px;text-align:center;">
@@ -1868,10 +1876,10 @@
         </div>
       </div>
       <p style="font-size:11px;color:#999;margin:0 0 20px;">&#42; Kräuchi et al., <em>Nature</em>, 1999：就寝90分前の入浴が深部体温の降下を促進し、入眠潜時を短縮することが示されている</p>
-      <p style="margin:0 0 24px;font-size:15px;">この順序には、私なりの経験と根拠があります。絶対にこの通りでなければ、ということではありませんが、参考にしていただけたらと思います。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">この順序には、私なりの経験と根拠があります。絶対にこの通りでなければ、ということではありませんが、参考にしていただけたらと思います。</p>
 
       <div style="background:#f0f4f8;border-radius:10px;padding:24px 28px;margin:32px 0;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
+        <p style="font-size:clamp(0.62rem,1.6vw,0.72rem);font-weight:700;letter-spacing:0.18em;color:#2a6496;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
         <ul style="margin:0;padding-left:20px;font-size:14px;line-height:2.1;color:#2a3a4a;">
           <li>疲労回復の起点は、神経系を落ち着かせることにあると考えています</li>
           <li>慢性不眠にはHPA軸の活性化とコルチゾール高値が関与することがある（Vgontzas et al., <em>J Clin Endocrinol Metab</em>, 2001）</li>
@@ -1894,26 +1902,26 @@
     <div style="padding:clamp(24px,5vw,44px) clamp(20px,5vw,44px) 56px;font-family:'Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;color:#1a2a3a;line-height:1.9;">
       <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#8a7355;text-transform:uppercase;">PHILOSOPHY</span>
       <h1 style="font-size:clamp(1.15rem,3.5vw,1.65rem);font-weight:700;margin:14px 0 8px;line-height:1.55;color:#1a2a3a;">なぜ、住所を公開しないのか。<br>「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h1>
-      <p style="font-size:12px;color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
+      <p style="font-size:clamp(0.65rem,1.6vw,0.75rem);color:#aaa;margin:0 0 36px;">2026.04.03 &#124; KANASA Conditioning Studio</p>
 
-      <p style="margin:0 0 24px;font-size:15px;">「なぜ住所を公開しないんですか？」と、初めていらっしゃる方にほぼ必ず聞かれます。</p>
-      <p style="margin:0 0 24px;font-size:15px;">そのたびに少し考えてしまうのですが、やはり答えは同じです。誰でも来られる場所にしてしまうと、私が本当にやりたいことができなくなる。それが正直なところです。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">「なぜ住所を公開しないんですか？」と、初めていらっしゃる方にほぼ必ず聞かれます。</p>
+      <p style="margin:0 0 24px;font-size:clamp(0.88rem,2.4vw,1.0rem);">そのたびに少し考えてしまうのですが、やはり答えは同じです。誰でも来られる場所にしてしまうと、私が本当にやりたいことができなくなる。それが正直なところです。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「KANASA」という名前に込めたこと</h2>
-      <p style="margin:0 0 18px;font-size:15px;">KANASAは琉球語で「愛おしいもの」を意味する言葉です。</p>
-      <p style="margin:0 0 18px;font-size:15px;">この名前を選んだのは、自分が大切にしたいことを毎日思い出すためでした。目の前のクライアントの身体と人生を、愛おしいものとして向き合いたい。そういう在り方でいたいという気持ちが、そのまま屋号になっています。</p>
-      <p style="margin:0 0 18px;font-size:15px;color:#7a6345;font-style:italic;">名前をつけるということは、その名前の重さを毎日引き受けることだと感じています。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「KANASA」という名前に込めたこと</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">KANASAは琉球語で「愛おしいもの」を意味する言葉です。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">この名前を選んだのは、自分が大切にしたいことを毎日思い出すためでした。目の前のクライアントの身体と人生を、愛おしいものとして向き合いたい。そういう在り方でいたいという気持ちが、そのまま屋号になっています。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);color:#7a6345;font-style:italic;">名前をつけるということは、その名前の重さを毎日引き受けることだと感じています。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「ギリギリ心が折れないライン」を見極めること</h2>
-      <p style="margin:0 0 18px;font-size:15px;">セッション中、私が最も気にしているのはバーベルの重さではありません。呼吸の乱れ方と、目の動きです。</p>
-      <p style="margin:0 0 18px;font-size:15px;">限界に近づいているとき、人は呼吸が止まる前に目線が変わることが多いんです。「ここまでは大丈夫」「ここで止める」という判断を、言葉ではなく身体のサインから読み取ろうとしています。</p>
-      <p style="margin:0 0 18px;font-size:15px;">こういった観察は、多くの方を同時に見ている環境ではなかなか難しいと感じています。少人数だからこそ、できることだと思っています。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">「ギリギリ心が折れないライン」を見極めること</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">セッション中、私が最も気にしているのはバーベルの重さではありません。呼吸の乱れ方と、目の動きです。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">限界に近づいているとき、人は呼吸が止まる前に目線が変わることが多いんです。「ここまでは大丈夫」「ここで止める」という判断を、言葉ではなく身体のサインから読み取ろうとしています。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">こういった観察は、多くの方を同時に見ている環境ではなかなか難しいと感じています。少人数だからこそ、できることだと思っています。</p>
 
-      <h2 style="font-size:17px;font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">紹介制である、本当の理由</h2>
-      <p style="margin:0 0 18px;font-size:15px;">紹介制にしているのは、マーケティングの戦略ではありません。</p>
-      <p style="margin:0 0 18px;font-size:15px;">「すでにKANASAを信頼してくださっている方が、同じように信頼して連れてきてくださった方」。そういう関係性が最初からあると、初めてお会いする場でも、少しだけ距離が縮まっているように感じます。</p>
-      <p style="margin:0 0 18px;font-size:15px;">その土台があるからこそ、最初のセッションから本音で話せることがある。深い対話ができることがある。そう思って、この仕組みを続けています。</p>
-      <p style="margin:0 0 18px;font-size:15px;color:#7a6345;font-style:italic;">人数を増やすより、深さを守る方を選んでいます。それが今の自分には合っていると感じているので。</p>
+      <h2 style="font-size:clamp(0.95rem,2.8vw,1.12rem);font-weight:700;color:#1a2a3a;border-left:3px solid #8a7355;padding-left:12px;margin:36px 0 16px;">紹介制である、本当の理由</h2>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">紹介制にしているのは、マーケティングの戦略ではありません。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">「すでにKANASAを信頼してくださっている方が、同じように信頼して連れてきてくださった方」。そういう関係性が最初からあると、初めてお会いする場でも、少しだけ距離が縮まっているように感じます。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);">その土台があるからこそ、最初のセッションから本音で話せることがある。深い対話ができることがある。そう思って、この仕組みを続けています。</p>
+      <p style="margin:0 0 18px;font-size:clamp(0.88rem,2.4vw,1.0rem);color:#7a6345;font-style:italic;">人数を増やすより、深さを守る方を選んでいます。それが今の自分には合っていると感じているので。</p>
 
       <div style="background:#faf8f5;border-radius:10px;padding:24px 28px;margin:32px 0;border-left:3px solid #8a7355;">
         <p style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#8a7355;margin:0 0 14px;text-transform:uppercase;">SUMMARY</p>
