@@ -1461,11 +1461,11 @@ nav ul li a:hover { opacity: 1; }
 /* ── §17c METHOD EXTRAS ── */
 
 .method-subtitle {
-  font-size: var(--fs-small);
+  font-size: var(--fs-h3);
   letter-spacing: 0.15em;
-  color: var(--brand-500);
+  color: var(--brand-800);
   text-align: center;
-  margin: 0.75rem 0 clamp(2rem, 4vw, 3rem);
+  margin: 0.75rem 0 clamp(1rem, 2vw, 1.5rem);
 }
 
 .method-grid-wrap {
