@@ -272,7 +272,7 @@
 - [x] セクション順序 1〜13 番で記録
 - [x] 参照サイト（newans.jp）観察・翻訳選定 記録
 
-**→ Phase 1a 完了・Phase 1b 承認待ち**
+**→ Phase 1b 完了・Phase 1c 承認待ち**
 
 ---
 
@@ -324,4 +324,37 @@
 
 ---
 
-*Phase 1b（価格カード化）承認待ち*
+---
+
+## ✅ Phase 1b — 価格カード4枚横並び（Pattern C）
+
+**実施日**: 2026-04-22  
+**変更ファイル**: `index.html`, `assets/css/style.css`
+
+### 実装内容
+- `training-row` リスト形式 → `price-grid` 4カード横並びに変更
+- グリッド構造：`gap: 1px; background: var(--brand-200)` で1px セパレーター表現
+
+### カード構成（料金データは変更なし）
+| カード | 金額 | 補足 |
+|---|---|---|
+| 会員プラン | ¥52,000 | 月額 / 月4回 / 1回あたり ¥13,000 |
+| 都度払い | ¥15,000 | / 回 |
+| 10回券 | ¥145,000 | 1回あたり ¥14,500 |
+| 学生 | ¥8,000 | 1回 60分 |
+
+### CSS追加クラス
+- `.price-grid`：`repeat(4, 1fr)` グリッド
+- `.price-grid .price-card`：白背景・左揃え（sub-page の `.price-card` と分離）
+- `.price-card__name`、`.price-card__amount`、`.price-card__unit`、`.price-card__sub`
+
+### レスポンシブ
+- 768px以下：2カラム
+- 480px以下：1カラム
+
+### 備考
+- 旧 `section-heading-bar "トレーニングプラン"` は4カードレイアウト移行に伴い除去（Pattern B タイトルで内容が明確なため）
+
+---
+
+*Phase 1c（フロー タイムライン化）承認待ち*
