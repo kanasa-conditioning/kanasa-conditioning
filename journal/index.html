@@ -1,273 +1,273 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal — KANASA Conditioning Studio</title>
-  <meta name="description" content="KANASA Conditioning Studioのコラム。身体・回復・哲学に関する知見をお届けします。">
-  <link rel="canonical" href="https://kanasa-conditioning.com/journal/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Journal — KANASA Conditioning Studio</title>
+    <meta name="description" content="KANASA Conditioning Studioのコラム。身体・回復・哲学に関する知見をお届けします。">
+    <link rel="canonical" href="https://kanasa-conditioning.com/journal/">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header" role="banner">
-    <div class="header__inner">
-      <a href="/" class="header__logo" aria-label="KANASA Conditioning Studio トップページ">
-        <img src="../kanasa_logo_yoko.png" alt="KANASA Conditioning Studio" width="200" height="48">
-      </a>
-      <nav class="header__nav" aria-label="メインナビゲーション">
-        <a href="/#introduction" class="header__nav-link">Concept</a>
-        <a href="/method/" class="header__nav-link">Method</a>
-        <a href="/#profile" class="header__nav-link">Profile</a>
-        <a href="/price/" class="header__nav-link">Price</a>
-        <a href="/journal/" class="header__nav-link">Blog</a>
-        <a href="/#voice" class="header__nav-link">Voice</a>
-        <a href="/#faq" class="header__nav-link">FAQ</a>
-        <a href="/contact/" class="header__cta">お問合せ</a>
-      </nav>
-      <button class="header__hamburger" aria-label="メニューを開く" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <nav class="mobile-nav" aria-label="モバイルナビゲーション">
-    <a href="/#introduction" class="mobile-nav__link">Concept</a>
-    <a href="/method/" class="mobile-nav__link">Method</a>
-    <a href="/#profile" class="mobile-nav__link">Profile</a>
-    <a href="/price/" class="mobile-nav__link">Price</a>
-    <a href="/journal/" class="mobile-nav__link">Blog</a>
-    <a href="/#voice" class="mobile-nav__link">Voice</a>
-    <a href="/#faq" class="mobile-nav__link">FAQ</a>
-    <a href="/contact/" class="mobile-nav__link">Contact</a>
-  </nav>
-
-  <main>
-
-    <!-- PAGE HERO -->
-    <section class="section" style="padding-top: clamp(160px, 20vh, 240px);" aria-label="ジャーナル">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="section-header__label">Journal</p>
-          <h1 class="t-h2 t-serif">Journal</h1>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="/"><img src="../kanasa_logo_yoko.png" alt="KANASA Conditioning Studio" height="56"></a>
         </div>
-      </div>
-    </section>
-
-    <!-- ARTICLE GRID -->
-    <section class="section" aria-label="記事一覧">
-      <div class="container">
-        <div class="journal__grid reveal-stagger">
-
-          <article class="journal-card" data-journal="article-1">
-            <div class="journal-card__img">
-              <img src="../slide_2.jpg" alt="" role="presentation" width="600" height="375" loading="lazy">
-            </div>
-            <div class="journal-card__content">
-              <div class="journal-card__meta">
-                <span class="journal-card__category">Body / Conditioning</span>
-                <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-              </div>
-              <h2 class="journal-card__title">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h2>
-            </div>
-          </article>
-
-          <article class="journal-card" data-journal="article-2">
-            <div class="journal-card__img">
-              <img src="../slide_3.jpg" alt="" role="presentation" width="600" height="375" loading="lazy">
-            </div>
-            <div class="journal-card__content">
-              <div class="journal-card__meta">
-                <span class="journal-card__category">Rest / Recovery</span>
-                <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-              </div>
-              <h2 class="journal-card__title">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h2>
-            </div>
-          </article>
-
-          <article class="journal-card" data-journal="article-3">
-            <div class="journal-card__img">
-              <img src="../profile_2.jpg" alt="" role="presentation" width="600" height="375" loading="lazy">
-            </div>
-            <div class="journal-card__content">
-              <div class="journal-card__meta">
-                <span class="journal-card__category">Soul / Philosophy</span>
-                <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-              </div>
-              <h2 class="journal-card__title">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h2>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ================================================================
-       ARTICLE MODALS (full text)
-       ================================================================ -->
-
-  <!-- ARTICLE 1 -->
-  <div id="article-1" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：身体は経営資源である">
-    <button class="journal-modal__close" aria-label="記事を閉じる">Close</button>
-    <div class="journal-modal__inner">
-      <div class="journal-card__meta" style="margin-bottom: 24px;">
-        <span class="journal-card__category">Body / Conditioning</span>
-        <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-      </div>
-      <h2 style="font-size: clamp(20px, 4vw, 32px); font-weight: 600; line-height: 1.6; margin-bottom: var(--space-block);">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h2>
-
-      <div class="journal-modal__article">
-        <p>「忙しいから、ジムはまた今度」という言葉を、月に何度か耳にします。そのたびに、少し心が痛くなります。後回しにしているのが、実は仕事そのものを支える土台かもしれないから、です。</p>
-
-        <h2>疲労が「判断コスト」を上げる、という話</h2>
-        <p>Nature Neuroscience誌に掲載されたWiehler et al.の研究で、長時間の認知労働によって前頭前皮質にグルタミン酸が蓄積し、意思決定にかかる「コスト」が上昇するというものでした。</p>
-        <p>会議の後半に「早く終わらせたい」という気持ちが判断を引っ張っていく感覚、覚えがある方も多いのではないでしょうか。あれは気合の問題ではなく、脳の状態が変わっているせいかもしれません。</p>
-        <p>身体を整えることは、思考のインフラを整えることではないか、と私は感じています。</p>
-
-        <h2>可動域の制限が、集中力を奪うことがある</h2>
-        <p>胸椎の可動域制限と、デスクワーク由来の慢性的な頸部緊張。このふたつが重なると、交感神経が優位な状態が続きやすくなります。</p>
-        <p>いわゆる「頭が休まらない」状態に近いもので、反射的な判断が増え、腰を据えて考える時間が短くなりやすいんです。厄介なのは、本人がなかなか気づきにくいことです。</p>
-        <p>セッション中に胸椎を整えると「頭がスッキリした」とおっしゃる方が多いのですが、身体と思考のつながりは、いつも改めて実感させられます。</p>
-
-        <h2>SOAPで「身体の状態」を記録する理由</h2>
-        <p>初回のセッションでは、SOAP（主観的評価・客観的評価・評価・計画）を使って身体の状態を記録しています。その後のセッションでも、トレーニング前に必ず実際に触れて、その日の筋肉の硬さや可動域をチェックすることを欠かしません。</p>
-        <p>月に一度、決算書を確認するように、身体の状態を数値で読む習慣があると、変化に早く気づけます。「なんとなく疲れている気がする」という感覚は、指標がないとなかなか改善につながりにくいんですよね。</p>
-        <p>身体に投資することは、意思決定の精度に投資することでもあると、私は思っています。</p>
-      </div>
-
-      <div class="journal-modal__summary">
-        <p class="journal-modal__summary-title">Summary</p>
-        <ul>
-          <li>長時間の認知労働は前頭前皮質にグルタミン酸を蓄積させ、意思決定コストを高める可能性がある（Wiehler et al., Nature Neuroscience, 2022）</li>
-          <li>胸椎・頸部の可動域制限は交感神経優位状態を持続させ、集中力に影響を与えやすい</li>
-          <li>初回SOAPと毎セッションの触診チェックが、コンディション管理の起点になる</li>
-          <li>忙しいからこそ、一度立ち止まっていただけたらと思います。</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ARTICLE 2 -->
-  <div id="article-2" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：疲れているのに眠れない">
-    <button class="journal-modal__close" aria-label="記事を閉じる">Close</button>
-    <div class="journal-modal__inner">
-      <div class="journal-card__meta" style="margin-bottom: 24px;">
-        <span class="journal-card__category">Rest / Recovery</span>
-        <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-      </div>
-      <h2 style="font-size: clamp(20px, 4vw, 32px); font-weight: 600; line-height: 1.6; margin-bottom: var(--space-block);">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h2>
-
-      <div class="journal-modal__article">
-        <p>「疲れているのに、なぜか眠れない」という訴えを、月に何度も聞きます。</p>
-        <p>最初は「気のせいかもしれない」とおっしゃっていた方が、身体を整えてみるとあっさり眠れるようになるケースも、少なくありません。今日は、リカバリー（回復）について、少しだけお話しさせてください。</p>
-
-        <h2>プロの現場で感じてきたこと</h2>
-        <p>DeportareやFLUXでプロゴルファーやサッカー選手のトレーニングを担当してきた中で、印象に残ってきたことがあります。「試合直後の90分が翌日を決める」という意識が、プロの現場に共通してありました。</p>
-        <p>その90分で優先されるのは、マッサージよりも神経系のダウンレギュレーション、つまり興奮した神経を落ち着かせることでした。呼吸を使って副交感神経を優位にし、中枢神経系の興奮を段階的に鎮めていく。地味ですが、この積み重ねがパフォーマンスを支えているのだと、現場で感じてきました。</p>
-        <p>疲れた身体を「休める」のではなく、興奮した神経系を「整える」。この違いが、翌日のパフォーマンスを大きく変えることがあります。</p>
-
-        <h2>「眠れない疲労」の背景にあること</h2>
-        <p>慢性的なストレスや緊張が続くと、コルチゾールの日内変動が乱れることがあります。本来、就寝前には下がるはずのコルチゾールが高止まりしていると、なかなか眠れなくなります。</p>
-        <p>Vgontzas et al.（J Clin Endocrinol Metab, 2001）の研究では、慢性不眠のある方において夜間のコルチゾール値が高く、HPA軸の活性化が確認されています。「疲れているのに眠れない」は意志の問題ではなく、身体の状態として起きていることかもしれません。</p>
-        <p>正直に言うと、私自身もベンチプレスの高重量セッション後に同じ経験をしたことがあります。ダウンレギュレーションのプロトコルを覚えるまでは、明け方まで眠れない夜が続いたこともありました。</p>
-
-        <h2>私が大切にしている3つの順序</h2>
-        <p>KANASAでのリカバリーは、順序を大切にしています。</p>
-        <p><strong>STEP 1 — Adjustment（身体調整）</strong>：神経系リセット</p>
-        <p><strong>STEP 2 — Breathing（呼吸）</strong>：副交感神経誘導</p>
-        <p><strong>STEP 3 — Temperature（体温調節）</strong>：深部体温の降下（Nature, 1999：就寝90分前の入浴が深部体温の降下を促進し、入眠潜時を短縮することが示されている）</p>
-        <p>この順序には、私なりの経験と根拠があります。絶対にこの通りでなければ、ということではありませんが、参考にしていただけたらと思います。</p>
-      </div>
-
-      <div class="journal-modal__summary">
-        <p class="journal-modal__summary-title">Summary</p>
-        <ul>
-          <li>疲労回復の起点は、神経系を落ち着かせることにあると考えています</li>
-          <li>慢性不眠にはHPA軸の活性化とコルチゾール高値が関与することがある（Vgontzas et al., J Clin Endocrinol Metab, 2001）</li>
-          <li>身体調整→呼吸→体温調節の順序が、私が経験の中で大切にしているプロトコルです</li>
-          <li>「休む技術も、練習できます」と。</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ARTICLE 3 -->
-  <div id="article-3" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：なぜ住所を公開しないのか">
-    <button class="journal-modal__close" aria-label="記事を閉じる">Close</button>
-    <div class="journal-modal__inner">
-      <div class="journal-card__meta" style="margin-bottom: 24px;">
-        <span class="journal-card__category">Soul / Philosophy</span>
-        <time class="journal-card__date" datetime="2026-04-03">2026.04.03</time>
-      </div>
-      <h2 style="font-size: clamp(20px, 4vw, 32px); font-weight: 600; line-height: 1.6; margin-bottom: var(--space-block);">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h2>
-
-      <div class="journal-modal__article">
-        <p>「なぜ住所を公開しないんですか？」と、初めていらっしゃる方にほぼ必ず聞かれます。</p>
-        <p>そのたびに少し考えてしまうのですが、やはり答えは同じです。誰でも来られる場所にしてしまうと、私が本当にやりたいことができなくなる。それが正直なところです。</p>
-
-        <h2>「KANASA」という名前に込めたこと</h2>
-        <p>KANASAは琉球語で「愛おしいもの」を意味する言葉です。</p>
-        <p>この名前を選んだのは、自分が大切にしたいことを毎日思い出すためでした。目の前のクライアントの身体と人生を、愛おしいものとして向き合いたい。そういう在り方でいたいという気持ちが、そのまま屋号になっています。</p>
-        <p>名前をつけるということは、その名前の重さを毎日引き受けることだと感じています。</p>
-
-        <h2>「ギリギリ心が折れないライン」を見極めること</h2>
-        <p>セッション中、私が最も気にしているのはバーベルの重さではありません。呼吸の乱れ方と、目の動きです。</p>
-        <p>限界に近づいているとき、人は呼吸が止まる前に目線が変わることが多いんです。「ここまでは大丈夫」「ここで止める」という判断を、言葉ではなく身体のサインから読み取ろうとしています。</p>
-        <p>こういった観察は、多くの方を同時に見ている環境ではなかなか難しいと感じています。少人数だからこそ、できることだと思っています。</p>
-
-        <h2>紹介制である、本当の理由</h2>
-        <p>紹介制にしているのは、マーケティングの戦略ではありません。</p>
-        <p>「すでにKANASAを信頼してくださっている方が、同じように信頼して連れてきてくださった方」。そういう関係性が最初からあると、初めてお会いする場でも、少しだけ距離が縮まっているように感じます。</p>
-        <p>その土台があるからこそ、最初のセッションから本音で話せることがある。深い対話ができることがある。そう思って、この仕組みを続けています。</p>
-        <p>人数を増やすより、深さを守る方を選んでいます。それが今の自分には合っていると感じているので。</p>
-      </div>
-
-      <div class="journal-modal__summary">
-        <p class="journal-modal__summary-title">Summary</p>
-        <ul>
-          <li>「KANASA（愛おしきもの）」は、クライアントへの向き合い方を自分に問い続けるための屋号</li>
-          <li>呼吸・目線・表情からリミットを読む観察は、少人数制だからこそ丁寧にできると思っている</li>
-          <li>紹介制は信頼関係のプリセット。深い対話を生むための、私なりの選択</li>
-          <li>「あなたの身体に、真剣に向き合い続ける関係」でありたいと思っています。</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__inner">
-      <div class="footer__top">
-        <div class="footer__logo">
-          <img src="../kanasa_logo_yoko_w.png" alt="KANASA Conditioning Studio" width="200" height="48" loading="lazy">
-        </div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション">
-          <a href="/#introduction" class="footer__nav-link">Concept</a>
-          <a href="/method/" class="footer__nav-link">Method</a>
-          <a href="/#profile" class="footer__nav-link">Profile</a>
-          <a href="/price/" class="footer__nav-link">Price</a>
-          <a href="/journal/" class="footer__nav-link">Blog</a>
-          <a href="/#voice" class="footer__nav-link">Voice</a>
-          <a href="/#faq" class="footer__nav-link">FAQ</a>
-          <a href="/contact/" class="footer__nav-link">Contact</a>
+        <nav aria-label="メインナビゲーション">
+            <ul>
+                <li><a href="/#introduction">CONCEPT</a></li>
+                <li><a href="/method/">METHOD</a></li>
+                <li><a href="/#profile">PROFILE</a></li>
+                <li><a href="/price/">PRICE</a></li>
+                <li><a href="/journal/">BLOG</a></li>
+                <li><a href="/#voice">VOICE</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/contact/" class="cta-btn">お問合せ</a></li>
+            </ul>
         </nav>
-      </div>
-      <p class="footer__tagline">紹介制・会員制・住所非公開</p>
-      <p class="footer__copyright">&copy; 2026 KANASA Conditioning Studio.</p>
-    </div>
-  </footer>
+        <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-label="メニューを開く">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+    <nav class="nav-drawer" id="navDrawer" aria-hidden="true" aria-label="モバイルナビゲーション">
+        <button class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">&#x2715;</button>
+        <ul>
+            <li><a href="/#introduction" class="drawer-link">CONCEPT</a></li>
+            <li><a href="/method/"       class="drawer-link">METHOD</a></li>
+            <li><a href="/#profile"      class="drawer-link">PROFILE</a></li>
+            <li><a href="/price/"        class="drawer-link">PRICE</a></li>
+            <li><a href="/journal/"      class="drawer-link">BLOG</a></li>
+            <li><a href="/#voice"        class="drawer-link">VOICE</a></li>
+            <li><a href="/#faq"          class="drawer-link">FAQ</a></li>
+        </ul>
+        <a href="/contact/" class="cta-btn drawer-link" style="margin-top:auto;">お問合せ</a>
+    </nav>
+
+    <main>
+
+        <!-- Page Hero -->
+        <div class="page-hero reveal">
+            <span class="page-hero-label">Journal</span>
+            <h1 class="page-hero-h1">Journal</h1>
+        </div>
+
+        <!-- Article Grid -->
+        <section class="sub-section" style="padding-top:0;" aria-label="記事一覧">
+            <div class="journal-grid reveal-stagger">
+
+                <article class="journal-card" onclick="openJournal('article-1')" role="button" tabindex="0" aria-label="記事を開く：身体は経営資源である">
+                    <div class="journal-card-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2a3a 0%,#2e3d49 60%,#1a3050 100%);display:flex;align-items:center;justify-content:center;">
+                            <span style="color:rgba(255,255,255,0.1);font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">BODY</span>
+                        </div>
+                    </div>
+                    <div class="journal-card-body">
+                        <span class="journal-card-category">Body / Conditioning</span>
+                        <time class="journal-card-date" datetime="2026-04-03">2026.04.03</time>
+                        <h2 class="journal-card-title">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h2>
+                    </div>
+                </article>
+
+                <article class="journal-card" onclick="openJournal('article-2')" role="button" tabindex="0" aria-label="記事を開く：疲れているのに眠れない">
+                    <div class="journal-card-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2a3a 0%,#1a3a4a 60%,#0d2030 100%);display:flex;align-items:center;justify-content:center;">
+                            <span style="color:rgba(255,255,255,0.1);font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">REST</span>
+                        </div>
+                    </div>
+                    <div class="journal-card-body">
+                        <span class="journal-card-category">Rest / Recovery</span>
+                        <time class="journal-card-date" datetime="2026-04-03">2026.04.03</time>
+                        <h2 class="journal-card-title">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h2>
+                    </div>
+                </article>
+
+                <article class="journal-card" onclick="openJournal('article-3')" role="button" tabindex="0" aria-label="記事を開く：なぜ住所を公開しないのか">
+                    <div class="journal-card-img">
+                        <div style="width:100%;height:100%;background:linear-gradient(135deg,#2a1a0a 0%,#3a2a1a 60%,#1a1205 100%);display:flex;align-items:center;justify-content:center;">
+                            <span style="color:rgba(255,255,255,0.1);font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:0.08em;font-family:'Cinzel',serif;">SOUL</span>
+                        </div>
+                    </div>
+                    <div class="journal-card-body">
+                        <span class="journal-card-category">Soul / Philosophy</span>
+                        <time class="journal-card-date" datetime="2026-04-03">2026.04.03</time>
+                        <h2 class="journal-card-title">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h2>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ARTICLE 1 Modal -->
+    <div id="article-1" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：身体は経営資源である">
+        <div class="journal-modal-inner">
+            <div class="journal-modal-header">
+                <button class="journal-modal-close" onclick="closeJournal('article-1')" aria-label="記事を閉じる">&#x2715;</button>
+                <span style="font-family:var(--font-en);font-size:0.62rem;letter-spacing:0.2em;color:var(--brand-300);text-transform:uppercase;">Body / Conditioning</span>
+                <h2 style="font-size:clamp(1.1rem,3.5vw,1.6rem);font-weight:700;color:var(--white);line-height:1.55;margin-top:14px;">身体は経営資源である。コンディショニングが意思決定の精度を変える理由</h2>
+                <p style="font-size:0.65rem;color:var(--brand-400);margin-top:10px;">2026.04.03 | KANASA Conditioning Studio</p>
+            </div>
+            <div class="journal-modal-body">
+                <p>「忙しいから、ジムはまた今度」という言葉を、月に何度か耳にします。そのたびに、少し心が痛くなります。後回しにしているのが、実は仕事そのものを支える土台かもしれないから、です。</p>
+                <h2>疲労が「判断コスト」を上げる、という話</h2>
+                <p>Nature Neuroscience誌に掲載されたWiehler et al.の研究で、長時間の認知労働によって前頭前皮質にグルタミン酸が蓄積し、意思決定にかかる「コスト」が上昇するというものでした。</p>
+                <p>会議の後半に「早く終わらせたい」という気持ちが判断を引っ張っていく感覚、覚えがある方も多いのではないでしょうか。あれは気合の問題ではなく、脳の状態が変わっているせいかもしれません。</p>
+                <p>身体を整えることは、思考のインフラを整えることではないか、と私は感じています。</p>
+                <h2>可動域の制限が、集中力を奪うことがある</h2>
+                <p>胸椎の可動域制限と、デスクワーク由来の慢性的な頸部緊張。このふたつが重なると、交感神経が優位な状態が続きやすくなります。</p>
+                <p>いわゆる「頭が休まらない」状態に近いもので、反射的な判断が増え、腰を据えて考える時間が短くなりやすいんです。厄介なのは、本人がなかなか気づきにくいことです。</p>
+                <p>セッション中に胸椎を整えると「頭がスッキリした」とおっしゃる方が多いのですが、身体と思考のつながりは、いつも改めて実感させられます。</p>
+                <h2>SOAPで「身体の状態」を記録する理由</h2>
+                <p>初回のセッションでは、SOAP（主観的評価・客観的評価・評価・計画）を使って身体の状態を記録しています。その後のセッションでも、トレーニング前に必ず実際に触れて、その日の筋肉の硬さや可動域をチェックすることを欠かしません。</p>
+                <p>月に一度、決算書を確認するように、身体の状態を数値で読む習慣があると、変化に早く気づけます。「なんとなく疲れている気がする」という感覚は、指標がないとなかなか改善につながりにくいんですよね。</p>
+                <p>身体に投資することは、意思決定の精度に投資することでもあると、私は思っています。</p>
+                <div class="journal-modal-summary">
+                    <span class="journal-modal-summary-label">Summary</span>
+                    <ul>
+                        <li>長時間の認知労働は前頭前皮質にグルタミン酸を蓄積させ、意思決定コストを高める可能性がある（Wiehler et al., Nature Neuroscience, 2022）</li>
+                        <li>胸椎・頸部の可動域制限は交感神経優位状態を持続させ、集中力に影響を与えやすい</li>
+                        <li>初回SOAPと毎セッションの触診チェックが、コンディション管理の起点になる</li>
+                        <li>忙しいからこそ、一度立ち止まっていただけたらと思います。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE 2 Modal -->
+    <div id="article-2" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：疲れているのに眠れない">
+        <div class="journal-modal-inner">
+            <div class="journal-modal-header">
+                <button class="journal-modal-close" onclick="closeJournal('article-2')" aria-label="記事を閉じる">&#x2715;</button>
+                <span style="font-family:var(--font-en);font-size:0.62rem;letter-spacing:0.2em;color:var(--brand-300);text-transform:uppercase;">Rest / Recovery</span>
+                <h2 style="font-size:clamp(1.1rem,3.5vw,1.6rem);font-weight:700;color:var(--white);line-height:1.55;margin-top:14px;">疲れているのに眠れない。神経系から整える「本物のリカバリー」とは何か</h2>
+                <p style="font-size:0.65rem;color:var(--brand-400);margin-top:10px;">2026.04.03 | KANASA Conditioning Studio</p>
+            </div>
+            <div class="journal-modal-body">
+                <p>「疲れているのに、なぜか眠れない」という訴えを、月に何度も聞きます。</p>
+                <p>最初は「気のせいかもしれない」とおっしゃっていた方が、身体を整えてみるとあっさり眠れるようになるケースも、少なくありません。今日は、リカバリー（回復）について、少しだけお話しさせてください。</p>
+                <h2>プロの現場で感じてきたこと</h2>
+                <p>DeportareやFLUXでプロゴルファーやサッカー選手のトレーニングを担当してきた中で、印象に残ってきたことがあります。「試合直後の90分が翌日を決める」という意識が、プロの現場に共通してありました。</p>
+                <p>その90分で優先されるのは、マッサージよりも神経系のダウンレギュレーション、つまり興奮した神経を落ち着かせることでした。呼吸を使って副交感神経を優位にし、中枢神経系の興奮を段階的に鎮めていく。地味ですが、この積み重ねがパフォーマンスを支えているのだと、現場で感じてきました。</p>
+                <p>疲れた身体を「休める」のではなく、興奮した神経系を「整える」。この違いが、翌日のパフォーマンスを大きく変えることがあります。</p>
+                <h2>「眠れない疲労」の背景にあること</h2>
+                <p>慢性的なストレスや緊張が続くと、コルチゾールの日内変動が乱れることがあります。本来、就寝前には下がるはずのコルチゾールが高止まりしていると、なかなか眠れなくなります。</p>
+                <p>Vgontzas et al.（J Clin Endocrinol Metab, 2001）の研究では、慢性不眠のある方において夜間のコルチゾール値が高く、HPA軸の活性化が確認されています。「疲れているのに眠れない」は意志の問題ではなく、身体の状態として起きていることかもしれません。</p>
+                <p>正直に言うと、私自身もベンチプレスの高重量セッション後に同じ経験をしたことがあります。ダウンレギュレーションのプロトコルを覚えるまでは、明け方まで眠れない夜が続いたこともありました。</p>
+                <h2>私が大切にしている3つの順序</h2>
+                <p>KANASAでのリカバリーは、順序を大切にしています。</p>
+                <p><strong>STEP 1 — Adjustment（身体調整）</strong>：神経系リセット</p>
+                <p><strong>STEP 2 — Breathing（呼吸）</strong>：副交感神経誘導</p>
+                <p><strong>STEP 3 — Temperature（体温調節）</strong>：深部体温の降下（Nature, 1999：就寝90分前の入浴が深部体温の降下を促進し、入眠潜時を短縮することが示されている）</p>
+                <p>この順序には、私なりの経験と根拠があります。絶対にこの通りでなければ、ということではありませんが、参考にしていただけたらと思います。</p>
+                <div class="journal-modal-summary">
+                    <span class="journal-modal-summary-label">Summary</span>
+                    <ul>
+                        <li>疲労回復の起点は、神経系を落ち着かせることにあると考えています</li>
+                        <li>慢性不眠にはHPA軸の活性化とコルチゾール高値が関与することがある（Vgontzas et al., J Clin Endocrinol Metab, 2001）</li>
+                        <li>身体調整→呼吸→体温調節の順序が、私が経験の中で大切にしているプロトコルです</li>
+                        <li>「休む技術も、練習できます」と。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARTICLE 3 Modal -->
+    <div id="article-3" class="journal-modal" role="dialog" aria-modal="true" aria-label="記事：なぜ住所を公開しないのか">
+        <div class="journal-modal-inner">
+            <div class="journal-modal-header">
+                <button class="journal-modal-close" onclick="closeJournal('article-3')" aria-label="記事を閉じる">&#x2715;</button>
+                <span style="font-family:var(--font-en);font-size:0.62rem;letter-spacing:0.2em;color:var(--brand-300);text-transform:uppercase;">Soul / Philosophy</span>
+                <h2 style="font-size:clamp(1.1rem,3.5vw,1.6rem);font-weight:700;color:var(--white);line-height:1.55;margin-top:14px;">なぜ、住所を公開しないのか。「KANASA（愛おしきもの）」に込めた、伴走者としての覚悟</h2>
+                <p style="font-size:0.65rem;color:var(--brand-400);margin-top:10px;">2026.04.03 | KANASA Conditioning Studio</p>
+            </div>
+            <div class="journal-modal-body">
+                <p>「なぜ住所を公開しないんですか？」と、初めていらっしゃる方にほぼ必ず聞かれます。</p>
+                <p>そのたびに少し考えてしまうのですが、やはり答えは同じです。誰でも来られる場所にしてしまうと、私が本当にやりたいことができなくなる。それが正直なところです。</p>
+                <h2>「KANASA」という名前に込めたこと</h2>
+                <p>KANASAは琉球語で「愛おしいもの」を意味する言葉です。</p>
+                <p>この名前を選んだのは、自分が大切にしたいことを毎日思い出すためでした。目の前のクライアントの身体と人生を、愛おしいものとして向き合いたい。そういう在り方でいたいという気持ちが、そのまま屋号になっています。</p>
+                <p>名前をつけるということは、その名前の重さを毎日引き受けることだと感じています。</p>
+                <h2>「ギリギリ心が折れないライン」を見極めること</h2>
+                <p>セッション中、私が最も気にしているのはバーベルの重さではありません。呼吸の乱れ方と、目の動きです。</p>
+                <p>限界に近づいているとき、人は呼吸が止まる前に目線が変わることが多いんです。「ここまでは大丈夫」「ここで止める」という判断を、言葉ではなく身体のサインから読み取ろうとしています。</p>
+                <p>こういった観察は、多くの方を同時に見ている環境ではなかなか難しいと感じています。少人数だからこそ、できることだと思っています。</p>
+                <h2>紹介制である、本当の理由</h2>
+                <p>紹介制にしているのは、マーケティングの戦略ではありません。</p>
+                <p>「すでにKANASAを信頼してくださっている方が、同じように信頼して連れてきてくださった方」。そういう関係性が最初からあると、初めてお会いする場でも、少しだけ距離が縮まっているように感じます。</p>
+                <p>その土台があるからこそ、最初のセッションから本音で話せることがある。深い対話ができることがある。そう思って、この仕組みを続けています。</p>
+                <p>人数を増やすより、深さを守る方を選んでいます。それが今の自分には合っていると感じているので。</p>
+                <div class="journal-modal-summary">
+                    <span class="journal-modal-summary-label">Summary</span>
+                    <ul>
+                        <li>「KANASA（愛おしきもの）」は、クライアントへの向き合い方を自分に問い続けるための屋号</li>
+                        <li>呼吸・目線・表情からリミットを読む観察は、少人数制だからこそ丁寧にできると思っている</li>
+                        <li>紹介制は信頼関係のプリセット。深い対話を生むための、私なりの選択</li>
+                        <li>「あなたの身体に、真剣に向き合い続ける関係」でありたいと思っています。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <nav class="footer-nav">
+            <a href="/#introduction">CONCEPT</a>
+            <a href="/method/">METHOD</a>
+            <a href="/#profile">PROFILE</a>
+            <a href="/price/">PRICE</a>
+            <a href="/journal/">BLOG</a>
+            <a href="/#voice">VOICE</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/contact/">CONTACT</a>
+        </nav>
+        <div class="footer-logo">
+            <img src="../kanasa_logo_yoko_w.png" alt="KANASA Conditioning Studio" loading="lazy">
+        </div>
+        <div class="footer-tagline">紹介制・会員制・住所非公開</div>
+        <p class="copyright">&copy; 2026 KANASA Conditioning Studio.</p>
+    </footer>
+
+    <script src="../assets/js/motion.js"></script>
+    <script>
+    function openJournal(id) {
+        var modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    function closeJournal(id) {
+        var modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+    }
+    document.querySelectorAll('.journal-modal').forEach(function(modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeJournal(modal.id);
+        });
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.journal-modal.is-open').forEach(function(m) {
+                closeJournal(m.id);
+            });
+        }
+    });
+    </script>
 </body>
 </html>

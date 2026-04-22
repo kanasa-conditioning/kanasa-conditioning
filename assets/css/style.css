@@ -28,9 +28,9 @@
              'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
 
   /* Fluid Typography */
-  --fs-display: clamp(2.5rem, 7vw, 6rem);
-  --fs-h1:      clamp(1.8rem, 5.5vw, 3.4rem);
-  --fs-h2:      clamp(1.4rem, 4vw, 2.4rem);
+  --fs-display: clamp(3.2rem, 9vw, 8rem);
+  --fs-h1:      clamp(2.4rem, 7vw, 5rem);
+  --fs-h2:      clamp(1.75rem, 5vw, 3.2rem);
   --fs-h3:      clamp(0.95rem, 2.5vw, 1.15rem);
   --fs-body:    clamp(0.84rem, 2.4vw, 1.02rem);
   --fs-small:   clamp(0.78rem, 2vw, 0.9rem);
@@ -42,7 +42,7 @@
   --fw-bold:   700;
 
   /* Spacing — fluid */
-  --space-section: clamp(5rem, 12vw, 10rem);
+  --space-section: clamp(6rem, 14vw, 12rem);
   --space-block:   clamp(2.5rem, 6vw, 5rem);
   --space-element: clamp(1rem, 2vw, 1.5rem);
   --space-inline:  clamp(1.25rem, 4vw, 3rem);
@@ -176,6 +176,41 @@ ul, ol { list-style: none; }
 
 .lx-section--pale { background: var(--brand-50); }
 
+/* Dark section — full-viewport-width bg via pseudo-element */
+.lx-section--dark {
+  position: relative;
+  z-index: 0;
+}
+.lx-section--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background: var(--brand-900);
+  z-index: -1;
+  pointer-events: none;
+}
+.lx-section--dark .lx-label            { color: var(--brand-300); }
+.lx-section--dark .lx-h1,
+.lx-section--dark .lx-h2,
+.lx-section--dark .lx-h3              { color: var(--white); }
+.lx-section--dark .lx-body,
+.lx-section--dark .lx-body p          { color: var(--brand-200); }
+.lx-section--dark .lx-rule            { background: var(--brand-500); }
+.lx-section--dark .statement-lines p  { color: var(--brand-200); }
+.lx-section--dark .statement-closing  { color: var(--brand-200); }
+.lx-section--dark .readmore-btn       { color: var(--brand-300); border-color: var(--brand-600); }
+
+/* Section-dark: for full-width sections (blog, etc.) */
+.section-dark {
+  background: var(--brand-900) !important;
+}
+.section-dark .section-title h2    { color: var(--white); }
+.section-dark .lx-label            { color: var(--brand-300); }
+.section-dark .blog-more a         { color: var(--brand-300); }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -218,11 +253,11 @@ ul, ol { list-style: none; }
   font-family: var(--font-jp);
   font-size: var(--fs-h2);
   font-weight: var(--fw-bold);
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: var(--tracking-wide);
   color: var(--brand-900);
-  margin-top: clamp(16px, 3vw, 32px);
-  margin-bottom: clamp(36px, 6vw, 60px);
+  margin-top: clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(44px, 8vw, 80px);
 }
 
 .lx-h3 {
@@ -1489,4 +1524,447 @@ footer .footer-nav a:hover {
   header, .hero-scroll, .hamburger, .nav-drawer, .nav-overlay { display: none; }
   body { color: #000; background: #fff; }
   .lx-section { padding-block: 40px; }
+}
+
+
+/* ── §24 Sub-pages ── */
+
+/* Page Hero */
+.page-hero {
+  padding-top: clamp(120px, 18vh, 200px);
+  padding-bottom: var(--space-section);
+  padding-inline: var(--gutter);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-hero-label {
+  font-family: var(--font-en);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.25em;
+  color: var(--brand-600);
+  text-transform: uppercase;
+  margin-bottom: clamp(16px, 3vw, 28px);
+  display: block;
+}
+
+.page-hero-h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  color: var(--brand-900);
+  word-break: keep-all;
+}
+
+/* CTA link button */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+  color: var(--white);
+  background: var(--brand-900);
+  border: 1px solid var(--brand-900);
+  min-height: 44px;
+  transition: all var(--dur-fast) var(--ease-expo);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-link:hover {
+    background: transparent;
+    color: var(--brand-900);
+    opacity: 1;
+  }
+}
+
+/* Sub-page section */
+.sub-section {
+  padding: var(--space-section) var(--gutter);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sub-section--full {
+  max-width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.sub-section--pale { background: var(--brand-50); }
+
+.sub-section-label {
+  font-family: var(--font-en);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.25em;
+  color: var(--brand-600);
+  text-transform: uppercase;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  display: block;
+}
+
+.sub-section-h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  color: var(--brand-900);
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+/* Journal page */
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.journal-card {
+  background: var(--white);
+  border: 1px solid var(--brand-100);
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-expo),
+              box-shadow var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .journal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(46,61,73,0.1);
+    opacity: 1;
+  }
+}
+
+.journal-card-img {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  position: relative;
+}
+
+.journal-card-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .journal-card:hover .journal-card-img img { transform: scale(1.03); }
+}
+
+.journal-card-body { padding: 24px; }
+
+.journal-card-category {
+  font-family: var(--font-en);
+  font-size: 0.6rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  color: var(--brand-500);
+  text-transform: uppercase;
+}
+
+.journal-card-date {
+  font-family: var(--font-en);
+  font-size: 0.6rem;
+  color: var(--brand-400);
+  letter-spacing: 0.06em;
+  margin-left: 12px;
+}
+
+.journal-card-title {
+  font-size: clamp(0.82rem, 2vw, 0.94rem);
+  font-weight: 600;
+  color: var(--brand-900);
+  line-height: 1.75;
+  margin-top: 12px;
+}
+
+/* Journal Modal */
+.journal-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,20,30,0.75);
+  z-index: 9999;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 40px 16px;
+}
+
+.journal-modal.is-open { display: flex; }
+
+.journal-modal-inner {
+  background: var(--white);
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.journal-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: var(--white);
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.journal-modal-header {
+  padding: clamp(40px, 8vw, 72px) clamp(24px, 5vw, 48px) clamp(28px, 5vw, 40px);
+  background: var(--brand-900);
+}
+
+.journal-modal-body {
+  padding: clamp(32px, 5vw, 48px) clamp(24px, 5vw, 48px) 56px;
+  color: var(--brand-900);
+  line-height: var(--leading-loose);
+}
+
+.journal-modal-body p { margin-bottom: 1.5em; font-size: var(--fs-body); }
+
+.journal-modal-body h2 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin: 2.4em 0 0.8em;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.journal-modal-summary {
+  background: var(--brand-50);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-top: 2em;
+}
+
+.journal-modal-summary-label {
+  font-family: var(--font-en);
+  font-size: 0.65rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+  color: var(--brand-600);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.journal-modal-summary ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: var(--fs-small);
+  line-height: 2.0;
+  color: var(--brand-900);
+}
+
+/* SOAP grid (sub-pages) */
+.soap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 20px);
+  margin-top: clamp(36px, 6vw, 60px);
+}
+
+.soap-card {
+  border: 1px solid var(--brand-100);
+  padding: clamp(20px, 3vw, 32px) clamp(16px, 2.5vw, 24px);
+  background: var(--white);
+  border-radius: 4px;
+}
+
+.soap-letter {
+  font-family: var(--font-en);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: var(--fw-bold);
+  color: var(--brand-200);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.soap-card-title {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.1em;
+  color: var(--brand-600);
+  margin-bottom: 8px;
+}
+
+.soap-card-sub {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--brand-900);
+  margin-bottom: 8px;
+}
+
+.soap-card-desc {
+  font-size: var(--fs-small);
+  color: var(--brand-500);
+  line-height: 1.85;
+}
+
+/* Price cards (sub-pages) */
+.price-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+  margin-top: clamp(36px, 6vw, 60px);
+}
+
+.price-card {
+  border: 1px solid var(--brand-100);
+  padding: clamp(24px, 4vw, 40px) clamp(20px, 3vw, 32px);
+  background: var(--white);
+  text-align: center;
+  border-radius: 4px;
+  transition: transform var(--dur-fast) var(--ease-expo),
+              box-shadow var(--dur-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(46,61,73,0.1);
+  }
+}
+
+.price-card-name {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.18em;
+  color: var(--brand-500);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.price-card-price {
+  font-family: var(--font-en);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: var(--fw-bold);
+  color: var(--brand-900);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.price-card-detail {
+  font-size: var(--fs-small);
+  color: var(--brand-500);
+  margin-bottom: 4px;
+}
+
+.price-card-duration {
+  font-size: var(--fs-small);
+  color: var(--brand-400);
+}
+
+/* Options list */
+.price-options {
+  max-width: 600px;
+  margin-top: clamp(36px, 6vw, 60px);
+}
+
+.price-option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--brand-100);
+  font-size: var(--fs-small);
+}
+
+.price-option-name { color: var(--brand-900); }
+.price-option-price { color: var(--brand-900); font-weight: 600; }
+
+/* Flow steps (program page) */
+.flow-steps {
+  max-width: 560px;
+  margin: clamp(40px, 6vw, 64px) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--brand-100);
+}
+
+.flow-step:last-child { border-bottom: none; }
+
+.flow-step-num {
+  font-family: var(--font-en);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: var(--fw-bold);
+  color: var(--brand-200);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.flow-step-name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--brand-900);
+  letter-spacing: 0.06em;
+}
+
+/* Contact sub-page */
+.contact-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.contact-intro {
+  font-size: var(--fs-body);
+  line-height: var(--leading-loose);
+  color: var(--brand-500);
+  margin-bottom: clamp(36px, 6vw, 60px);
+}
+
+/* Responsive sub-pages */
+@media (max-width: 768px) {
+  .journal-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
+  .soap-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-plans { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .soap-grid { grid-template-columns: 1fr; }
+  .price-plans { grid-template-columns: 1fr; }
+}
+
+/* lx-h2 mobile override for sub-pages */
+@media (max-width: 768px) {
+  .sub-section-h2 { font-size: clamp(1.4rem, 4vw, 2rem); }
 }
