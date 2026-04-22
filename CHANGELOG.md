@@ -272,8 +272,56 @@
 - [x] セクション順序 1〜13 番で記録
 - [x] 参照サイト（newans.jp）観察・翻訳選定 記録
 
-**→ Phase 1 承認待ち**
+**→ Phase 1a 完了・Phase 1b 承認待ち**
 
 ---
 
-*変更ログは Phase 1 以降に追記*
+## ✅ Phase 1a — ヒーロー左右分割 & セクションタイトル パターンB化
+
+**実施日**: 2026-04-22  
+**変更ファイル**: `index.html`, `assets/css/style.css`
+
+### 🖼️ Hero — パターンA（左右分割）実装
+- `.hero` を `display: grid; grid-template-columns: 1fr 1fr` に変更
+- 左パネル `.hero__text`：副題・h1・リード・SCROLLインジケーターを縦中央配置
+- 右パネル `.hero__image.hero-slideshow`：スライド写真が `height: 100svh; object-fit: cover` でフル表示
+- GSAP/スライドショーJS は `.hero-slideshow` クラスを維持して無変更
+- SP（≤768px）：1列グリッドに戻し、右パネルは `height: 60svh`
+
+### 🅱️ セクションタイトル — パターンB（英語大＋日本語小）実装
+全11セクションのタイトルを統一フォーマットに変換：
+
+| セクション | 変換前 | 変換後 |
+|---|---|---|
+| Introduction | `lx-label` + `lx-h2` | `section-title` (Introduction / コンセプト) |
+| Brand Statement | `lx-label` + `lx-h2` | `section-title` (Statement / ブランドステートメント) |
+| Method | `lx-label` + `lx-h2` | `section-title` (Method / メソッド) |
+| Profile | `lx-label` + `lx-h2` | `section-title` (Profile / プロフィール) |
+| Flow/SOAP | `section-heading-bar` | `section-title` (Flow / ご入会までの流れ) |
+| Philosophy | `lx-label` + `lx-h2` | `section-title` (Philosophy / 理念) |
+| Price | `section-title > h2` | `section-title` (Price / 料金プラン) |
+| Blog | `section-title > h2` | `section-title` (Blog / ブログ) |
+| Voice | `lx-label` + `lx-h2` | `section-title` (Voice / お客様の声) |
+| FAQ | `lx-label` + `h2` | `section-title` (FAQ / よくある質問) |
+| Contact | `section-heading-bar` | `section-title` (Contact / お問合せ) |
+
+**CSS追加クラス**：
+- `.section-title`：`display: flex; align-items: baseline; border-bottom: 1px solid var(--brand-200)`
+- `.section-title__en`：`clamp(2rem, 5vw, 3.5rem)` Cinzel
+- `.section-title__ja`：`var(--fs-body)` brand-600
+
+**ダークセクション対応**：
+- `.lx-section--dark`（Brand Statement・Philosophy）：白テキスト + brand-600 ボーダー
+- `.section-dark`（Blog）：白テキスト + brand-700 ボーダー
+
+### ✅ セルフチェック
+- [x] 参照画像 02_concept.png のレイアウトパターンを再現
+- [x] `#586b7a` 以外の色を導入していない
+- [x] キャッチコピーは一字一句保持
+- [x] FormSubmit の form 属性は無傷
+- [x] スライドショーJS は `.hero-slideshow` クラスで継続動作
+- [x] SP 768px 以下で1列グリッドに切り替え
+
+---
+
+*Phase 1b（価格カード化）承認待ち*

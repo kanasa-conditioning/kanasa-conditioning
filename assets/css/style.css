@@ -474,36 +474,28 @@ nav ul li a:hover { opacity: 1; }
 }
 
 
-/* ── §6 HERO ── */
+/* ── §6 HERO — Pattern A: Left/Right Split ── */
 .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   min-height: 100svh;
-  min-height: 100dvh;
+  gap: 0;
+  position: relative;
+  background: var(--white);
+}
+
+.hero__text {
+  padding: clamp(6rem, 12vw, 8rem) clamp(2rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 5%;
-  position: relative;
-  background: linear-gradient(175deg, #f5f3f0 0%, var(--white) 55%);
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, var(--white));
-  pointer-events: none;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
 }
 
 .hero-sub {
   font-size: clamp(0.72rem, 2vw, 0.88rem);
   letter-spacing: var(--tracking-wider);
   color: var(--brand-500);
-  margin-top: clamp(20px, 3vw, 36px);
   line-height: var(--leading-base);
 }
 
@@ -515,34 +507,29 @@ nav ul li a:hover { opacity: 1; }
   letter-spacing: 0.12em;
   color: var(--brand-900);
   word-break: keep-all;
-  margin-top: clamp(12px, 2vw, 20px);
+  margin-top: clamp(4px, 1vw, 12px);
 }
 
 .hero-lead {
   font-size: clamp(0.95rem, 2.5vw, 1.15rem);
   color: var(--brand-900);
   letter-spacing: 0.1em;
-  margin-top: clamp(28px, 4vw, 52px);
+  margin-top: clamp(12px, 2vw, 24px);
   line-height: 2.0;
   font-weight: var(--fw-medium);
 }
 
-/* Hero Slideshow */
-.hero-slideshow {
+/* Hero Image Panel */
+.hero__image {
   position: relative;
-  width: 100%;
-  max-width: 720px;
-  margin: clamp(40px, 6vw, 72px) auto 0;
-  aspect-ratio: 16 / 9;
+  height: 100svh;
   overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 8px 40px rgba(46,61,73,0.12);
 }
 
+/* Hero Slideshow — images fill the right panel */
 .hero-slideshow img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -553,10 +540,9 @@ nav ul li a:hover { opacity: 1; }
 .hero-slideshow img.slide-active { opacity: 1; }
 
 .hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  align-self: flex-start;
   font-family: var(--font-en);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
@@ -570,7 +556,7 @@ nav ul li a:hover { opacity: 1; }
   width: 1px;
   height: 40px;
   background: var(--brand-500);
-  margin: 12px auto 0;
+  margin: 12px 0 0;
   opacity: 0.3;
   animation: scrollLine 2s ease-in-out infinite;
 }
@@ -882,13 +868,41 @@ nav ul li a:hover { opacity: 1; }
 
 
 /* ── §14 BLOG ── */
-.section-title h2 {
-  font-family: var(--font-en);
-  font-size: 1.6rem;
-  font-weight: var(--fw-bold);
-  color: var(--brand-900);
-  letter-spacing: var(--tracking-wider);
+
+/* Pattern B: Section Title (English large + Japanese small + border) */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--brand-200);
+  margin-bottom: clamp(3rem, 8vw, 6rem);
 }
+
+.section-title__en {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-family: var(--font-en);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+  color: var(--brand-900);
+  line-height: 1;
+}
+
+.section-title__ja {
+  font-size: var(--fs-body);
+  color: var(--brand-600);
+  letter-spacing: 0.1em;
+}
+
+/* Dark section overrides */
+.lx-section--dark .section-title { border-bottom-color: var(--brand-600); }
+.lx-section--dark .section-title__en { color: var(--white); }
+.lx-section--dark .section-title__ja { color: var(--brand-300); }
+
+/* Dark full-width section (blog) overrides */
+.section-dark .section-title { border-bottom-color: var(--brand-700); }
+.section-dark .section-title__en { color: var(--white); }
+.section-dark .section-title__ja { color: var(--brand-400); }
 
 .blog-grid {
   display: grid;
@@ -1445,6 +1459,22 @@ footer .footer-nav a:hover {
 @media (max-width: 768px) {
   .br-sp { display: inline; }
   .br-md { display: none; }
+
+  /* Hero: single column on mobile */
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero__text {
+    padding: clamp(5rem, 14vw, 7rem) 5% clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    align-items: center;
+  }
+  .hero__image {
+    height: 60svh;
+  }
+  .hero-scroll {
+    align-self: center;
+  }
 
   .profile-grid { flex-direction: column; align-items: center; gap: 40px; }
   .profile-photo { width: clamp(200px, 60vw, 280px); }
