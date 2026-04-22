@@ -197,10 +197,10 @@ ul, ol { list-style: none; }
 .lx-section--dark .lx-h2,
 .lx-section--dark .lx-h3              { color: var(--white); }
 .lx-section--dark .lx-body,
-.lx-section--dark .lx-body p          { color: var(--brand-200); }
+.lx-section--dark .lx-body p          { color: var(--white); }
 .lx-section--dark .lx-rule            { background: var(--brand-500); }
-.lx-section--dark .statement-lines p  { color: var(--brand-200); }
-.lx-section--dark .statement-closing  { color: var(--brand-200); }
+.lx-section--dark .statement-lines p  { color: var(--white); }
+.lx-section--dark .statement-closing  { color: var(--white); }
 .lx-section--dark .readmore-btn       { color: var(--brand-300); border-color: var(--brand-600); }
 
 /* Section-dark: for full-width sections (blog, etc.) */
