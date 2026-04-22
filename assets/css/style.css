@@ -1846,6 +1846,7 @@ footer.site-footer {
 
   .method-grid { grid-template-columns: 1fr; }
   .method-grid-wrap { max-width: 420px; margin-left: auto; margin-right: auto; }
+  .method-line-bar { display: none; }
   .price-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .voice-grid { grid-template-columns: 1fr; gap: 20px; }
