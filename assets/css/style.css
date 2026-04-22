@@ -1862,9 +1862,33 @@ footer.site-footer {
   .method-vline__dot:nth-child(4) { top: 62.5%; }
   .method-vline__dot:nth-child(5) { top: 87.5%; }
   .flow-timeline { position: relative; grid-template-columns: 24px 1fr; }
-  .flow-arrow { position: absolute; grid-column: auto; grid-row: auto; left: 0; top: 0; bottom: 0; width: 40px; height: auto; z-index: 1; }
+  .flow-arrow { display: none; }
   .flow-step__number { position: relative; z-index: 2; background: rgba(255, 255, 255, 0.9); border-radius: 2px; padding-left: 0; }
   .flow-timeline > .flow-step__content { padding-left: 40px; }
+  .flow-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: #586b7a;
+    animation: flowLineGrow 2.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .flow-timeline::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #586b7a;
+  }
+  @keyframes flowLineGrow {
+    to { height: 100%; }
+  }
 
   .price-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
