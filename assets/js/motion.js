@@ -360,6 +360,56 @@
     });
   }
 
+  /* ── 12. Flow Arrow SVG Draw ────────────────────────────────── */
+  function initFlowArrow() {
+    var svg  = document.querySelector('.flow-arrow');
+    var path = svg && svg.querySelector('.flow-arrow__path');
+    if (!svg || !path) return;
+
+    /* Read rendered height after layout */
+    var h = svg.getBoundingClientRect().height || 400;
+    var cx       = 20;   /* centre of 40px column */
+    var headSize = 7;
+    var tipY     = h - 4;
+    /* Combined path: shaft then arrowhead chevron */
+    var d =
+      'M ' + cx + ' 0 L ' + cx + ' ' + (tipY - headSize) +
+      ' M ' + (cx - headSize) + ' ' + (tipY - headSize) +
+      ' L ' + cx + ' ' + tipY +
+      ' L ' + (cx + headSize) + ' ' + (tipY - headSize);
+    path.setAttribute('d', d);
+
+    var len = path.getTotalLength();
+    path.style.strokeDasharray  = len;
+    path.style.strokeDashoffset = len;
+
+    if (prefersReduced) {
+      path.style.strokeDashoffset = 0;
+      return;
+    }
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.create({
+        trigger: svg.closest('.flow-timeline'),
+        start: 'top 80%',
+        once: true,
+        onEnter: function () {
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 1.2,
+            ease: 'expo.out'
+          });
+        }
+      });
+    } else {
+      /* CSS fallback when GSAP unavailable */
+      path.style.transition = 'stroke-dashoffset 1200ms cubic-bezier(0.16, 1, 0.3, 1)';
+      requestAnimationFrame(function () {
+        path.style.strokeDashoffset = 0;
+      });
+    }
+  }
+
   /* ── Boot ───────────────────────────────────────────────────── */
   function boot() {
     if (prefersReduced) {
@@ -389,6 +439,7 @@
     initReadMore();
     initContactForm();
     initCursorHover();
+    initFlowArrow();
   }
 
   if (document.readyState === 'loading') {
