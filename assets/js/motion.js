@@ -458,6 +458,57 @@
     }
   }
 
+  /* ── 14. Method Vertical Line (SP) ────────────────────────── */
+  function initMethodVLine() {
+    if (!window.matchMedia('(max-width: 768px)').matches) return;
+
+    var bar  = document.querySelector('.method-vline-bar');
+    var line = bar && bar.querySelector('.method-vline__shaft');
+    if (!bar || !line) return;
+
+    var h = bar.getBoundingClientRect().height || 800;
+    line.setAttribute('y2', h);
+
+    line.style.strokeDasharray  = h;
+    line.style.strokeDashoffset = h;
+
+    var dots = bar.querySelectorAll('.method-vline__dot');
+
+    if (prefersReduced) {
+      line.style.strokeDashoffset = 0;
+      dots.forEach(function (d) { d.style.opacity = '1'; });
+      return;
+    }
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.create({
+        trigger: bar.closest('.method-grid-wrap'),
+        start: 'top 85%',
+        once: true,
+        onEnter: function () {
+          gsap.to(line, {
+            strokeDashoffset: 0,
+            duration: 2.0,
+            ease: 'expo.out'
+          });
+          gsap.to(dots, {
+            opacity: 1,
+            duration: 0.35,
+            stagger: 0.4,
+            delay: 0.1
+          });
+        }
+      });
+    } else {
+      line.style.transition = 'stroke-dashoffset 2000ms cubic-bezier(0.16, 1, 0.3, 1)';
+      requestAnimationFrame(function () { line.style.strokeDashoffset = 0; });
+      dots.forEach(function (d, i) {
+        d.style.transition = 'opacity 350ms ' + (100 + i * 400) + 'ms ease';
+        requestAnimationFrame(function () { d.style.opacity = '1'; });
+      });
+    }
+  }
+
   /* ── Boot ───────────────────────────────────────────────────── */
   function boot() {
     if (prefersReduced) {
@@ -489,6 +540,7 @@
     initCursorHover();
     initFlowArrow();
     initMethodLine();
+    initMethodVLine();
   }
 
   if (document.readyState === 'loading') {
