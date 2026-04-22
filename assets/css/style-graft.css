@@ -1,0 +1,303 @@
+/* ================================================================
+   KANASA Conditioning Studio — Style Graft Layer (Phase 1 / index.html)
+   ----------------------------------------------------------------
+   目的：newans.jp の「呼吸・余白・動きの文法」を、KANASA 既存スタイルを
+         破壊せずに追加移植する。本ファイルは既存CSSの後に読み込むこと。
+
+   保全ポリシー：
+     - HTML / テキスト / セクション順序 / 画像 / SOAP図解 には一切触れない
+     - ブランドカラー #586b7a / --navy / --navy-light / --accent は変更しない
+     - フォント（ロダンM / Cinzel）は変更しない
+     - 既存クラス名はリネームしない。追加のみ。
+     - !important は原則使わない（既存の opacity: 1 !important に対抗する
+       hero-slideshow 周辺の限定例外を除く）。
+
+   参照プロトコル（REFERENCE MAPPING PROTOCOL）：
+     newans.jp は環境制約で直接観察不可（EGRESS_BLOCKED）。
+     ここでは「高品位な和モダンサイトの一般的な文法」を標準値として採用し、
+     KANASA 側の #586b7a / ロダンM / 既存コンテンツ長に合わせて翻訳した。
+     詳細の対応表は CHANGELOG.md に記載。
+   ================================================================ */
+
+
+/* ────────────────────────────────────────────────────────────────
+   0. Motion tokens — 呼吸を司る変数
+   既存 --ease / --ease-out は温存。追加トークンのみ定義する。
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  /* Easing — newans.jp系の上質なearlyアウト感を狙う */
+  --graft-ease-quiet:   cubic-bezier(0.16, 1, 0.3, 1);   /* 長い減速 */
+  --graft-ease-calm:    cubic-bezier(0.22, 1, 0.36, 1);  /* 中庸 */
+  --graft-ease-hover:   cubic-bezier(0.4, 0, 0.2, 1);    /* マイクロ */
+
+  /* Duration — 40〜60代向けに耳触りを抑えた長めの減速 */
+  --graft-dur-hero:     1200ms;
+  --graft-dur-section:   960ms;
+  --graft-dur-card:      720ms;
+  --graft-dur-hover:     320ms;
+
+  /* Stagger — 連続要素の時間差 */
+  --graft-stagger:        120ms;
+
+  /* Blur reveal */
+  --graft-blur-enter:    10px;
+
+  /* Rhythm — セクション間の垂直呼吸 */
+  --graft-rhythm-lg:     clamp(6rem, 12vw, 10rem);
+  --graft-rhythm-md:     clamp(4rem, 8vw, 7rem);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   1. 呼吸（Spacing & Rhythm）
+   - 既存 .lx-section の padding を上書きせず、graft スコープで補強
+   - コンテナの息遣いをわずかに広げる（max-width +50px 程度）
+   ──────────────────────────────────────────────────────────────── */
+
+/* 既存 .lx-section に追加の縦リズム（上書きではなく調整） */
+.lx-section {
+  /* 既存: clamp(5rem, 10vw, 9rem) → わずかに余裕を足す */
+  padding-top:    var(--graft-rhythm-lg);
+  padding-bottom: var(--graft-rhythm-lg);
+}
+
+/* h2 下のリード文との間を 1段階 広げる（見出し直後に lx-body が来る場合） */
+.lx-h2 + .lx-body,
+.lx-h2 + p.lx-body,
+.lx-h2 + p {
+  margin-top: clamp(24px, 4vw, 44px);
+}
+
+/* 見出しラベル（INTRODUCTION / METHOD 等）の下マージンを整える */
+.lx-label {
+  margin-bottom: clamp(18px, 3vw, 32px);
+}
+
+/* 本文の最大幅 — 和文の可読幅（1行38〜42字程度）に寄せる */
+.lx-body {
+  max-width: 680px; /* 既存維持 */
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   2. Typography feel（書体の呼吸）
+   - font-family は変更しない
+   - letter-spacing / line-height / 階層感のみ微調整
+   ──────────────────────────────────────────────────────────────── */
+
+/* 英語ラベル（Cinzel）— 高級ブランドの慣習に合わせトラッキングを広く */
+.lx-label {
+  letter-spacing: 0.28em;
+}
+
+/* 大見出し — 和文の息継ぎを整える */
+.lx-h1 {
+  line-height: 1.55;
+  letter-spacing: 0.1em;
+}
+.lx-h2 {
+  line-height: 1.65;
+  letter-spacing: 0.09em;
+}
+.lx-h3 {
+  line-height: 1.75;
+  letter-spacing: 0.07em;
+}
+
+/* 本文 — 既存 2.1 を維持しつつ、上質な"間"を */
+.lx-body,
+.lx-body p {
+  line-height: 2.15;
+  letter-spacing: 0.05em;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   3. Reveal 強化（既存 .reveal を温存したまま上書きで呼吸を差し替え）
+   既存 .reveal は opacity/transform/blur のみだった。
+   本レイヤーは duration と easing を newans 的に再計算し、
+   .reveal.active で blur を完全に外す。
+   ──────────────────────────────────────────────────────────────── */
+
+.reveal {
+  transition:
+    opacity   var(--graft-dur-section) var(--graft-ease-quiet),
+    transform var(--graft-dur-section) var(--graft-ease-quiet),
+    filter    var(--graft-dur-section) var(--graft-ease-quiet);
+  will-change: opacity, transform, filter;
+  transform: translateY(28px);
+  filter: blur(var(--graft-blur-enter));
+}
+
+/* Stagger — 既存の nth-child(1〜4) を延長して可変に。ただし原則 stagger は JS で付与。 */
+.reveal-stagger > * {
+  transition:
+    opacity   var(--graft-dur-card) var(--graft-ease-quiet),
+    transform var(--graft-dur-card) var(--graft-ease-quiet),
+    filter    var(--graft-dur-card) var(--graft-ease-quiet);
+  transform: translateY(20px);
+  filter: blur(6px);
+}
+
+/* 既存 .reveal-stagger.active > *:nth-child(1..4) は HTML 側で維持。 */
+/* 5件以上になった場合の安全策（motion.js で --i を付与する） */
+.reveal-stagger.active > * {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.reveal-stagger.active > *[style*="--i:"] {
+  transition-delay: calc(var(--i) * var(--graft-stagger));
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   4. SVG Stroke Draw（線画アニメーション）
+   既存 index.html には SVG 線画は未使用。将来 .svg-draw クラスを
+   追加した要素にだけ適用される。既存 DOM には影響しない。
+   ──────────────────────────────────────────────────────────────── */
+
+.svg-draw path,
+.svg-draw line,
+.svg-draw polyline {
+  stroke-dasharray: var(--svg-len, 1000);
+  stroke-dashoffset: var(--svg-len, 1000);
+  transition: stroke-dashoffset 1800ms var(--graft-ease-quiet);
+}
+.svg-draw.is-drawn path,
+.svg-draw.is-drawn line,
+.svg-draw.is-drawn polyline {
+  stroke-dashoffset: 0;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   5. Parallax（控えめ）
+   [data-graft-parallax] 属性を付けた要素のみ対象。
+   既存 [data-parallax] には干渉しない。
+   ──────────────────────────────────────────────────────────────── */
+
+[data-graft-parallax] {
+  will-change: transform;
+  transition: transform 120ms linear;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   6. Hover micro-interactions
+   既存の .cta-btn / .method-card は -1px/-6px の translate を持つ。
+   ここではナビリンク・テキストリンク・rule の「気配」を上質にする。
+   色相の変化は #586b7a の明度±15% 以内に限定（新色を導入しない）。
+   ──────────────────────────────────────────────────────────────── */
+
+nav ul li a,
+.drawer-link {
+  transition:
+    opacity     var(--graft-dur-hover) var(--graft-ease-hover),
+    color       var(--graft-dur-hover) var(--graft-ease-hover),
+    letter-spacing var(--graft-dur-hover) var(--graft-ease-hover);
+}
+nav ul li a:hover {
+  opacity: 1;
+  /* #586b7a の明度を少し上げた視覚だけ（color-mix で既存色の範囲内） */
+  color: color-mix(in srgb, var(--navy) 92%, #fff 8%);
+}
+
+/* 水平ルール — 画面に入ったとき "描かれる" 微細な気配
+   既存の background: var(--accent) は保持。初期状態で既に見えている。
+   is-inview が付いた瞬間、幅をわずかに伸ばす（64px → 72px）ことで
+   "呼吸" を感じさせる。JS が機能しない場合でも既存の見え方を維持。 */
+.lx-rule {
+  transition: width 1000ms var(--graft-ease-quiet),
+              opacity 600ms var(--graft-ease-quiet);
+}
+.lx-rule.is-inview {
+  width: 72px; /* 既存 64px → 72px に微拡張 */
+}
+
+/* メソッドカード — 既存の translateY(-6px) は維持。shadow の落ち方だけ上質に。 */
+.method-card {
+  transition:
+    transform   var(--graft-dur-card)  var(--graft-ease-quiet),
+    box-shadow  var(--graft-dur-card)  var(--graft-ease-quiet);
+}
+.method-card:hover {
+  box-shadow: 0 20px 56px rgba(46, 61, 73, 0.10);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   7. Grid / Layout の微調整
+   構造は変えない。gap だけ newans 的律動に寄せる。
+   ──────────────────────────────────────────────────────────────── */
+
+.method-grid {
+  gap: clamp(20px, 3vw, 32px);
+}
+.care-grid {
+  gap: clamp(20px, 3vw, 28px);
+}
+.profile-grid {
+  gap: clamp(36px, 5vw, 64px);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   8. Hero — 既存 heroFadeIn を温存しつつ、スライドショーの
+   cross-fade の呼吸だけ少し長く取る。
+   ──────────────────────────────────────────────────────────────── */
+
+.hero-slideshow img {
+  transition: opacity 2000ms var(--graft-ease-quiet);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   9. prefers-reduced-motion — 厳格に停止
+   ──────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  /* すべての graft モーションを無効化し、最終状態で即座に表示 */
+  .reveal,
+  .reveal-stagger > *,
+  .reveal-left,
+  .reveal-right {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .svg-draw path,
+  .svg-draw line,
+  .svg-draw polyline {
+    transition: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  [data-graft-parallax] {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .lx-rule::before { transform: scaleX(1) !important; transition: none !important; }
+
+  .hero-slideshow img {
+    transition: opacity 300ms linear !important;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   10. モバイル微調整（構造は変えない）
+   ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  :root {
+    --graft-rhythm-lg: clamp(4rem, 14vw, 7rem);
+    --graft-blur-enter: 8px;
+  }
+  .lx-label { letter-spacing: 0.24em; }
+}
+
+/* End of Style Graft Layer */

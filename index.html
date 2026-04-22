@@ -9,6 +9,15 @@
     <meta property="og:title" content="KANASA Conditioning Studio | 南青山・紹介制プライベートスタジオ">
     <meta property="og:description" content="10年後の自分へ、最高の自由を贈る投資を。調整×トレーニング×回復を90分に凝縮するプライベートスタジオ。">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kanasa-conditioning.com/">
+    <meta property="og:image" content="https://kanasa-conditioning.com/slide_1.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="KANASA Conditioning Studio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KANASA Conditioning Studio | 南青山・紹介制プライベートスタジオ">
+    <meta name="twitter:description" content="10年後の自分へ、最高の自由を贈る投資を。調整×トレーニング×回復を90分に凝縮するプライベートスタジオ。">
+    <meta name="twitter:image" content="https://kanasa-conditioning.com/slide_1.jpg">
     <link rel="canonical" href="https://kanasa-conditioning.com/">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -719,6 +728,53 @@
             opacity: 0.5;
         }
 
+
+        /* ── Read More — Expandable sections ── */
+        .readmore-wrap {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                        opacity 0.5s ease;
+            opacity: 0;
+        }
+        .readmore-wrap.is-open {
+            opacity: 1;
+        }
+        .readmore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: clamp(20px, 3vw, 32px);
+            padding: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-en);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: var(--navy);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .readmore-btn:hover {
+            opacity: 1;
+        }
+        .readmore-btn::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--navy);
+            transition: width 0.3s ease;
+        }
+        .readmore-btn:hover::after {
+            width: 32px;
+        }
+        .readmore-btn.is-open::after {
+            width: 12px;
+        }
+
         /* ═══════════════════════════════════════════════
            Responsive
            ═══════════════════════════════════════════════ */
@@ -1003,6 +1059,8 @@
             .logo img { height: 38px; }
         }
     </style>
+    <!-- KANASA × newans.jp Style Graft (CSS) -->
+    <link rel="stylesheet" href="assets/css/style-graft.css">
 </head>
 <body>
 
@@ -1074,8 +1132,11 @@
             <h2 class="lx-h2">ビジネスの最前線を走り続ける貴方にとって、<br class="br-md">身体は唯一無二の経営資源です。</h2>
             <div class="lx-body">
                 <p>しかし、多忙な日々の中で、ジムとメンテナンスを別々にこなす「時間」を捻出するのは、至難の業ではないでしょうか。</p>
-                <p>南青山の静寂に包まれた、紹介制・完全プライベートスタジオ『KANASA』。ここでは、プロアスリートが実践する「調整・トレーニング・回復」の3ステップを、わずか90分のセッションに凝縮し、貴方専用のプログラムとして統合します。</p>
-                <p>全米スポーツ医学（NASM）の知見に基づき、身体の「使い方」そのものを最適化する。それは、単なる凝りの解消ではなく、10年、20年先も自分の足でどこへでも行き、好きなものを食べ、人生を謳歌し続けるための<strong>「身体の資産化」</strong>です。</p>
+                <div class="readmore-wrap" data-readmore="intro">
+                    <p>南青山の静寂に包まれた、紹介制・完全プライベートスタジオ『KANASA』。ここでは、プロアスリートが実践する「調整・トレーニング・回復」の3ステップを、わずか90分のセッションに凝縮し、貴方専用のプログラムとして統合します。</p>
+                    <p>全米スポーツ医学（NASM）の知見に基づき、身体の「使い方」そのものを最適化する。それは、単なる凝りの解消ではなく、10年、20年先も自分の足でどこへでも行き、好きなものを食べ、人生を謳歌し続けるための<strong>「身体の資産化」</strong>です。</p>
+                </div>
+                <button class="readmore-btn" data-target="intro" aria-expanded="false">READ MORE</button>
             </div>
         </section>
 
@@ -1183,10 +1244,13 @@
                     <div class="bio">
                         <p>1994年、沖縄生まれ。</p>
                         <p style="margin-top:16px;">日本健康福祉専門学校沖縄 スポーツ科学トレーナー学科を卒業後、<br>2015年よりパーソナルトレーナーとしてのキャリアをスタートしました。</p>
-                        <p style="margin-top:16px;">都内のコンディショニング施設にて、アスリートからビジネスパーソンまで<br>幅広い方の身体に携わる中で、ひとつの確信が生まれました。</p>
-                        <p style="margin-top:20px; font-style:italic; color:var(--navy); font-weight:600;">「鍛えることより、正しく使えることの方が、人生は豊かになる」</p>
-                        <p style="margin-top:20px;">忙しい日々の中で、身体のメンテナンスを後回しにしてきた方に、<br>10年・20年先も動ける身体を。</p>
-                        <p style="margin-top:16px;">難しいことは一切不要です。<br>「楽しくて、ギリギリ心が折れない」──<br>そのラインを一緒に見つけることが、私の仕事だと思っています。</p>
+                        <div class="readmore-wrap" data-readmore="bio">
+                            <p style="margin-top:16px;">都内のコンディショニング施設にて、アスリートからビジネスパーソンまで<br>幅広い方の身体に携わる中で、ひとつの確信が生まれました。</p>
+                            <p style="margin-top:20px; font-style:italic; color:var(--navy); font-weight:600;">「鍛えることより、正しく使えることの方が、人生は豊かになる」</p>
+                            <p style="margin-top:20px;">忙しい日々の中で、身体のメンテナンスを後回しにしてきた方に、<br>10年・20年先も動ける身体を。</p>
+                            <p style="margin-top:16px;">難しいことは一切不要です。<br>「楽しくて、ギリギリ心が折れない」──<br>そのラインを一緒に見つけることが、私の仕事だと思っています。</p>
+                        </div>
+                        <button class="readmore-btn" data-target="bio" aria-expanded="false">READ MORE</button>
                     </div>
                     <div class="cert">
                         <p style="font-size:0.72rem; font-weight:700; color:var(--navy-light); letter-spacing:0.18em; margin-bottom:12px;">CERTIFICATION</p>
@@ -1203,7 +1267,7 @@
         <!-- ===== Section 05: Experience Flow (SOAP) — PRESERVED ===== -->
         <section class="flow-section reveal">
         <div class="section-heading-bar">ご入会までの流れ</div>
-        <p style="font-size: 0.85rem; line-height: 2.0; max-width: 720px; margin: 20px auto 40px; text-align: left;" class="reveal">成功を追求するエグゼクティブにとって、身体と精神のコンディションは経営資源そのものです。高度な意思決定を求められ、常に結果を出し続ける環境では、単なるフィットネスではなく、戦略的なコンディショニングが求められます。そこで、当スタジオは「SOAP」という精密な評価システムを導入し、あなたのパフォーマンスを最適化します。</p>
+        <p style="font-size: 0.85rem; line-height: 2.0; max-width: 720px; margin: 20px auto 40px; text-align: left;" class="reveal">当スタジオは「SOAP」という精密な評価システムを導入し、あなたのパフォーマンスを最適化します。</p>
 
         <!-- Flow: カウンセリング → 体力チェック → SOAP → 入会 -->
         <div style="display: flex; flex-direction: column; align-items: center; max-width: 520px; margin: 0 auto;" class="reveal">
@@ -1218,6 +1282,10 @@
             <div style="border: none; padding: 16px 48px; text-align: center; font-size: 1rem; font-weight: 500; color: #fff; letter-spacing: 0.08em; background: var(--navy-light); font-family: var(--font-jp);">体力チェック</div>
 
             <!-- SOAP図解 -->
+            <div style="text-align:center;">
+                <button class="readmore-btn" data-target="soap" aria-expanded="false" style="margin:16px 0;">VIEW SOAP DETAIL</button>
+            </div>
+            <div class="readmore-wrap" data-readmore="soap">
             <div style="width: 100%; margin: 28px 0; display: flex; flex-direction: column; gap: 0; max-width: 600px;">
                 <div style="display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border);" class="soap-row">
                     <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0; min-width: 160px;" class="soap-left">
@@ -1260,6 +1328,7 @@
                     </div>
                 </div>
             </div>
+            </div><!-- /readmore-wrap -->
 
             <!-- ↓ -->
             <div style="font-size: 1.6rem; color: var(--navy-light); line-height: 1; padding: 16px 0;">↓</div>
@@ -1736,6 +1805,38 @@
             });
         });
 
+
+
+        // Read More — expandable sections
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.readmore-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const wrap = document.querySelector(`.readmore-wrap[data-readmore="${targetId}"]`);
+                    if (!wrap) return;
+
+                    const isOpen = wrap.classList.contains('is-open');
+
+                    if (isOpen) {
+                        wrap.style.maxHeight = '0';
+                        wrap.classList.remove('is-open');
+                        btn.classList.remove('is-open');
+                        btn.setAttribute('aria-expanded', 'false');
+                        btn.textContent = btn.textContent.replace('CLOSE', 'READ MORE').replace('HIDE DETAIL', 'VIEW SOAP DETAIL');
+                    } else {
+                        wrap.style.maxHeight = wrap.scrollHeight + 'px';
+                        wrap.classList.add('is-open');
+                        btn.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        if (btn.textContent.includes('VIEW SOAP')) {
+                            btn.textContent = 'HIDE DETAIL';
+                        } else {
+                            btn.textContent = 'CLOSE';
+                        }
+                    }
+                });
+            });
+        });
         // Scroll reveal (IntersectionObserver)
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
@@ -1784,6 +1885,9 @@
             }
         });
     </script>
+
+    <!-- KANASA × newans.jp Style Graft (Motion) -->
+    <script src="assets/js/motion.js" defer></script>
 
 
 <!-- MODAL: keiei-20260403 -->
