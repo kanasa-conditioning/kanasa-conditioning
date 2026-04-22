@@ -252,69 +252,72 @@
                 <span class="section-title__en">Flow</span>
                 <span class="section-title__ja">ご入会までの流れ</span>
             </div>
-            <p style="font-size:0.85rem;line-height:2.0;max-width:720px;margin:20px auto 40px;text-align:left;" class="reveal">当スタジオは「SOAP」という精密な評価システムを導入し、あなたのパフォーマンスを最適化します。</p>
-
-            <div style="display:flex;flex-direction:column;align-items:center;max-width:520px;margin:0 auto;" class="reveal">
-
-                <div style="border:none;padding:16px 48px;text-align:center;font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.08em;background:var(--brand-600);font-family:var(--font-jp);">カウンセリング</div>
-                <div style="font-size:1.6rem;color:var(--brand-500);line-height:1;padding:16px 0;">↓</div>
-                <div style="border:none;padding:16px 48px;text-align:center;font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.08em;background:var(--brand-600);font-family:var(--font-jp);">体力チェック</div>
-
-                <div style="text-align:center;">
-                    <button class="readmore-btn" data-target="soap" aria-expanded="false" style="margin:16px 0;">VIEW SOAP DETAIL</button>
+            <div class="flow-timeline reveal">
+                <!-- Step 01 -->
+                <div class="flow-step__number">01/</div>
+                <div class="flow-step__content">
+                    <h3 class="flow-step__title">カウンセリング</h3>
+                    <p class="flow-step__desc">当スタジオは「SOAP」という精密な評価システムを導入し、あなたのパフォーマンスを最適化します。</p>
                 </div>
-                <div class="readmore-wrap" data-readmore="soap">
-                    <div style="width:100%;margin:28px 0;display:flex;flex-direction:column;gap:0;max-width:600px;">
-                        <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--brand-200);" class="soap-row">
-                            <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:160px;" class="soap-left">
-                                <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">S</span>
-                                <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Subjective</span>
+
+                <!-- Step 02 -->
+                <div class="flow-step__number">02/</div>
+                <div class="flow-step__content">
+                    <h3 class="flow-step__title">体力チェック</h3>
+                    <button class="readmore-btn" data-target="soap" aria-expanded="false" style="margin:20px 0 0;">VIEW SOAP DETAIL</button>
+                    <div class="readmore-wrap" data-readmore="soap">
+                        <div style="margin:24px 0 0;display:flex;flex-direction:column;gap:0;">
+                            <div class="soap-row">
+                                <div class="soap-left">
+                                    <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">S</span>
+                                    <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Subjective</span>
+                                </div>
+                                <div style="padding-top:2px;flex:1;min-width:0;">
+                                    <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">あなた自身のコンディションを可視化的データ</p>
+                                    <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">「感覚」をデータ化し、あなたの疲労やストレスレベル、身体の違和感を精査します。</p>
+                                </div>
                             </div>
-                            <div style="padding-top:2px;flex:1;min-width:0;">
-                                <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">あなた自身のコンディションを可視化的データ</p>
-                                <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">「感覚」をデータ化し、あなたの疲労やストレスレベル、身体の違和感を精査します。</p>
+                            <div class="soap-row">
+                                <div class="soap-left">
+                                    <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">O</span>
+                                    <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Objective</span>
+                                </div>
+                                <div style="padding-top:2px;flex:1;min-width:0;">
+                                    <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">科学的な測定で状態を分析</p>
+                                    <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">体のバイオメカニクス、可動域、筋力バランス、呼吸状態などを数値で測定。</p>
+                                </div>
                             </div>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--brand-200);" class="soap-row">
-                            <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:160px;" class="soap-left">
-                                <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">O</span>
-                                <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Objective</span>
+                            <div class="soap-row">
+                                <div class="soap-left">
+                                    <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">A</span>
+                                    <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Assessment</span>
+                                </div>
+                                <div style="padding-top:2px;flex:1;min-width:0;">
+                                    <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">課題と強みを明確化</p>
+                                    <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">「なぜ調子が落ちているのか？」を徹底分析し、最適な戦略を導きます。</p>
+                                </div>
                             </div>
-                            <div style="padding-top:2px;flex:1;min-width:0;">
-                                <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">科学的な測定で状態を分析</p>
-                                <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">体のバイオメカニクス、可動域、筋力バランス、呼吸状態などを数値で測定。</p>
-                            </div>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--brand-200);" class="soap-row">
-                            <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:160px;" class="soap-left">
-                                <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">A</span>
-                                <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Assessment</span>
-                            </div>
-                            <div style="padding-top:2px;flex:1;min-width:0;">
-                                <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">課題と強みを明確化</p>
-                                <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">「なぜ調子が落ちているのか？」を徹底分析し、最適な戦略を導きます。</p>
-                            </div>
-                        </div>
-                        <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;" class="soap-row">
-                            <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:160px;" class="soap-left">
-                                <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">P</span>
-                                <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Plan</span>
-                            </div>
-                            <div style="padding-top:2px;flex:1;min-width:0;">
-                                <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">ビジネスと連動するコンディショニングプラン</p>
-                                <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">目的に応じて、ストレスマネジメント、パフォーマンス向上、疲労回復を最適化。</p>
+                            <div class="soap-row" style="border-bottom:none;">
+                                <div class="soap-left">
+                                    <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:var(--brand-900);font-family:var(--font-en);font-size:1rem;font-weight:700;color:var(--white);flex-shrink:0;">P</span>
+                                    <span style="font-family:var(--font-en);font-size:0.8rem;color:var(--brand-900);letter-spacing:0.02em;">Plan</span>
+                                </div>
+                                <div style="padding-top:2px;flex:1;min-width:0;">
+                                    <p style="font-size:0.82rem;font-weight:600;color:var(--brand-900);margin-bottom:4px;">ビジネスと連動するコンディショニングプラン</p>
+                                    <p style="font-size:0.75rem;color:var(--brand-500);line-height:1.6;">目的に応じて、ストレスマネジメント、パフォーマンス向上、疲労回復を最適化。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div style="font-size:1.6rem;color:var(--brand-500);line-height:1;padding:16px 0;">↓</div>
-                <div style="border:none;padding:16px 48px;text-align:center;font-size:1rem;font-weight:500;color:var(--white);letter-spacing:0.08em;background:var(--brand-600);font-family:var(--font-jp);">入会</div>
-            </div>
-
-            <div style="text-align:center;max-width:720px;margin:60px auto 0;" class="reveal">
-                <h2 style="font-size:1.4rem;font-weight:400;">ハードワークを支える、<br>最高のコンディションを手に入れる</h2>
-                <p style="font-size:0.85rem;line-height:2.0;max-width:720px;margin:20px auto 0;text-align:center;color:var(--brand-500);">時間とエネルギーが貴重なエグゼクティブにとって、最も価値のある投資は自身のパフォーマンスです。SOAPのシステムを活用し、あなたの身体と脳を常に最適な状態に調整することで、決断力、集中力、生産性を最大化。<br><br>KANASA Conditioning Studioでは、この総合的なセッションにより、身体の外見の変化だけでなく、内側から整った健康的な身体を目指します。</p>
+                <!-- Step 03 -->
+                <div class="flow-step__number">03/</div>
+                <div class="flow-step__content">
+                    <h3 class="flow-step__title">入会</h3>
+                    <h2 style="font-size:1.4rem;font-weight:400;margin-top:1.5rem;line-height:1.8;">ハードワークを支える、<br>最高のコンディションを手に入れる</h2>
+                    <p style="font-size:0.85rem;line-height:2.0;margin-top:1rem;color:var(--brand-500);max-width:560px;">時間とエネルギーが貴重なエグゼクティブにとって、最も価値のある投資は自身のパフォーマンスです。SOAPのシステムを活用し、あなたの身体と脳を常に最適な状態に調整することで、決断力、集中力、生産性を最大化。<br><br>KANASA Conditioning Studioでは、この総合的なセッションにより、身体の外見の変化だけでなく、内側から整った健康的な身体を目指します。</p>
+                </div>
             </div>
         </section>
 

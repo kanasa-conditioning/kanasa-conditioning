@@ -357,4 +357,41 @@
 
 ---
 
-*Phase 1c（フロー タイムライン化）承認待ち*
+---
+
+## ✅ Phase 1c — Flow/SOAP タイムライン化（Pattern D）
+
+**実施日**: 2026-04-22
+
+### 変更ファイル
+- `index.html` — Flow セクション内部を全面置換
+- `assets/css/style.css` — Pattern D タイムラインスタイル追加
+
+### 実装内容
+
+#### HTML（index.html）
+- 旧レイアウト（`display:flex; flex-direction:column` 中央寄せ + 矢印記号）を削除
+- `div.flow-timeline.reveal` グリッド（`grid-template-columns: 120px 1fr`）に置換
+- 3ステップ構造：
+  - `01/` カウンセリング + SOAP説明テキスト
+  - `02/` 体力チェック + `readmore-btn[data-target="soap"]` + `readmore-wrap[data-readmore="soap"]`（SOAP S/O/A/P行）
+  - `03/` 入会 + クロージングキャッチ + 本文テキスト（原文ママ）
+- JS属性 `data-target="soap"` / `data-readmore="soap"` を完全保持
+- すべてのキャッチコピー・本文テキストを原文のまま移植
+
+#### CSS（assets/css/style.css）
+- §11 FLOW 末尾（`.soap-left` 直後）に Pattern D スタイルを追加：
+  - `.flow-timeline`: `grid-template-columns: 120px 1fr; position: relative`
+  - `.flow-timeline::before`: 縦線 `left: 60px; width: 1px; background: var(--brand-300)`
+  - `.flow-step__number`: Cinzel フォント、`var(--brand-600)`、中央揃え
+  - `.flow-step__content`: 左パディング `2.5rem`、下ボーダー `var(--brand-100)`
+  - `.flow-step__title`, `.flow-step__desc`: 各テキストスタイル
+- `@media (max-width: 480px)`: `grid-template-columns: 56px 1fr; left: 28px`
+
+### 備考
+- SOAP アコーディオンの JS ロジック（`readmore-btn` / `readmore-wrap` max-height トグル）は変更なし、動作を完全保持
+- `.soap-row` / `.soap-left` の CSS クラスを引き続き使用（インラインスタイル除去によりクリーンアップ）
+
+---
+
+*Phase 2（アプローチオーバーレイ・フッター大画像化）承認待ち*
