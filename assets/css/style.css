@@ -983,6 +983,121 @@ nav ul li a:hover { opacity: 1; }
 }
 
 
+/* ── §13b PRICE NEW (NewAns style) ── */
+
+.pn-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pn-block {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--brand-200);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pn-block--recommended {
+  border: 2px solid var(--brand-600);
+  background: var(--brand-50);
+}
+
+.pn-badge {
+  display: inline-block;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--brand-600);
+  color: var(--white);
+  font-family: var(--font-en);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 4px 10px;
+}
+
+.pn-block__label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--brand-600);
+  letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+  margin-top: 0;
+}
+
+.pn-block--recommended .pn-block__label {
+  margin-top: 1.5rem;
+}
+
+.pn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--brand-100);
+}
+
+.pn-row__name {
+  font-size: var(--fs-small);
+  color: var(--brand-700);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.pn-row__amount {
+  font-family: var(--font-en);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--brand-900);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.pn-row__unit {
+  font-size: var(--fs-small);
+  font-weight: 400;
+  color: var(--brand-500);
+}
+
+.pn-row__detail {
+  font-size: var(--fs-small);
+  color: var(--brand-400);
+  letter-spacing: 0.05em;
+  margin: 0.5rem 0 0;
+}
+
+.pn-row__desc {
+  font-size: var(--fs-small);
+  color: var(--brand-500);
+  line-height: 1.8;
+  margin: 0.75rem 0 0;
+}
+
+.pn-row__desc--em {
+  color: var(--brand-700);
+}
+
+.pn-divider {
+  border: none;
+  border-top: 1px solid var(--brand-100);
+  margin: 1.25rem 0;
+}
+
+/* Group 1 (full-width intro block) */
+#price > .pn-block {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+@media (max-width: 768px) {
+  .pn-columns { grid-template-columns: 1fr; }
+}
+
 /* ── §14 BLOG ── */
 
 /* Pattern B: Section Title (English large + Japanese small + border) */
