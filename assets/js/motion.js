@@ -309,7 +309,7 @@
           btn.classList.remove('is-open');
           btn.setAttribute('aria-expanded', 'false');
           if (btn.textContent.includes('CLOSE')) {
-            btn.textContent = 'READ MORE';
+            btn.textContent = 'READ MORE ——';
           } else if (btn.textContent.includes('HIDE')) {
             btn.textContent = 'VIEW SOAP DETAIL';
           }
@@ -321,7 +321,7 @@
           if (btn.textContent.includes('VIEW SOAP')) {
             btn.textContent = 'HIDE DETAIL';
           } else {
-            btn.textContent = 'CLOSE';
+            btn.textContent = 'CLOSE ——';
           }
         }
       });
