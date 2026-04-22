@@ -368,7 +368,7 @@
 
     /* Read rendered height after layout */
     var h = svg.getBoundingClientRect().height || 400;
-    var cx       = 20;   /* centre of 40px column */
+    var cx = window.matchMedia('(max-width: 768px)').matches ? 8 : 20;
     var headSize = 7;
     var tipY     = h - 4;
     /* Combined path: shaft then arrowhead chevron */
