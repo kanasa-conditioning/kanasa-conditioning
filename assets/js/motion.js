@@ -411,6 +411,53 @@
     }
   }
 
+  /* ── 13. Method Line Draw ──────────────────────────────────── */
+  function initMethodLine() {
+    var bar  = document.querySelector('.method-line-bar');
+    var line = bar && bar.querySelector('.method-line__shaft');
+    if (!bar || !line) return;
+
+    var len = 1000; /* matches SVG viewBox width */
+    line.style.strokeDasharray  = len;
+    line.style.strokeDashoffset = len;
+
+    var dots = bar.querySelectorAll('.method-line__dot');
+
+    if (prefersReduced) {
+      line.style.strokeDashoffset = 0;
+      dots.forEach(function (d) { d.style.opacity = '1'; });
+      return;
+    }
+
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      ScrollTrigger.create({
+        trigger: bar.closest('.method-grid-wrap'),
+        start: 'top 85%',
+        once: true,
+        onEnter: function () {
+          gsap.to(line, {
+            strokeDashoffset: 0,
+            duration: 1.6,
+            ease: 'expo.out'
+          });
+          gsap.to(dots, {
+            opacity: 1,
+            duration: 0.35,
+            stagger: 0.3,
+            delay: 0.1
+          });
+        }
+      });
+    } else {
+      line.style.transition = 'stroke-dashoffset 1600ms cubic-bezier(0.16, 1, 0.3, 1)';
+      requestAnimationFrame(function () { line.style.strokeDashoffset = 0; });
+      dots.forEach(function (d, i) {
+        d.style.transition = 'opacity 350ms ' + (100 + i * 300) + 'ms ease';
+        requestAnimationFrame(function () { d.style.opacity = '1'; });
+      });
+    }
+  }
+
   /* ── Boot ───────────────────────────────────────────────────── */
   function boot() {
     if (prefersReduced) {
@@ -441,6 +488,7 @@
     initContactForm();
     initCursorHover();
     initFlowArrow();
+    initMethodLine();
   }
 
   if (document.readyState === 'loading') {

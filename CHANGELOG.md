@@ -394,4 +394,50 @@
 
 ---
 
-*Phase 2（アプローチオーバーレイ・フッター大画像化）承認待ち*
+---
+
+## ✅ Phase 2 — Approach カードオーバーレイ + フッター大画像化
+
+**実施日**: 2026-04-22
+
+### 変更ファイル
+- `index.html` — Approach セクション追加 + footer を Pattern F に置換
+- `assets/css/style.css` — §17b APPROACH + §18b FOOTER Pattern F スタイル追加
+
+### 実装内容
+
+#### 1. Approach セクション（Pattern E）
+- 挿入位置: `<main>` 内、Price セクション直後（Blog の直前）
+- セクションID: `#approach`、クラス: `approach-section`
+- Pattern B タイトル（`Approach` / `アプローチ`）
+- `reveal-stagger` で4枚同時アニメーション
+- 4枚カード構造（各カード）:
+  - `aspect-ratio: 3/5`、`position: relative; overflow: hidden`
+  - 背景画像: slide_1〜3.jpg / ストレッチ①.jpg
+  - グラデーションオーバーレイ: `rgba(0,0,0,0.08)→rgba(0,0,0,0.72)`
+  - 番号（01/ 02/ 03/ 04/）左上配置
+  - タイトル + 説明テキストを下部配置（`justify-content: space-between`）
+  - PC ホバーで画像が `scale(1.04)` にズーム（hover guard 付き）
+- レスポンシブ: 768px→2列、480px→1列
+
+#### 2. フッター（Pattern F）
+- 旧: `<footer>` シンプルナビ + ロゴ + タグライン（brand-900背景）
+- 新: `<footer class="site-footer">`
+  - 背景画像: `slide_1.jpg`（`position: absolute; object-fit: cover`）
+  - 黒半透明オーバーレイ: `rgba(10, 10, 10, 0.65)`
+  - 白ロゴ（`kanasa_logo_yoko_w.png`）+ タグライン
+  - 2列ナビリンク（CONCEPT / METHOD / PROFILE / PRICE / BLOG / VOICE / FAQ / CONTACT）
+  - 著作権表示（ボーダー区切り）
+  - `min-height: 70svh`
+  - レスポンシブ: 768px→ナビ1列
+
+### STOP LIST 準拠確認
+- ✅ 強い集客CTA（「体験のお申込み」等）は追加していない
+- ✅ #586b7a 以外の主要カラーを使っていない（白・黒・ブランドカラーのみ）
+- ✅ FormSubmit フォーム属性は無傷
+- ✅ ブログモーダル構造は無傷
+- ✅ キャッチコピーは変更なし
+
+---
+
+*Phase 3（サブページ統一・最終調整）承認待ち*

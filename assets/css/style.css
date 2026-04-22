@@ -596,9 +596,7 @@ nav ul li a:hover { opacity: 1; }
 .method-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 2.5vw, 24px);
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 0.5rem;
 }
 
 .method-card {
@@ -1388,6 +1386,157 @@ nav ul li a:hover { opacity: 1; }
 .contact-success p { font-size: 0.9rem; color: var(--brand-900); line-height: 1.8; }
 
 
+/* ── §17b CARD OVERLAY (shared — used by method-grid) ── */
+
+.approach-card {
+  position: relative;
+  aspect-ratio: 3 / 5;
+  overflow: hidden;
+}
+
+.approach-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-expo);
+}
+
+.approach-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
+}
+
+.approach-card__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 1.5rem;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.approach-card__num {
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,1.0);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.approach-card__title {
+  font-family: var(--font-jp);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.approach-card__jp {
+  font-family: var(--font-jp);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,1.0);
+  margin-bottom: 0.4rem;
+}
+
+.approach-card__desc {
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: rgba(255,255,255,0.95);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .approach-card:hover .approach-card__image { transform: scale(1.04); }
+}
+
+
+/* ── §17c METHOD EXTRAS ── */
+
+.method-subtitle {
+  font-size: var(--fs-small);
+  letter-spacing: 0.15em;
+  color: var(--brand-500);
+  text-align: center;
+  margin: 0.75rem 0 clamp(2rem, 4vw, 3rem);
+}
+
+.method-grid-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.method-line-bar {
+  position: relative;
+  height: 8px;
+  margin-bottom: 0;
+}
+
+.method-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: block;
+  overflow: visible;
+}
+
+.method-line__shaft {
+  stroke: var(--brand-300);
+  stroke-width: 1;
+  fill: none;
+}
+
+.method-line__dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-600);
+  opacity: 0;
+}
+
+.method-line__dot:nth-child(2) { left: 12.5%; }
+.method-line__dot:nth-child(3) { left: 37.5%; }
+.method-line__dot:nth-child(4) { left: 62.5%; }
+.method-line__dot:nth-child(5) { left: 87.5%; }
+
+.method-card__label {
+  position: absolute;
+  top: 3rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.method-grid .approach-card__title {
+  font-family: var(--font-en);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,1.0);
+  margin-bottom: 0;
+}
+
+.method-grid .approach-card__jp {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,1.0);
+  margin-bottom: 0;
+}
+
+
 /* ── §18 FOOTER ── */
 footer {
   padding: clamp(60px, 8vw, 100px) 5% 40px;
@@ -1451,6 +1600,95 @@ footer .footer-nav a:hover {
   display: inline-block;
   width: 100%;
   max-width: 200px;
+}
+
+
+/* ── §18b FOOTER Pattern F ── */
+footer.site-footer {
+  padding: 0;
+  text-align: left;
+  background: none;
+  color: var(--white);
+}
+
+.site-footer {
+  position: relative;
+  min-height: 70svh;
+  overflow: hidden;
+}
+
+.site-footer__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.site-footer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.65);
+  z-index: 1;
+}
+
+.site-footer__content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 6vw, 5rem);
+  min-height: 70svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer__logo {
+  max-width: 220px;
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.site-footer__tagline {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.38);
+  margin-top: 1rem;
+}
+
+.site-footer__nav {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 0 clamp(3rem, 8vw, 6rem);
+  justify-content: start;
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.site-footer__nav a {
+  font-family: var(--font-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.5);
+  padding: 0.45rem 0;
+  display: block;
+  transition: color var(--dur-fast) ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__nav a:hover { color: var(--white); }
+}
+
+.site-footer__copyright {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: auto;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 
@@ -1606,7 +1844,8 @@ footer .footer-nav a:hover {
   .lx-body { font-size: clamp(0.84rem, 2.6vw, 0.96rem); }
   .hero-lead { font-size: clamp(0.88rem, 2.4vw, 1.05rem); }
 
-  .method-grid { grid-template-columns: repeat(2, 1fr); max-width: 500px; margin: 0 auto; }
+  .method-grid { grid-template-columns: repeat(2, 1fr); }
+  .method-grid-wrap { max-width: 500px; margin-left: auto; margin-right: auto; }
   .price-grid { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
   .voice-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -1617,6 +1856,9 @@ footer .footer-nav a:hover {
 
   .footer-logo img { max-width: 180px; }
   footer .footer-nav { gap: 14px; }
+
+  .approach-card { aspect-ratio: 16 / 10; }
+  .site-footer__nav { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (max-width: 600px) {
@@ -1633,7 +1875,8 @@ footer .footer-nav a:hover {
   .training-price .main-price { font-size: 1.2rem; }
   .training-label { min-width: 90px; padding: 6px 12px; font-size: 0.75rem; }
   .hero-main { letter-spacing: 0.06em; }
-  .method-grid { grid-template-columns: 1fr; max-width: 360px; }
+  .method-grid { grid-template-columns: 1fr; }
+  .method-grid-wrap { max-width: 360px; margin-left: auto; margin-right: auto; }
   .price-grid { grid-template-columns: 1fr; }
   .flow-timeline { grid-template-columns: 48px 28px 1fr; }
 }
