@@ -1729,3 +1729,239 @@ h1, h2, h3, h4, h5, h6 {
     padding-block: 40px;
   }
 }
+
+
+/* ================================================================
+   NEWANS.JP STYLE REFINEMENTS + MOBILE FIX
+   2026-04-22 — CSS追記のみ / HTML・カラー変更なし
+   ================================================================ */
+
+/* ──────────────────────────────────────────
+   HERO: より大きく・写真をフルスクリーンで活かす
+   ────────────────────────────────────────── */
+.hero__tagline {
+  font-size: clamp(40px, 8vw, 80px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+/* テキスト読みやすさのためグラデーションオーバーレイ追加 */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.50) 0%,
+    rgba(0, 0, 0, 0.15) 60%,
+    transparent 100%
+  );
+}
+
+/* ──────────────────────────────────────────
+   SVG接続線を非表示（装飾として機能していない）
+   ────────────────────────────────────────── */
+.svg-line {
+  display: none;
+}
+
+/* ──────────────────────────────────────────
+   SECTION HEADER: newans.jpに近い軽量なタイポグラフィ
+   ────────────────────────────────────────── */
+.section-header__title {
+  font-size: clamp(24px, 4vw, 46px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+.section-header__label {
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+}
+
+/* ──────────────────────────────────────────
+   METHOD CARDS: 写真をより大きく・存在感を強調
+   ────────────────────────────────────────── */
+.method-card__img {
+  aspect-ratio: 3 / 2;
+}
+
+.method-card {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.method-card:hover {
+  box-shadow: 0 12px 40px rgba(10, 10, 10, 0.10);
+}
+
+/* ──────────────────────────────────────────
+   PRICE CARDS: シンプルなボーダースタイルに統一
+   ────────────────────────────────────────── */
+.price-card {
+  border-radius: 0;
+  border: 1px solid rgba(10, 10, 10, 0.10);
+}
+
+/* ──────────────────────────────────────────
+   VOICE CARDS: 同上
+   ────────────────────────────────────────── */
+.voice-card {
+  border-radius: 0;
+  border: 1px solid rgba(10, 10, 10, 0.10);
+}
+
+/* ──────────────────────────────────────────
+   HEADER CTA: newans.jpのようにピル型
+   ────────────────────────────────────────── */
+.header__cta {
+  border-radius: 50px;
+  padding: 10px 28px;
+}
+
+/* ──────────────────────────────────────────
+   PHILOSOPHY: テキストオーバーレイをより洗練
+   ────────────────────────────────────────── */
+.philosophy__content {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* ================================================================
+   MOBILE FIX — max-width: 767px
+   grid-12の崩壊・各セクションの積み重ね修正
+   ================================================================ */
+@media (max-width: 767px) {
+
+  /* ── :root — セクション間隔を縮小 ── */
+  :root {
+    --space-section: clamp(60px, 10vh, 100px);
+    --space-block:   40px;
+    --space-element: 24px;
+    --gutter:        20px;
+  }
+
+  /* ── grid-12: 1カラムに折りたたむ ── */
+  .grid-12 {
+    grid-template-columns: 1fr;
+  }
+
+  /* grid-12の全直接子要素を全幅に ── */
+  .grid-12 > * {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* ── brand-stmt: オーバーラップ解除 ── */
+  .brand-stmt__img-col {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .brand-stmt__text-col {
+    margin-left: 0 !important;
+    padding: var(--space-element) 0 !important;
+    background: transparent !important;
+    position: static !important;
+  }
+
+  /* ── profile: パディング解除・縦並びに ── */
+  .profile__photo-col {
+    margin-left: 0 !important;
+  }
+
+  .profile__text-col {
+    padding-left: 0 !important;
+  }
+
+  /* ── hero: 全幅テキスト・サイズ調整 ── */
+  .hero__content {
+    max-width: 92%;
+  }
+
+  .hero__tagline {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .hero__sub {
+    font-size: clamp(13px, 3.5vw, 16px);
+  }
+
+  /* ── グリッド: 全セクション1カラムに強制 ── */
+  .method__cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .price__plans {
+    grid-template-columns: 1fr !important;
+  }
+
+  .voice__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .journal__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .soap {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── philosophy: マージン解除 ── */
+  .philosophy__content {
+    margin-left: 0 !important;
+    padding: var(--space-element) !important;
+    width: calc(100% - 40px);
+  }
+
+  /* ── footer: 縦並びに ── */
+  .footer__top {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .footer__nav {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ── header ── */
+  .header {
+    padding-block: 16px;
+  }
+
+  /* ── flow steps: 矢印を見やすく ── */
+  .flow__steps {
+    max-width: 100%;
+    padding-inline: 16px;
+  }
+
+  .flow__step {
+    padding: 14px 0;
+  }
+
+  /* ── section-header ── */
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  /* ── journal modal ── */
+  .journal-modal__inner {
+    padding: 80px var(--gutter) 60px;
+  }
+
+  .journal-modal__close {
+    top: 16px;
+    right: 16px;
+  }
+
+  /* ── intro__body: スマホで全幅 ── */
+  .intro__body {
+    max-width: 100%;
+  }
+}
