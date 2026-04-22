@@ -1873,7 +1873,7 @@ footer.site-footer {
     width: 2px;
     height: 0;
     background: #586b7a;
-    animation: flowLineGrow 2.4s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: flowLineGrow 5s cubic-bezier(0.16,1,0.3,1) forwards;
   }
   .flow-timeline::after {
     content: '';
