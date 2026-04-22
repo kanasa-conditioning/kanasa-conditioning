@@ -396,14 +396,15 @@
         onEnter: function () {
           gsap.to(path, {
             strokeDashoffset: 0,
-            duration: 1.2,
+            duration: 2.4,
+            delay: 0.3,
             ease: 'expo.out'
           });
         }
       });
     } else {
       /* CSS fallback when GSAP unavailable */
-      path.style.transition = 'stroke-dashoffset 1200ms cubic-bezier(0.16, 1, 0.3, 1)';
+      path.style.transition = 'stroke-dashoffset 2400ms 300ms cubic-bezier(0.16, 1, 0.3, 1)';
       requestAnimationFrame(function () {
         path.style.strokeDashoffset = 0;
       });
