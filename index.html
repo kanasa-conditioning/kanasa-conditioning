@@ -382,69 +382,65 @@
         <!-- ═══════════════════════════════════════════════
              Chapter 08: Price（料金プラン）
              ═══════════════════════════════════════════════ -->
-        <section id="price" style="padding:var(--space-section) 5%;background:var(--white);">
-            <div class="section-title reveal">
-                <span class="section-title__en">Price</span>
+        <section id="price" class="lx-section reveal" style="background:var(--white);">
+            <div class="section-title">
+                <span class="section-title__en">PRICE</span>
                 <span class="section-title__ja">料金プラン</span>
             </div>
 
-            <!-- Group 1: はじめての方（全幅） -->
-            <div class="pn-block reveal">
-                <p class="pn-block__label">はじめての方はこちら</p>
-                <div class="pn-row">
-                    <span class="pn-row__name">体験カウンセリング</span>
-                    <span class="pn-row__amount">¥5,500</span>
+            <!-- グループ1：全幅 -->
+            <div class="price-group price-group--full">
+                <span class="price-group__label">はじめての方はこちら</span>
+                <div class="price-row">
+                    <span class="price-row__name">体験カウンセリング</span>
+                    <span class="price-row__amount">¥5,500</span>
                 </div>
-                <div class="pn-row">
-                    <span class="pn-row__name">入会金</span>
-                    <span class="pn-row__amount">¥0</span>
+                <div class="price-row">
+                    <span class="price-row__name">入会金</span>
+                    <span class="price-row__amount">¥0</span>
                 </div>
             </div>
 
-            <!-- Group 2 + 3: 2カラム -->
-            <div class="pn-columns reveal-stagger">
+            <!-- グループ2・3：2カラム -->
+            <div class="price-columns">
 
-                <!-- 左: 月額プラン（おすすめ） -->
-                <div class="pn-block pn-block--recommended">
-                    <span class="pn-badge">RECOMMENDED</span>
-                    <p class="pn-block__label">月額プラン</p>
-                    <div class="pn-row">
-                        <span class="pn-row__name">会員プラン</span>
-                        <span class="pn-row__amount">¥52,000</span>
+                <!-- 左：月額プラン（おすすめ） -->
+                <div class="price-group price-group--recommended">
+                    <span class="price-badge">RECOMMENDED</span>
+                    <span class="price-group__label">月額プラン</span>
+                    <div class="price-row">
+                        <span class="price-row__name">会員プラン</span>
+                        <span class="price-row__amount">¥52,000</span>
                     </div>
-                    <p class="pn-row__detail">月4回 / 1回あたり ¥13,000</p>
-                    <p class="pn-row__desc pn-row__desc--em">1回あたりの単価が最もお得なプランです。<br>トレーニングは継続が最大の鍵。週1回以上のペースで<br>通われる方に最もおすすめしています。</p>
+                    <div class="price-row__sub">月4回 / 1回あたり ¥13,000</div>
+                    <p class="price-desc">1回あたりの単価が最もお得なプランです。トレーニングは継続が最大の鍵。週1回以上のペースで通われる方に最もおすすめしています。</p>
                 </div>
 
-                <!-- 右: 回数券・都度払い -->
-                <div class="pn-block">
-                    <p class="pn-block__label">回数券・都度払い</p>
-
-                    <div class="pn-row">
-                        <span class="pn-row__name">都度払い</span>
-                        <span class="pn-row__amount">¥15,000 <span class="pn-row__unit">/ 回</span></span>
+                <!-- 右：回数券・都度払い -->
+                <div class="price-group">
+                    <span class="price-group__label">回数券・都度払い</span>
+                    <div class="price-row">
+                        <span class="price-row__name">都度払い</span>
+                        <span class="price-row__amount">¥15,000 / 回</span>
                     </div>
-                    <p class="pn-row__desc">日頃から自分でトレーニングをされている方向け。<br>定期的なフォーム確認やメンテナンスに最適です。</p>
-
-                    <hr class="pn-divider">
-
-                    <div class="pn-row">
-                        <span class="pn-row__name">10回券</span>
-                        <span class="pn-row__amount">¥145,000</span>
+                    <p class="price-desc">日頃から自分でトレーニングをされている方向け。定期的なフォーム確認やメンテナンスに最適です。</p>
+                    <div class="price-divider"></div>
+                    <div class="price-row">
+                        <span class="price-row__name">10回券</span>
+                        <span class="price-row__amount">¥145,000</span>
                     </div>
-                    <p class="pn-row__detail">1回あたり ¥14,500</p>
-                    <p class="pn-row__desc">月に2〜3回のペースで通いたい方向け。<br>月4回のペースは難しいけれど、定期的に続けたい方におすすめです。</p>
-
-                    <hr class="pn-divider">
-
-                    <div class="pn-row">
-                        <span class="pn-row__name">学生プラン</span>
-                        <span class="pn-row__amount">¥8,000</span>
+                    <div class="price-row__sub">1回あたり ¥14,500</div>
+                    <p class="price-desc">月に2〜3回のペースで通いたい方向け。月4回のペースは難しいけれど、定期的に続けたい方におすすめです。</p>
+                    <div class="price-divider"></div>
+                    <div class="price-row">
+                        <span class="price-row__name">学生プラン</span>
+                        <span class="price-row__amount">¥8,000</span>
                     </div>
-                    <p class="pn-row__detail">1回 60分</p>
+                    <div class="price-row__sub">1回 60分</div>
                 </div>
 
             </div>
+            <p class="price-note">価格はすべて税込み表記です。</p>
         </section>
 
         <section style="padding:80px 5%;background:var(--brand-50);">
