@@ -927,102 +927,7 @@ nav ul li a:hover { opacity: 1; }
   margin-right: 10px;
 }
 
-/* ── §13b PRICE (NewAns style) ── */
-
-.price-group {
-  border: 1px solid var(--brand-200);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--white);
-  position: relative;
-}
-
-.price-group--full {
-  width: 100%;
-  margin-top: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1px;
-}
-
-.price-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--brand-200);
-}
-
-.price-group--recommended {
-  border: 2px solid var(--brand-600);
-  background: var(--brand-50);
-}
-
-.price-badge {
-  display: inline-block;
-  background: var(--brand-600);
-  color: var(--white);
-  font-size: var(--fs-small);
-  letter-spacing: 0.1em;
-  padding: 0.2rem 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.price-group__label {
-  display: block;
-  font-size: var(--fs-small);
-  color: var(--brand-600);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--brand-100);
-  padding-bottom: 0.5rem;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--brand-100);
-}
-
-.price-row__name {
-  font-size: var(--fs-body);
-  color: var(--brand-900);
-}
-
-.price-row__amount {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 700;
-  color: var(--brand-900);
-  white-space: nowrap;
-}
-
-.price-row__sub {
-  font-size: var(--fs-small);
-  color: var(--brand-500);
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.price-desc {
-  font-size: var(--fs-small);
-  color: var(--brand-500);
-  line-height: 1.7;
-  margin-top: 0.75rem;
-}
-
-.price-divider {
-  height: 1px;
-  background: var(--brand-100);
-  margin: 1rem 0;
-}
-
-.price-note {
-  font-size: var(--fs-small);
-  color: var(--brand-400);
-  margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .price-columns { grid-template-columns: 1fr; }
-}
+/* §13b: price CSS moved to end of file for priority */
 
 /* ── §14 BLOG ── */
 
@@ -2444,4 +2349,103 @@ footer.site-footer {
 /* lx-h2 mobile override for sub-pages */
 @media (max-width: 768px) {
   .sub-section-h2 { font-size: clamp(1.4rem, 4vw, 2rem); }
+}
+
+/* ══════════════════════════════════════════════
+   §PRICE — high-specificity block (end of file)
+   ══════════════════════════════════════════════ */
+
+#price .price-group {
+  border: 1px solid #d3d9de;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: #ffffff;
+  position: relative;
+}
+
+#price .price-group--full {
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1px;
+}
+
+#price .price-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: #d3d9de;
+}
+
+#price .price-group--recommended {
+  border: 2px solid #586b7a;
+  background: #f5f7f8;
+}
+
+#price .price-badge {
+  display: inline-block;
+  background: #586b7a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#price .price-group__label {
+  display: block;
+  font-size: 0.82rem;
+  color: #586b7a;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #ebeef0;
+  padding-bottom: 0.5rem;
+}
+
+#price .price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #ebeef0;
+}
+
+#price .price-row__name {
+  font-size: 0.95rem;
+  color: #1a2a3a;
+}
+
+#price .price-row__amount {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #1a2a3a;
+  white-space: nowrap;
+}
+
+#price .price-row__sub {
+  font-size: 0.82rem;
+  color: #6b7d8b;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+#price .price-desc {
+  font-size: 0.82rem;
+  color: #6b7d8b;
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+#price .price-divider {
+  height: 1px;
+  background: #ebeef0;
+  margin: 1rem 0;
+}
+
+#price .price-note {
+  font-size: 0.82rem;
+  color: #8a9aa6;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  #price .price-columns { grid-template-columns: 1fr; }
 }
